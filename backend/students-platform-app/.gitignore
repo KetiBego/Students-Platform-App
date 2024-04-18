@@ -1,0 +1,74 @@
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Virtual machine crash logs
+hs_err_pid*
+replay_pid*
+
+# Gradle
+.gradle/
+build/
+gradle/
+
+# Maven
+target/
+dist/
+tmp/
+
+# IDEs
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+.settings/
+.classpath
+.project
+bin/
+nb-configuration.xml
+.nb-gradle/
+
+# macOS
+.DS_Store
+
+# Other
+*.swp
+*.bak
+
+# Spring Boot
+HELP.md
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# STS
+.apt_generated
+.factorypath
+.springBeans
+.sts4-cache
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/nbdist/
+
+# VS Code
+.vscode/
