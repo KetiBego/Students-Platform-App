@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: students-platform-app
+  jpa:
+    open-in-view: true
+    properties:
+      javax:
+        persistence:
+          create-database-schemas: true
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        id:
+          new_generator_mappings: true
+        current_session_context_class: thread
+        temp:
+          use_jdbc_metadata_defaults: false
+
+  h2:
+    console:
+      enabled: true
+  datasource:
+    type: org.apache.tomcat.jdbc.pool.DataSource
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:students-platform
+    username: sa
+    password:
+server:
+  port: 8080
+  servlet:
+    context-path: /api/v1
