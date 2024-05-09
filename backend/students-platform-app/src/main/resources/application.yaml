@@ -14,8 +14,6 @@ spring:
         current_session_context_class: thread
         temp:
           use_jdbc_metadata_defaults: false
-    hibernate:
-      ddl-auto: 'create-drop'
 
   h2:
     console:
