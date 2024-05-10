@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import Networking
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tst = Test()
+        tst.printHello()
         // Do any additional setup after loading the view.
     }
 
