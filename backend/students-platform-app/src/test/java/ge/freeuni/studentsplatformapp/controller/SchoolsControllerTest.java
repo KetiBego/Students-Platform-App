@@ -30,11 +30,11 @@ public class SchoolsControllerTest {
     @Test
     void testGetSchools() throws Exception {
         School school1 = new School();
-        school1.setId(1L);
+        school1.setId(1);
         school1.setSchoolName("Test School 1");
 
         School school2 = new School();
-        school2.setId(2L);
+        school2.setId(2);
         school2.setSchoolName("Test School 2");
 
         List<School> schools = Arrays.asList(school1, school2);

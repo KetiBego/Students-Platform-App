@@ -18,7 +18,7 @@ class SchoolsRepositoryTest {
     @Test
     void testSaveAndFindSchool() {
         School school = new School();
-        school.setId(1L);
+        school.setId(1);
         school.setSchoolName("Test School");
         when(schoolsRepository.save(school)).thenReturn(school);
 
