@@ -1,7 +1,10 @@
 package ge.freeuni.studentsplatformapp.dto;
 
+import ge.freeuni.studentsplatformapp.model.Message;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 public class StartConversationResponse {
@@ -10,4 +13,7 @@ public class StartConversationResponse {
 
     @NotBlank
     private Boolean isNew;
+
+    @NotBlank
+    private List<Message> messages;
 }

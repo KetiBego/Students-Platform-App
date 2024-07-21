@@ -14,6 +14,8 @@ public class ConversationService {
 
     private final ConversationRepository conversationRepository;
 
+    private final MessageService messageService;
+
     public StartConversationResponse startConversation(StartConversationRequest request) {
         Long user1Id = request.getUser1Id();
         Long user2Id = request.getUser2Id();
@@ -31,6 +33,7 @@ public class ConversationService {
         if (existingConversation != null) {
             response.setConversationId(existingConversation.getId());
             response.setIsNew(false);
+            response.setMessages(messageService.getMessages(existingConversation.getId()));
         } else {
             Conversation newConversation = new Conversation();
             newConversation.setUser1Id(user1Id);
