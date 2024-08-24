@@ -37,7 +37,7 @@ public class UserControllerTest {
         request.setPassword("password");
         request.setSchoolId(123);
 
-        mockMvc.perform(post("/user/create")
+        mockMvc.perform(post("/user")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isCreated());

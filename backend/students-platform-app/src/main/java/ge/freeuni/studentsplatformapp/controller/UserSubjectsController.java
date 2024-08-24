@@ -23,7 +23,7 @@ public class UserSubjectsController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @GetMapping("/get")
+    @GetMapping()
     public ResponseEntity<GetUserSubjectsResponse> getUserSubjects(@Valid GetUserSubjectsRequest request) {
         GetUserSubjectsResponse response = userSubjectService.getUserSubjects(request);
         return new ResponseEntity<>(response, HttpStatus.OK);

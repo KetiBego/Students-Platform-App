@@ -88,7 +88,7 @@ public class UserSubjectsControllerTest {
 
         when(userSubjectsService.getUserSubjects(any(GetUserSubjectsRequest.class))).thenReturn(response);
 
-        mockMvc.perform(get("/user/subjects/get")
+        mockMvc.perform(get("/user/subjects")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isOk());
