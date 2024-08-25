@@ -1,6 +1,8 @@
 package ge.freeuni.studentsplatformapp.repository;
 
 import ge.freeuni.studentsplatformapp.model.User;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -14,6 +16,16 @@ public class UserRepositoryTest {
 
     @Mock
     private UserRepository userRepository;
+
+    @BeforeEach
+    void setUp() {
+        userRepository.deleteAll();
+    }
+
+    @AfterEach
+    void tearDown() {
+        userRepository.deleteAll();
+    }
 
     @Test
     void testFindByEmail() {

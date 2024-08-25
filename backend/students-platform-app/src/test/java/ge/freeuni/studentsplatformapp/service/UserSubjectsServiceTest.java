@@ -10,6 +10,8 @@ import ge.freeuni.studentsplatformapp.model.UserSubjectId;
 import ge.freeuni.studentsplatformapp.repository.SubjectsRepository;
 import ge.freeuni.studentsplatformapp.repository.UserRepository;
 import ge.freeuni.studentsplatformapp.repository.UserSubjectsRepository;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -33,6 +35,20 @@ public class UserSubjectsServiceTest {
 
     @Autowired
     private UserSubjectsService userSubjectsService;
+
+    @BeforeEach
+    void setUp() {
+        userSubjectsRepository.deleteAll();
+        subjectsRepository.deleteAll();
+        userRepository.deleteAll();
+    }
+
+    @AfterEach
+    void tearDown() {
+        userSubjectsRepository.deleteAll();
+        subjectsRepository.deleteAll();
+        userRepository.deleteAll();
+    }
 
     @Test
     void testAddUserSubject() {

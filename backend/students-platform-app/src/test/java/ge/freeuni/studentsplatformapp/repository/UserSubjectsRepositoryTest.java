@@ -1,6 +1,8 @@
 package ge.freeuni.studentsplatformapp.repository;
 
 import ge.freeuni.studentsplatformapp.model.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,6 +23,20 @@ public class UserSubjectsRepositoryTest {
     @Autowired
     private SubjectsRepository subjectsRepository;
 
+    @BeforeEach
+    void setUp() {
+        userSubjectsRepository.deleteAll();
+        userRepository.deleteAll();
+        subjectsRepository.deleteAll();
+    }
+
+    @AfterEach
+    void tearDown() {
+        userSubjectsRepository.deleteAll();
+        userRepository.deleteAll();
+        subjectsRepository.deleteAll();
+    }
+
     @Test
     void testFindByIdUserId() {
         School school = School.builder()
@@ -32,7 +48,7 @@ public class UserSubjectsRepositoryTest {
                 .hashedPassword("password")
                 .schoolId(school.getId())
                 .build();
-        userRepository.save(user);
+        User savedUser = userRepository.save(user);
 
         Subject math = Subject.builder().id(1L).subjectName("Math").build();
         subjectsRepository.save(math);
@@ -46,7 +62,7 @@ public class UserSubjectsRepositoryTest {
         userSubjectsRepository.save(userSubject1);
         userSubjectsRepository.save(userSubject2);
 
-        List<UserSubject> userSubjects = userSubjectsRepository.findByIdUserId(1L);
+        List<UserSubject> userSubjects = userSubjectsRepository.findByIdUserId(savedUser.getId());
 
         assertEquals(2, userSubjects.size());
     }

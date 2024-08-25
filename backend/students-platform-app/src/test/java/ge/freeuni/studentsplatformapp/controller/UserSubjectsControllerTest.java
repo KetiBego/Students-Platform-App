@@ -9,6 +9,8 @@ import ge.freeuni.studentsplatformapp.model.User;
 import ge.freeuni.studentsplatformapp.repository.SubjectsRepository;
 import ge.freeuni.studentsplatformapp.repository.UserRepository;
 import ge.freeuni.studentsplatformapp.service.UserSubjectsService;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -43,6 +45,18 @@ public class UserSubjectsControllerTest {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 
+    @BeforeEach
+    void setUp() {
+        userRepository.deleteAll();
+        subjectsRepository.deleteAll();
+    }
+
+    @AfterEach
+    void tearDown() {
+        userRepository.deleteAll();
+        subjectsRepository.deleteAll();
+    }
+
     @Test
     void testAddUserSubject() throws Exception {
         User user = User.builder()
@@ -69,8 +83,8 @@ public class UserSubjectsControllerTest {
     @Test
     void testGetUserSubjects() throws Exception {
         User user = User.builder()
-                .email("test@freeuni.edu.ge")
-                .username("testuser")
+                .email("test2@freeuni.edu.ge")
+                .username("testuser2")
                 .hashedPassword("password")
                 .schoolId(1)
                 .build();

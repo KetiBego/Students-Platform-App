@@ -1,6 +1,8 @@
 package ge.freeuni.studentsplatformapp.repository;
 
 import ge.freeuni.studentsplatformapp.model.School;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -14,6 +16,16 @@ class SchoolsRepositoryTest {
 
     @Mock
     private SchoolsRepository schoolsRepository;
+
+    @BeforeEach
+    void setUp() {
+        schoolsRepository.deleteAll();
+    }
+
+    @AfterEach
+    void tearDown() {
+        schoolsRepository.deleteAll();
+    }
 
     @Test
     void testSaveAndFindSchool() {

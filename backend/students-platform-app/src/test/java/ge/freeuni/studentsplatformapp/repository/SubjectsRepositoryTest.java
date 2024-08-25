@@ -1,6 +1,8 @@
 package ge.freeuni.studentsplatformapp.repository;
 
 import ge.freeuni.studentsplatformapp.model.Subject;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -14,6 +16,16 @@ public class SubjectsRepositoryTest {
 
     @Mock
     private SubjectsRepository subjectsRepository;
+
+    @BeforeEach
+    void setUp() {
+        subjectsRepository.deleteAll();
+    }
+
+    @AfterEach
+    void tearDown() {
+        subjectsRepository.deleteAll();
+    }
 
     @Test
     void testSaveAndFindSubject() {
