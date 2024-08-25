@@ -82,4 +82,8 @@ public class FileService {
                 .map(File::getId)
                 .toList();
     }
+
+    public void deleteFile(Long fileId) {
+        fileRepository.deleteById(fileId);
+    }
 }
