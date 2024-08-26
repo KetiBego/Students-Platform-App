@@ -10,6 +10,8 @@
 		9905FECD2C7D05C700867AFD /* LoginPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FECC2C7D05C700867AFD /* LoginPageController.swift */; };
 		9905FECF2C7D073900867AFD /* LoginPagaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FECE2C7D073900867AFD /* LoginPagaViewModel.swift */; };
 		9905FED12C7D075700867AFD /* LoginPageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FED02C7D075700867AFD /* LoginPageRouter.swift */; };
+		9905FEF22C7D321100867AFD /* SSOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FEF12C7D321100867AFD /* SSOManager.swift */; };
+		9905FEF42C7D324B00867AFD /* SSO+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FEF32C7D324B00867AFD /* SSO+Injection.swift */; };
 		991E5A9B2BEE62CC004D3CA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E5A9A2BEE62CC004D3CA4 /* AppDelegate.swift */; };
 		991E5A9D2BEE62CC004D3CA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E5A9C2BEE62CC004D3CA4 /* SceneDelegate.swift */; };
 		991E5A9F2BEE62CC004D3CA4 /* EntryPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E5A9E2BEE62CC004D3CA4 /* EntryPage.swift */; };
@@ -79,6 +81,8 @@
 		9905FECC2C7D05C700867AFD /* LoginPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageController.swift; sourceTree = "<group>"; };
 		9905FECE2C7D073900867AFD /* LoginPagaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPagaViewModel.swift; sourceTree = "<group>"; };
 		9905FED02C7D075700867AFD /* LoginPageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageRouter.swift; sourceTree = "<group>"; };
+		9905FEF12C7D321100867AFD /* SSOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSOManager.swift; sourceTree = "<group>"; };
+		9905FEF32C7D324B00867AFD /* SSO+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SSO+Injection.swift"; sourceTree = "<group>"; };
 		991E5A972BEE62CC004D3CA4 /* Students-platform-app-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Students-platform-app-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		991E5A9A2BEE62CC004D3CA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		991E5A9C2BEE62CC004D3CA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +144,15 @@
 			path = LoginPage;
 			sourceTree = "<group>";
 		};
+		9905FEF02C7D31E400867AFD /* SSO */ = {
+			isa = PBXGroup;
+			children = (
+				9905FEF12C7D321100867AFD /* SSOManager.swift */,
+				9905FEF32C7D324B00867AFD /* SSO+Injection.swift */,
+			);
+			path = SSO;
+			sourceTree = "<group>";
+		};
 		991E5A8E2BEE62CC004D3CA4 = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +177,7 @@
 		991E5A992BEE62CC004D3CA4 /* Students-platform-app-ios */ = {
 			isa = PBXGroup;
 			children = (
+				9905FEF02C7D31E400867AFD /* SSO */,
 				9998E7AC2C7C05EA00069CE9 /* Navigation */,
 				9998E7A52C7C046E00069CE9 /* Scenes */,
 				9998E7922C7BF8D100069CE9 /* TabBar */,
@@ -406,9 +420,11 @@
 				9998E7942C7BF8EA00069CE9 /* TabBarController.swift in Sources */,
 				9998E7B02C7C068300069CE9 /* NavigationBackButton.swift in Sources */,
 				9905FECF2C7D073900867AFD /* LoginPagaViewModel.swift in Sources */,
+				9905FEF42C7D324B00867AFD /* SSO+Injection.swift in Sources */,
 				9905FED12C7D075700867AFD /* LoginPageRouter.swift in Sources */,
 				9905FECD2C7D05C700867AFD /* LoginPageController.swift in Sources */,
 				9998E79C2C7BFB2C00069CE9 /* TabBarItem.swift in Sources */,
+				9905FEF22C7D321100867AFD /* SSOManager.swift in Sources */,
 				991E5A9B2BEE62CC004D3CA4 /* AppDelegate.swift in Sources */,
 				9998E7AE2C7C060200069CE9 /* NavigationBar.swift in Sources */,
 				991E5A9D2BEE62CC004D3CA4 /* SceneDelegate.swift in Sources */,

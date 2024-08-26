@@ -6,3 +6,17 @@
 //
 
 
+final class LoginPageRouter {
+    
+    func route(to route: LoginPageRoute,
+               from view: LoginPageController) {
+        switch route {
+        case .profile:
+            view.navigationController?.viewControllers = [EntryPage()]
+        case .resetPassword:
+            view.navigationController?.pushViewController(EntryPage(), animated: true)
+        case .register:
+            view.navigationController?.pushViewController(EntryPage(), animated: true)
+        }
+    }
+}

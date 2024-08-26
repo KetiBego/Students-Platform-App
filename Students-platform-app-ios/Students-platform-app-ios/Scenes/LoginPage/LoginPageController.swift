@@ -12,8 +12,8 @@ import Resolver
 
 class LoginPageController: UIViewController {
     
-//    private var viewModel: LoginPageViewModel = LoginPageViewModel()
-//    @Injected private var router: LoginPageRouter
+    private var viewModel: LoginPageViewModel = LoginPageViewModel()
+    @Injected private var router: LoginPageRouter
     
     private var subscriptions = Set<AnyCancellable>()
 
@@ -114,7 +114,7 @@ extension LoginPageController {
         setUpUI()
         addSubviews()
         addConstraints()
-//        configureUI()
+        configureUI()
         
     }
     
@@ -162,48 +162,48 @@ extension LoginPageController {
     }
 }
 
-//extension LoginPageController {
-//    
-//    private func bindRouter() {
-//        viewModel.getRouter()
-//            .compactMap { $0 }
-//            .sink { [weak self] route in
-//                guard let self = self else { return }
-//                self.router.route(to: route, from: self)
-//            }.store(in: &subscriptions)
-//    }
-//}
-//
-//
-//extension LoginPageController {
-//    
-//    private func configureUI() {
-//        viewModel.labelModel.sink {[weak self] model in
-//            self?.label.bind(with: model)
-//        }.store(in: &subscriptions)
-//        
-//        viewModel.emailModel.sink { [weak self] model in
-//            self?.loginTextField.bind(model: model)
-//        }.store(in: &subscriptions)
-//        
-//        viewModel.passwordModel.sink { [weak self] model in
-//            self?.passwordTextField.bind(model: model)
-//        }.store(in: &subscriptions)
-//        
-//        viewModel.continueButtonModel.sink { [weak self] model in
-//            self?.button.bind(with: model)
-//        }.store(in: &subscriptions)
-//        
-//        viewModel.passwordResetLabelModel.sink {[weak self] model in
-//            self?.passwordResetLabel.bind(with: model)
-//        }.store(in: &subscriptions)
-//        
-//        viewModel.RegistrationLabelModel.sink {[weak self] model in
-//            self?.registrationLabel.bind(with: model)
-//        }.store(in: &subscriptions)
-//        viewModel.displayBannerPublisher.sink { [weak self] statusBannerModel in
-//            self?.displayBanner(with: statusBannerModel.description,
-//                                state: statusBannerModel.bannerType)
-//        }.store(in: &subscriptions)
-//    }
-//}
+extension LoginPageController {
+    
+    private func bindRouter() {
+        viewModel.getRouter()
+            .compactMap { $0 }
+            .sink { [weak self] route in
+                guard let self = self else { return }
+                self.router.route(to: route, from: self)
+            }.store(in: &subscriptions)
+    }
+}
+
+
+extension LoginPageController {
+    
+    private func configureUI() {
+        viewModel.labelModel.sink {[weak self] model in
+            self?.label.bind(with: model)
+        }.store(in: &subscriptions)
+        
+        viewModel.emailModel.sink { [weak self] model in
+            self?.loginTextField.bind(model: model)
+        }.store(in: &subscriptions)
+        
+        viewModel.passwordModel.sink { [weak self] model in
+            self?.passwordTextField.bind(model: model)
+        }.store(in: &subscriptions)
+        
+        viewModel.continueButtonModel.sink { [weak self] model in
+            self?.button.bind(with: model)
+        }.store(in: &subscriptions)
+        
+        viewModel.passwordResetLabelModel.sink {[weak self] model in
+            self?.passwordResetLabel.bind(with: model)
+        }.store(in: &subscriptions)
+        
+        viewModel.RegistrationLabelModel.sink {[weak self] model in
+            self?.registrationLabel.bind(with: model)
+        }.store(in: &subscriptions)
+        viewModel.displayBannerPublisher.sink { [weak self] statusBannerModel in
+            self?.displayBanner(with: statusBannerModel.description,
+                                state: statusBannerModel.bannerType)
+        }.store(in: &subscriptions)
+    }
+}
