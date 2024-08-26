@@ -12,11 +12,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "schools")
-public class School {
+@Entity(name = "subjects")
+public class Subject {
     @Id
-    private Integer id;
+    private Long id;
 
-    @Column(name = "school_name", nullable = false)
-    private String schoolName;
+    @Column(name = "subject_name", nullable = false)
+    private String subjectName;
 }
