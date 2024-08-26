@@ -2,9 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Students-platform-app-ios/Students-platform-app-ios.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Networking/Networking.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:Students-platform-app-ios/Students-platform-app-ios.xcodeproj">
+      location = "group:MyAssetBook/MyAssetBook.xcodeproj">
    </FileRef>
 </Workspace>

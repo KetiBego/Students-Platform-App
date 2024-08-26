@@ -13,8 +13,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let tst = Test()
-        tst.printHello()
+//        tst.printHello()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        presentSecondViewController()
+    }
+    
+    func presentSecondViewController() {
+        let tabBarController = TabBarController()
+        self.present(tabBarController, animated: true, completion: nil)
     }
 
 
