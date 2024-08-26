@@ -8,7 +8,7 @@
 import UIKit
 import Networking
 
-class ViewController: UIViewController {
+class EntryPage: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +23,13 @@ class ViewController: UIViewController {
     }
     
     func presentSecondViewController() {
-        let tabBarController = TabBarController()
-        self.present(tabBarController, animated: true, completion: nil)
+        self.navigationController?.setViewControllers([TabBarController()], animated: true)
     }
+    
+
 
 
 }
+
+
 

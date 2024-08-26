@@ -8,6 +8,7 @@
 import UIKit
 import MyAssetBook
 enum TabBarItem {
+    case Login
     case Subjects
     case Search
     case Chat
@@ -16,6 +17,8 @@ enum TabBarItem {
     
     var text: String {
         switch self {
+        case .Login:
+            return "შესვლა"
         case .Subjects:
             return "საგნები"
         case .Search:
@@ -29,6 +32,8 @@ enum TabBarItem {
     
     var icon: UIImage {
         switch self {
+        case .Login:
+            return Icons.books.image
         case .Subjects:
             return Icons.books.image
         case .Search:
@@ -42,6 +47,8 @@ enum TabBarItem {
     
     var controller: UIViewController {
         switch self {
+        case .Login:
+            return SubjectsViewController()
         case .Subjects:
             return SubjectsViewController()
         case .Search:

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9905FED72C7D11C400867AFD /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 9905FED62C7D11C400867AFD /* Resolver */; };
 		996BA3BC2BEE70EB00F7E3B4 /* Networking.docc in Sources */ = {isa = PBXBuildFile; fileRef = 996BA3BB2BEE70EB00F7E3B4 /* Networking.docc */; };
 		996BA3C22BEE70EB00F7E3B4 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 996BA3B72BEE70EB00F7E3B4 /* Networking.framework */; };
 		996BA3C72BEE70EB00F7E3B4 /* NetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996BA3C62BEE70EB00F7E3B4 /* NetworkingTests.swift */; };
@@ -38,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9905FED72C7D11C400867AFD /* Resolver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +118,9 @@
 			dependencies = (
 			);
 			name = Networking;
+			packageProductDependencies = (
+				9905FED62C7D11C400867AFD /* Resolver */,
+			);
 			productName = Networking;
 			productReference = 996BA3B72BEE70EB00F7E3B4 /* Networking.framework */;
 			productType = "com.apple.product-type.framework";
@@ -165,6 +170,9 @@
 				Base,
 			);
 			mainGroup = 996BA3AD2BEE70EB00F7E3B4;
+			packageReferences = (
+				9905FED52C7D11C400867AFD /* XCRemoteSwiftPackageReference "Resolver" */,
+			);
 			productRefGroup = 996BA3B82BEE70EB00F7E3B4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -475,6 +483,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9905FED52C7D11C400867AFD /* XCRemoteSwiftPackageReference "Resolver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Resolver.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9905FED62C7D11C400867AFD /* Resolver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9905FED52C7D11C400867AFD /* XCRemoteSwiftPackageReference "Resolver" */;
+			productName = Resolver;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 996BA3AE2BEE70EB00F7E3B4 /* Project object */;
 }

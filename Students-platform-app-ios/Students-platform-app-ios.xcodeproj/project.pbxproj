@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9905FECD2C7D05C700867AFD /* LoginPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FECC2C7D05C700867AFD /* LoginPageController.swift */; };
+		9905FECF2C7D073900867AFD /* LoginPagaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FECE2C7D073900867AFD /* LoginPagaViewModel.swift */; };
+		9905FED12C7D075700867AFD /* LoginPageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FED02C7D075700867AFD /* LoginPageRouter.swift */; };
 		991E5A9B2BEE62CC004D3CA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E5A9A2BEE62CC004D3CA4 /* AppDelegate.swift */; };
 		991E5A9D2BEE62CC004D3CA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E5A9C2BEE62CC004D3CA4 /* SceneDelegate.swift */; };
-		991E5A9F2BEE62CC004D3CA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E5A9E2BEE62CC004D3CA4 /* ViewController.swift */; };
+		991E5A9F2BEE62CC004D3CA4 /* EntryPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E5A9E2BEE62CC004D3CA4 /* EntryPage.swift */; };
 		991E5AA22BEE62CC004D3CA4 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 991E5AA12BEE62CC004D3CA4 /* Base */; };
 		991E5AA42BEE62CD004D3CA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 991E5AA32BEE62CD004D3CA4 /* Assets.xcassets */; };
 		991E5AA72BEE62CD004D3CA4 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 991E5AA62BEE62CD004D3CA4 /* Base */; };
@@ -73,10 +76,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9905FECC2C7D05C700867AFD /* LoginPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageController.swift; sourceTree = "<group>"; };
+		9905FECE2C7D073900867AFD /* LoginPagaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPagaViewModel.swift; sourceTree = "<group>"; };
+		9905FED02C7D075700867AFD /* LoginPageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageRouter.swift; sourceTree = "<group>"; };
 		991E5A972BEE62CC004D3CA4 /* Students-platform-app-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Students-platform-app-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		991E5A9A2BEE62CC004D3CA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		991E5A9C2BEE62CC004D3CA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		991E5A9E2BEE62CC004D3CA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		991E5A9E2BEE62CC004D3CA4 /* EntryPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryPage.swift; sourceTree = "<group>"; };
 		991E5AA12BEE62CC004D3CA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		991E5AA32BEE62CD004D3CA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		991E5AA62BEE62CD004D3CA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -124,6 +130,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9905FECB2C7D055700867AFD /* LoginPage */ = {
+			isa = PBXGroup;
+			children = (
+				9905FECC2C7D05C700867AFD /* LoginPageController.swift */,
+				9905FECE2C7D073900867AFD /* LoginPagaViewModel.swift */,
+				9905FED02C7D075700867AFD /* LoginPageRouter.swift */,
+			);
+			path = LoginPage;
+			sourceTree = "<group>";
+		};
 		991E5A8E2BEE62CC004D3CA4 = {
 			isa = PBXGroup;
 			children = (
@@ -153,7 +169,7 @@
 				9998E7922C7BF8D100069CE9 /* TabBar */,
 				991E5A9A2BEE62CC004D3CA4 /* AppDelegate.swift */,
 				991E5A9C2BEE62CC004D3CA4 /* SceneDelegate.swift */,
-				991E5A9E2BEE62CC004D3CA4 /* ViewController.swift */,
+				991E5A9E2BEE62CC004D3CA4 /* EntryPage.swift */,
 				991E5AA02BEE62CC004D3CA4 /* Main.storyboard */,
 				991E5AA32BEE62CD004D3CA4 /* Assets.xcassets */,
 				991E5AA52BEE62CD004D3CA4 /* LaunchScreen.storyboard */,
@@ -201,6 +217,7 @@
 		9998E7A52C7C046E00069CE9 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				9905FECB2C7D055700867AFD /* LoginPage */,
 				9998E7A92C7C049600069CE9 /* Profile */,
 				9998E7A82C7C048F00069CE9 /* Chat */,
 				9998E7A72C7C048200069CE9 /* SearchPage */,
@@ -264,6 +281,8 @@
 			dependencies = (
 			);
 			name = "Students-platform-app-ios";
+			packageProductDependencies = (
+			);
 			productName = "Students-platform-app-ios";
 			productReference = 991E5A972BEE62CC004D3CA4 /* Students-platform-app-ios.app */;
 			productType = "com.apple.product-type.application";
@@ -337,6 +356,9 @@
 				Base,
 			);
 			mainGroup = 991E5A8E2BEE62CC004D3CA4;
+			packageReferences = (
+				9905FED22C7D109F00867AFD /* XCRemoteSwiftPackageReference "Resolver" */,
+			);
 			productRefGroup = 991E5A982BEE62CC004D3CA4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -380,9 +402,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				991E5A9F2BEE62CC004D3CA4 /* ViewController.swift in Sources */,
+				991E5A9F2BEE62CC004D3CA4 /* EntryPage.swift in Sources */,
 				9998E7942C7BF8EA00069CE9 /* TabBarController.swift in Sources */,
 				9998E7B02C7C068300069CE9 /* NavigationBackButton.swift in Sources */,
+				9905FECF2C7D073900867AFD /* LoginPagaViewModel.swift in Sources */,
+				9905FED12C7D075700867AFD /* LoginPageRouter.swift in Sources */,
+				9905FECD2C7D05C700867AFD /* LoginPageController.swift in Sources */,
 				9998E79C2C7BFB2C00069CE9 /* TabBarItem.swift in Sources */,
 				991E5A9B2BEE62CC004D3CA4 /* AppDelegate.swift in Sources */,
 				9998E7AE2C7C060200069CE9 /* NavigationBar.swift in Sources */,
@@ -728,6 +753,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9905FED22C7D109F00867AFD /* XCRemoteSwiftPackageReference "Resolver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Resolver.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 991E5A8F2BEE62CC004D3CA4 /* Project object */;
 }
