@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9901FDB62C7E818C00496B1E /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 9901FDB52C7E818C00496B1E /* Resolver */; };
+		9901FDB82C7E818C00496B1E /* Resolver-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 9901FDB72C7E818C00496B1E /* Resolver-Dynamic */; };
+		9901FDBA2C7E818C00496B1E /* Resolver-Static in Frameworks */ = {isa = PBXBuildFile; productRef = 9901FDB92C7E818C00496B1E /* Resolver-Static */; };
+		9901FDC02C7E82FB00496B1E /* URLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9901FDBF2C7E82FB00496B1E /* URLProvider.swift */; };
 		996BA3BC2BEE70EB00F7E3B4 /* Networking.docc in Sources */ = {isa = PBXBuildFile; fileRef = 996BA3BB2BEE70EB00F7E3B4 /* Networking.docc */; };
 		996BA3C22BEE70EB00F7E3B4 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 996BA3B72BEE70EB00F7E3B4 /* Networking.framework */; };
 		996BA3C72BEE70EB00F7E3B4 /* NetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996BA3C62BEE70EB00F7E3B4 /* NetworkingTests.swift */; };
@@ -25,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9901FDBF2C7E82FB00496B1E /* URLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProvider.swift; sourceTree = "<group>"; };
 		996BA3B72BEE70EB00F7E3B4 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		996BA3BA2BEE70EB00F7E3B4 /* Networking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Networking.h; sourceTree = "<group>"; };
 		996BA3BB2BEE70EB00F7E3B4 /* Networking.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Networking.docc; sourceTree = "<group>"; };
@@ -38,6 +43,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9901FDB82C7E818C00496B1E /* Resolver-Dynamic in Frameworks */,
+				9901FDBA2C7E818C00496B1E /* Resolver-Static in Frameworks */,
+				9901FDB62C7E818C00496B1E /* Resolver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +84,7 @@
 				996BA3D12BEE710B00F7E3B4 /* TestFile.swift */,
 				996BA3BA2BEE70EB00F7E3B4 /* Networking.h */,
 				996BA3BB2BEE70EB00F7E3B4 /* Networking.docc */,
+				9901FDBF2C7E82FB00496B1E /* URLProvider.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -116,6 +125,11 @@
 			dependencies = (
 			);
 			name = Networking;
+			packageProductDependencies = (
+				9901FDB52C7E818C00496B1E /* Resolver */,
+				9901FDB72C7E818C00496B1E /* Resolver-Dynamic */,
+				9901FDB92C7E818C00496B1E /* Resolver-Static */,
+			);
 			productName = Networking;
 			productReference = 996BA3B72BEE70EB00F7E3B4 /* Networking.framework */;
 			productType = "com.apple.product-type.framework";
@@ -165,6 +179,9 @@
 				Base,
 			);
 			mainGroup = 996BA3AD2BEE70EB00F7E3B4;
+			packageReferences = (
+				9901FDB42C7E818C00496B1E /* XCRemoteSwiftPackageReference "Resolver" */,
+			);
 			productRefGroup = 996BA3B82BEE70EB00F7E3B4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -199,6 +216,7 @@
 			files = (
 				996BA3BC2BEE70EB00F7E3B4 /* Networking.docc in Sources */,
 				996BA3D22BEE710B00F7E3B4 /* TestFile.swift in Sources */,
+				9901FDC02C7E82FB00496B1E /* URLProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,7 +367,7 @@
 		996BA3CC2BEE70EB00F7E3B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -382,7 +400,7 @@
 		996BA3CD2BEE70EB00F7E3B4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -475,6 +493,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9901FDB42C7E818C00496B1E /* XCRemoteSwiftPackageReference "Resolver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Resolver.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9901FDB52C7E818C00496B1E /* Resolver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9901FDB42C7E818C00496B1E /* XCRemoteSwiftPackageReference "Resolver" */;
+			productName = Resolver;
+		};
+		9901FDB72C7E818C00496B1E /* Resolver-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9901FDB42C7E818C00496B1E /* XCRemoteSwiftPackageReference "Resolver" */;
+			productName = "Resolver-Dynamic";
+		};
+		9901FDB92C7E818C00496B1E /* Resolver-Static */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9901FDB42C7E818C00496B1E /* XCRemoteSwiftPackageReference "Resolver" */;
+			productName = "Resolver-Static";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 996BA3AE2BEE70EB00F7E3B4 /* Project object */;
 }
