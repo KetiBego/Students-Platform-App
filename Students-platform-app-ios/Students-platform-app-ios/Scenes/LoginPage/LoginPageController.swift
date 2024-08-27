@@ -8,12 +8,12 @@
 import UIKit
 import MyAssetBook
 import Combine
-import Resolver
+//import Resolver
 
 class LoginPageController: UIViewController {
     
     private var viewModel: LoginPageViewModel = LoginPageViewModel()
-    @Injected private var router: LoginPageRouter
+//    @Injected private var router: LoginPageRouter
     
     private var subscriptions = Set<AnyCancellable>()
 
@@ -162,17 +162,17 @@ extension LoginPageController {
     }
 }
 
-extension LoginPageController {
-    
-    private func bindRouter() {
-        viewModel.getRouter()
-            .compactMap { $0 }
-            .sink { [weak self] route in
-                guard let self = self else { return }
-                self.router.route(to: route, from: self)
-            }.store(in: &subscriptions)
-    }
-}
+//extension LoginPageController {
+//    
+//    private func bindRouter() {
+//        viewModel.getRouter()
+//            .compactMap { $0 }
+//            .sink { [weak self] route in
+//                guard let self = self else { return }
+//                self.router.route(to: route, from: self)
+//            }.store(in: &subscriptions)
+//    }
+//}
 
 
 extension LoginPageController {

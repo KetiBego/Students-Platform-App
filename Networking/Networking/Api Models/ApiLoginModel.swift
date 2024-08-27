@@ -6,8 +6,7 @@
 //
 
 public struct ApiLoginModel: Codable {
-    var successful: Bool?
-    var userType: String?
-    var userId: Int64?
-    var idByRole: Int64?
+    var id: Int64?
+    var email: String?
+    var username: String?
 }

@@ -6,26 +6,20 @@
 //
 
 public struct LoginEntity {
-    public init(userType: UserType, userId: Int64? = nil, generalID: Int64? = nil) {
-        self.userType = userType
-        self.userId = userId
-        self.generalID = generalID
+    public init(id: Int64?, email : String?, username: String?) {
+        self.id = id
+        self.email = email
+        self.username = username
     }
     
-    public var userType: UserType
-    public var userId: Int64?
-    public var generalID: Int64?
+    private var id: Int64?
+    private var email: String?
+    private var username: String?
+    
     
     public init(with model: ApiLoginModel) {
-        self.userType = UserType(rawValue: model.userType ?? "") ?? .none
-        self.userId = model.idByRole
-        self.generalID = model.userId
+        self.id = model.id
+        self.email = model.email
+        self.username = model.username
     }
-}
-
-
-public enum UserType: String {
-    case student = "STUDENT"
-    case teacher = "TEACHER"
-    case none
 }

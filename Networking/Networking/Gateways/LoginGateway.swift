@@ -24,7 +24,7 @@ public class LoginGatewayImpl: LoginGateway {
         let params = ["email": email,
                       "password": password]
         
-        let url = apiURLProvider.getURL(path: "/emis/api/authentication/login",
+        let url = apiURLProvider.getURL(path: "/api/v1/user/signIn",
                                         params: params)
         
         let endpoint = EndPoint<ApiLoginModel>(url: url,

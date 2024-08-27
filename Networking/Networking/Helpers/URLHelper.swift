@@ -15,7 +15,7 @@ public struct ApiUURLProviderImpl: ApiURLProvider {
     public func getURL(path: String,
                        params: [String: String]) -> URL? {
         var components = URLComponents()
-        components.scheme = "https"
+        components.scheme = "http"
         components.host = domainURL
         components.path = path
         components.queryItems = params.map({ key, value in
@@ -25,6 +25,6 @@ public struct ApiUURLProviderImpl: ApiURLProvider {
     }
     
     private var domainURL: String {
-        "989b-217-147-224-170.ngrok-free.app"
+        "localhost:8080"
     }
 }
