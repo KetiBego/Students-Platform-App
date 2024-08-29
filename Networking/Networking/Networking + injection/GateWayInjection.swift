@@ -13,3 +13,11 @@ extension Resolver {
         register(LoginGateway.self) { LoginGatewayImpl() }
     }
 }
+
+extension Resolver {
+    
+    public static func registerNetworkLayer() {
+        register(NetworkLayer.self) { NetworkService() }.scope(.application)
+    }
+}
+

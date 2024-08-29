@@ -26,7 +26,7 @@ public class StatusBanner: UIView {
     
     public convenience init(model: StatusBannerViewModel) {
         self.init()
-        bind(model: model)
+        configure(model: model)
     }
     
     @available(*, unavailable)
@@ -58,8 +58,8 @@ public class StatusBanner: UIView {
 
 extension StatusBanner {
     
-    public func bind(model: StatusBannerViewModel) {
-        label.bind(with: .init(text: model.description,
+    public func configure(model: StatusBannerViewModel) {
+        label.configure(with: .init(text: model.description,
                                color: Color.Yellow2,
                                font: .systemFont(ofSize: .L,
                                                  weight: .bold)))

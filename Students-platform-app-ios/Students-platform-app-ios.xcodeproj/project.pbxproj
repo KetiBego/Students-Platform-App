@@ -23,10 +23,10 @@
 		991E5ABE2BEE62CD004D3CA4 /* Students_platform_app_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E5ABD2BEE62CD004D3CA4 /* Students_platform_app_iosUITestsLaunchTests.swift */; };
 		996BA3D82BEE75E200F7E3B4 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 996BA3D42BEE74D600F7E3B4 /* Networking.framework */; };
 		996BA3D92BEE75E200F7E3B4 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 996BA3D42BEE74D600F7E3B4 /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		996BA3DC2BEE76BC00F7E3B4 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 996BA3DB2BEE76BC00F7E3B4 /* Networking.framework */; };
+		996BA3DC2BEE76BC00F7E3B4 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 996BA3DB2BEE76BC00F7E3B4 /* Networking.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		996BA3DD2BEE76BC00F7E3B4 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 996BA3DB2BEE76BC00F7E3B4 /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9998E7942C7BF8EA00069CE9 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998E7932C7BF8EA00069CE9 /* TabBarController.swift */; };
-		9998E7962C7BF9B000069CE9 /* MyAssetBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9998E7952C7BF9B000069CE9 /* MyAssetBook.framework */; };
+		9998E7962C7BF9B000069CE9 /* MyAssetBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9998E7952C7BF9B000069CE9 /* MyAssetBook.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		9998E7972C7BF9B000069CE9 /* MyAssetBook.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9998E7952C7BF9B000069CE9 /* MyAssetBook.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9998E79C2C7BFB2C00069CE9 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998E79B2C7BFB2C00069CE9 /* TabBarItem.swift */; };
 		9998E7AB2C7C04AC00069CE9 /* SubjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998E7AA2C7C04AC00069CE9 /* SubjectsViewController.swift */; };
@@ -96,6 +96,7 @@
 		991E5AB72BEE62CD004D3CA4 /* Students-platform-app-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Students-platform-app-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		991E5ABB2BEE62CD004D3CA4 /* Students_platform_app_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Students_platform_app_iosUITests.swift; sourceTree = "<group>"; };
 		991E5ABD2BEE62CD004D3CA4 /* Students_platform_app_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Students_platform_app_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		99237F222C7E88D500CDB354 /* RegisteringResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisteringResolver.swift; sourceTree = "<group>"; };
 		996BA3D42BEE74D600F7E3B4 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		996BA3DB2BEE76BC00F7E3B4 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9998E7932C7BF8EA00069CE9 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -177,6 +178,7 @@
 		991E5A992BEE62CC004D3CA4 /* Students-platform-app-ios */ = {
 			isa = PBXGroup;
 			children = (
+				99237F232C7E88D500CDB354 /* Resolver */,
 				9905FEF02C7D31E400867AFD /* SSO */,
 				9998E7AC2C7C05EA00069CE9 /* Navigation */,
 				9998E7A52C7C046E00069CE9 /* Scenes */,
@@ -207,6 +209,14 @@
 				991E5ABD2BEE62CD004D3CA4 /* Students_platform_app_iosUITestsLaunchTests.swift */,
 			);
 			path = "Students-platform-app-iosUITests";
+			sourceTree = "<group>";
+		};
+		99237F232C7E88D500CDB354 /* Resolver */ = {
+			isa = PBXGroup;
+			children = (
+				99237F222C7E88D500CDB354 /* RegisteringResolver.swift */,
+			);
+			path = Resolver;
 			sourceTree = "<group>";
 		};
 		996BA3D32BEE74D600F7E3B4 /* Frameworks */ = {

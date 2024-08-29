@@ -36,7 +36,7 @@ public class LocalLabel: UIView {
         addSubviews()
         setUpUI()
         addConstraints()
-        bind(with: model)
+        configure(with: model)
     }
     
     @available(*, unavailable)
@@ -62,13 +62,8 @@ public class LocalLabel: UIView {
 
 extension LocalLabel {
     
-    public func bind(with model: LocalLabelModel) {
-        if let publisher = model.textPublisher {
-            publisher
-                .assign(to: \.text!, on: label)
-                .store(in: &subscriptions)
-        }
-        
+    public func configure(with model: LocalLabelModel) {
+
         if let text = model.text {
             label.text = text
         }

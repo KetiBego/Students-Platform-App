@@ -193,12 +193,12 @@ extension TextFieldView {
         handleSecureEntry(isSecure: model.isSecureEntry)
         
         if let leadingTextModel = model.leadingLabelModel {
-            leadingLabel.bind(with: leadingTextModel)
+            leadingLabel.configure(with: leadingTextModel)
             labelsContainer.isHidden = false
         }
         
         if let trailingTextModel = model.trailingLabelModel {
-            trailingLabel.bind(with: trailingTextModel)
+            trailingLabel.configure(with: trailingTextModel)
             labelsContainer.isHidden = false
         }
     }

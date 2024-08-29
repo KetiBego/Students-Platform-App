@@ -8,8 +8,8 @@
 import Resolver
 
 extension Resolver {
-    
-    public static func registerSSOInterfaces() {
-        register(SSOManager.self) { SSOManagerImpl() }.scope(.application)
-    }
+//    
+//    public static func registerSSOInterfaces() {
+//        register(SSOManager.self) { SSOManagerImpl() }.scope(.application)
+//    }
 }

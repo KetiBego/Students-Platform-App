@@ -17,6 +17,7 @@
 		9905FEEA2C7D16A000867AFD /* PrimaryButtonState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FEE92C7D16A000867AFD /* PrimaryButtonState.swift */; };
 		9905FEEC2C7D1C1900867AFD /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FEEB2C7D1C1900867AFD /* BannerView.swift */; };
 		9905FEEF2C7D1C6500867AFD /* StatusBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FEEE2C7D1C6500867AFD /* StatusBanner.swift */; };
+		9985DD172C7FACCC00D9D189 /* TextBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9985DD162C7FACCC00D9D189 /* TextBook.swift */; };
 		9998E78D2C7BF6EB00069CE9 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9998E78C2C7BF6EB00069CE9 /* Colors.xcassets */; };
 		9998E79A2C7BFAF200069CE9 /* Sizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998E7992C7BFAF200069CE9 /* Sizes.swift */; };
 		9998E79E2C7BFBDB00069CE9 /* ImageWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998E79D2C7BFBDB00069CE9 /* ImageWrapper.swift */; };
@@ -51,6 +52,7 @@
 		9905FEE92C7D16A000867AFD /* PrimaryButtonState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonState.swift; sourceTree = "<group>"; };
 		9905FEEB2C7D1C1900867AFD /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		9905FEEE2C7D1C6500867AFD /* StatusBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBanner.swift; sourceTree = "<group>"; };
+		9985DD162C7FACCC00D9D189 /* TextBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBook.swift; sourceTree = "<group>"; };
 		9998E78C2C7BF6EB00069CE9 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		9998E7992C7BFAF200069CE9 /* Sizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizes.swift; sourceTree = "<group>"; };
 		9998E79D2C7BFBDB00069CE9 /* ImageWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWrapper.swift; sourceTree = "<group>"; };
@@ -122,6 +124,14 @@
 			path = Banner;
 			sourceTree = "<group>";
 		};
+		9985DD152C7FAC8F00D9D189 /* TextsBook */ = {
+			isa = PBXGroup;
+			children = (
+				9985DD162C7FACCC00D9D189 /* TextBook.swift */,
+			);
+			path = TextsBook;
+			sourceTree = "<group>";
+		};
 		9998E7982C7BF9C100069CE9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +163,7 @@
 		99EFD8B42C7BF5FB0096DD51 = {
 			isa = PBXGroup;
 			children = (
+				9985DD152C7FAC8F00D9D189 /* TextsBook */,
 				9905FEE42C7D164E00867AFD /* PrimaryButton */,
 				9905FEDD2C7D13D400867AFD /* TextFieldView */,
 				99EFD8C02C7BF5FB0096DD51 /* MyAssetBook */,
@@ -311,6 +322,7 @@
 				9905FEEA2C7D16A000867AFD /* PrimaryButtonState.swift in Sources */,
 				9905FEE62C7D166300867AFD /* PrimaryButton.swift in Sources */,
 				9905FEE32C7D141900867AFD /* TextFieldState.swift in Sources */,
+				9985DD172C7FACCC00D9D189 /* TextBook.swift in Sources */,
 				99EFD8C32C7BF5FB0096DD51 /* MyAssetBook.docc in Sources */,
 				9905FEDF2C7D13EC00867AFD /* TextFieldView.swift in Sources */,
 				9998E7B22C7C06D500069CE9 /* Constraints.swift in Sources */,
@@ -480,6 +492,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -512,6 +525,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

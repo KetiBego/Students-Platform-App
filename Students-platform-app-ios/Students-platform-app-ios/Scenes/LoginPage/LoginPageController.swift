@@ -7,15 +7,12 @@
 
 import UIKit
 import MyAssetBook
-import Combine
-//import Resolver
+import Resolver
+import Networking
 
 class LoginPageController: UIViewController {
     
-    private var viewModel: LoginPageViewModel = LoginPageViewModel()
-//    @Injected private var router: LoginPageRouter
-    
-    private var subscriptions = Set<AnyCancellable>()
+//    @Injected var loginUseCase: LoginUseCase
 
     
     private lazy var mainStackView: UIStackView = {
@@ -68,6 +65,11 @@ class LoginPageController: UIViewController {
         return label
     }()
     
+    private lazy var labelModel: LocalLabelModel = {
+        let label = LocalLabelModel(text: "ლეიბლი")
+        return label
+    }()
+    
     private lazy var textFieldsContainer: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -84,6 +86,7 @@ class LoginPageController: UIViewController {
         return button
     }()
     
+    
     init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -95,17 +98,48 @@ class LoginPageController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUp()
-//        bindRouter()
+//        setUp()
+//        handleLogin()
+        // Create a UIButton instance
+        let testButton = UIButton(type: .system)
+        
+        // Set the button title
+        testButton.setTitle("Test Button", for: .normal)
+        testButton.isEnabled = true
+        
+        testButton.isUserInteractionEnabled = true
+        
+        // Set the button's position and size
+        testButton.frame = CGRect(x: 100, y: 100, width: 200, height: 50)
+        
+        // Set the background color (optional)
+        testButton.backgroundColor = UIColor.systemBlue
+        
+        // Set the button title color
+        testButton.setTitleColor(UIColor.white, for: .normal)
+        
+        // Add target for the button to handle the tap event
+        testButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        
+        // Add the button to the view
+        self.view.addSubview(testButton)
+        }
+        
+        // Function to be called when the button is pressed
+    @objc func buttonPressed() {
+        print("here")
+        let nextViewController = testController()
+        
+        self.navigationController?.pushViewController(nextViewController, animated: true)
+
     }
+
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tabBarController?.tabBar.isHidden = false
+       
     }
     
     override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
     }
 }
 
@@ -114,7 +148,7 @@ extension LoginPageController {
         setUpUI()
         addSubviews()
         addConstraints()
-        configureUI()
+        label.configure(with: labelModel)
         
     }
     
@@ -135,9 +169,13 @@ extension LoginPageController {
         label.top(toView: containerView, constant: .XL)
         label.left(toView: containerView, constant: .L)
         
+        textFieldsContainer.centerVertically(to: containerView)
+        textFieldsContainer.centerHorizontally(to: containerView)
+
+        
         textFieldsContainer.left(toView: containerView, constant: .XL2)
         textFieldsContainer.right(toView: containerView, constant: .XL2)
-        textFieldsContainer.relativeTop(toView: label, constant: .XL)
+//        textFieldsContainer.relativeTop(toView: label, constant: .XL)
         
         button.relativeTop(toView: textFieldsContainer, constant: .M)
         button.left(toView: containerView)
@@ -146,64 +184,36 @@ extension LoginPageController {
         
         mainStackView.left(toView: view)
         mainStackView.right(toView: view)
-        mainStackView.bottom(toView: view, constant: -.M)
+        mainStackView.centerVertically(to: view)
     }
     
     override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        let path = UIBezierPath(roundedRect: mainStackView.bounds,
-                                byRoundingCorners: [.topLeft, .topRight],
-                                cornerRadii: CGSize(width: .XL,
-                                                    height: .XL))
-        let maskLayer = CAShapeLayer()
-        maskLayer.path = path.cgPath
-        mainStackView.layer.mask = maskLayer
+       
     }
-}
-
-//extension LoginPageController {
-//    
-//    private func bindRouter() {
-//        viewModel.getRouter()
-//            .compactMap { $0 }
-//            .sink { [weak self] route in
-//                guard let self = self else { return }
-//                self.router.route(to: route, from: self)
-//            }.store(in: &subscriptions)
-//    }
-//}
-
-
-extension LoginPageController {
     
-    private func configureUI() {
-        viewModel.labelModel.sink {[weak self] model in
-            self?.label.bind(with: model)
-        }.store(in: &subscriptions)
-        
-        viewModel.emailModel.sink { [weak self] model in
-            self?.loginTextField.bind(model: model)
-        }.store(in: &subscriptions)
-        
-        viewModel.passwordModel.sink { [weak self] model in
-            self?.passwordTextField.bind(model: model)
-        }.store(in: &subscriptions)
-        
-        viewModel.continueButtonModel.sink { [weak self] model in
-            self?.button.bind(with: model)
-        }.store(in: &subscriptions)
-        
-        viewModel.passwordResetLabelModel.sink {[weak self] model in
-            self?.passwordResetLabel.bind(with: model)
-        }.store(in: &subscriptions)
-        
-        viewModel.RegistrationLabelModel.sink {[weak self] model in
-            self?.registrationLabel.bind(with: model)
-        }.store(in: &subscriptions)
-        viewModel.displayBannerPublisher.sink { [weak self] statusBannerModel in
-            self?.displayBanner(with: statusBannerModel.description,
-                                state: statusBannerModel.bannerType)
-        }.store(in: &subscriptions)
-    }
+//    private func handleLogin() {
+//        loginUseCase.loginUser(email: "rkeld",
+//                                password: "12345678")
+//        
+//    }
+    
 }
+
+
+class testController: UIViewController {
+    
+    @Injected var loginUseCase: LoginUseCase
+
+    override func viewDidLoad() {
+        handleLogin()
+    }
+    
+    private func handleLogin() {
+        loginUseCase.loginUser(email: "rkeld",
+                                password: "12345678")
+        
+    }
+    
+}
+
+

@@ -128,7 +128,7 @@ extension PrimaryButton {
 extension PrimaryButton {
     
     public func bind(with model: PrimaryButtonModel) {
-        titleLabel.bind(with: model.titleModel)
+        titleLabel.configure(with: model.titleModel)
         addAction(action: model.action)
         
         //subscribe state
