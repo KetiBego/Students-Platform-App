@@ -7,17 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9905FEF62C7D362F00867AFD /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FEF52C7D362F00867AFD /* NetworkLayer.swift */; };
 		9905FEF82C7D365300867AFD /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FEF72C7D365300867AFD /* Endpoint.swift */; };
-		9905FEFA2C7D36CE00867AFD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FEF92C7D36CE00867AFD /* NetworkManager.swift */; };
 		9905FF012C7D383B00867AFD /* LoginEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FF002C7D383B00867AFD /* LoginEntity.swift */; };
 		9905FF032C7D387900867AFD /* ApiLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FF022C7D387900867AFD /* ApiLoginModel.swift */; };
-		9905FF052C7D392D00867AFD /* LoginGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FF042C7D392D00867AFD /* LoginGateway.swift */; };
 		9905FF072C7D3B7A00867AFD /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FF062C7D3B7A00867AFD /* LoginUseCase.swift */; };
 		9905FF0A2C7D3C6900867AFD /* URLHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FF092C7D3C6900867AFD /* URLHelper.swift */; };
-		992AAFAA2C7E43490057AA16 /* GateWayInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992AAFA92C7E43490057AA16 /* GateWayInjection.swift */; };
-		992AAFAC2C7E43780057AA16 /* UsecaseInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992AAFAB2C7E43780057AA16 /* UsecaseInjection.swift */; };
-		992AAFAE2C7E43A70057AA16 /* ProviderRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992AAFAD2C7E43A70057AA16 /* ProviderRegistration.swift */; };
 		992AAFB82C7E7D6B0057AA16 /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 992AAFB72C7E7D6B0057AA16 /* Resolver */; };
 		992AAFBA2C7E7D6B0057AA16 /* Resolver-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 992AAFB92C7E7D6B0057AA16 /* Resolver-Dynamic */; };
 		992AAFBC2C7E7D6B0057AA16 /* Resolver-Static in Frameworks */ = {isa = PBXBuildFile; productRef = 992AAFBB2C7E7D6B0057AA16 /* Resolver-Static */; };
@@ -26,6 +20,7 @@
 		996BA3C72BEE70EB00F7E3B4 /* NetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996BA3C62BEE70EB00F7E3B4 /* NetworkingTests.swift */; };
 		996BA3C82BEE70EB00F7E3B4 /* Networking.h in Headers */ = {isa = PBXBuildFile; fileRef = 996BA3BA2BEE70EB00F7E3B4 /* Networking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		996BA3D22BEE710B00F7E3B4 /* TestFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996BA3D12BEE710B00F7E3B4 /* TestFile.swift */; };
+		9985DD202C8129F200D9D189 /* Resolver-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 992AAFB92C7E7D6B0057AA16 /* Resolver-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,18 +33,26 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		9985DD212C8129F200D9D189 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9985DD202C8129F200D9D189 /* Resolver-Dynamic in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		9905FEF52C7D362F00867AFD /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		9905FEF72C7D365300867AFD /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
-		9905FEF92C7D36CE00867AFD /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		9905FF002C7D383B00867AFD /* LoginEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEntity.swift; sourceTree = "<group>"; };
 		9905FF022C7D387900867AFD /* ApiLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiLoginModel.swift; sourceTree = "<group>"; };
-		9905FF042C7D392D00867AFD /* LoginGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginGateway.swift; sourceTree = "<group>"; };
 		9905FF062C7D3B7A00867AFD /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		9905FF092C7D3C6900867AFD /* URLHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHelper.swift; sourceTree = "<group>"; };
-		992AAFA92C7E43490057AA16 /* GateWayInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GateWayInjection.swift; sourceTree = "<group>"; };
-		992AAFAB2C7E43780057AA16 /* UsecaseInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsecaseInjection.swift; sourceTree = "<group>"; };
-		992AAFAD2C7E43A70057AA16 /* ProviderRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderRegistration.swift; sourceTree = "<group>"; };
 		996BA3B72BEE70EB00F7E3B4 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		996BA3BA2BEE70EB00F7E3B4 /* Networking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Networking.h; sourceTree = "<group>"; };
 		996BA3BB2BEE70EB00F7E3B4 /* Networking.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Networking.docc; sourceTree = "<group>"; };
@@ -83,9 +86,7 @@
 		9905FEFB2C7D36EA00867AFD /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
-				9905FEF92C7D36CE00867AFD /* NetworkManager.swift */,
 				9905FEF72C7D365300867AFD /* Endpoint.swift */,
-				9905FEF52C7D362F00867AFD /* NetworkLayer.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -106,14 +107,6 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
-		9905FEFE2C7D380200867AFD /* Gateways */ = {
-			isa = PBXGroup;
-			children = (
-				9905FF042C7D392D00867AFD /* LoginGateway.swift */,
-			);
-			path = Gateways;
-			sourceTree = "<group>";
-		};
 		9905FEFF2C7D380F00867AFD /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,16 +121,6 @@
 				9905FF092C7D3C6900867AFD /* URLHelper.swift */,
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		992AAFA82C7E432A0057AA16 /* Networking + injection */ = {
-			isa = PBXGroup;
-			children = (
-				992AAFA92C7E43490057AA16 /* GateWayInjection.swift */,
-				992AAFAB2C7E43780057AA16 /* UsecaseInjection.swift */,
-				992AAFAD2C7E43A70057AA16 /* ProviderRegistration.swift */,
-			);
-			path = "Networking + injection";
 			sourceTree = "<group>";
 		};
 		996BA3AD2BEE70EB00F7E3B4 = {
@@ -161,10 +144,8 @@
 		996BA3B92BEE70EB00F7E3B4 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				992AAFA82C7E432A0057AA16 /* Networking + injection */,
 				9905FF082C7D3C5400867AFD /* Helpers */,
 				9905FEFF2C7D380F00867AFD /* UseCase */,
-				9905FEFE2C7D380200867AFD /* Gateways */,
 				9905FEFD2C7D37F600867AFD /* Entities */,
 				9905FEFC2C7D37E600867AFD /* Api Models */,
 				9905FEFB2C7D36EA00867AFD /* NetworkLayer */,
@@ -205,6 +186,7 @@
 				996BA3B32BEE70EB00F7E3B4 /* Sources */,
 				996BA3B42BEE70EB00F7E3B4 /* Frameworks */,
 				996BA3B52BEE70EB00F7E3B4 /* Resources */,
+				9985DD212C8129F200D9D189 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -300,18 +282,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9905FF052C7D392D00867AFD /* LoginGateway.swift in Sources */,
-				9905FEF62C7D362F00867AFD /* NetworkLayer.swift in Sources */,
 				996BA3BC2BEE70EB00F7E3B4 /* Networking.docc in Sources */,
 				9905FF012C7D383B00867AFD /* LoginEntity.swift in Sources */,
 				9905FF032C7D387900867AFD /* ApiLoginModel.swift in Sources */,
-				992AAFAC2C7E43780057AA16 /* UsecaseInjection.swift in Sources */,
 				9905FF0A2C7D3C6900867AFD /* URLHelper.swift in Sources */,
-				9905FEFA2C7D36CE00867AFD /* NetworkManager.swift in Sources */,
-				992AAFAA2C7E43490057AA16 /* GateWayInjection.swift in Sources */,
 				9905FEF82C7D365300867AFD /* Endpoint.swift in Sources */,
 				996BA3D22BEE710B00F7E3B4 /* TestFile.swift in Sources */,
-				992AAFAE2C7E43A70057AA16 /* ProviderRegistration.swift in Sources */,
 				9905FF072C7D3B7A00867AFD /* LoginUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -595,8 +571,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hmlongco/Resolver.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.5.1;
+				kind = exactVersion;
+				version = 1.5.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

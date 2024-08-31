@@ -14,7 +14,6 @@ public class TextFieldViewModel: ObservableObject {
     let leadingLabelModel: LocalLabelModel?
     let onEditingDidEnd: ((String) -> Void)
     let isSecureEntry: Bool
-    let keyboardType: UIKeyboardType?
     let currText: String?
     
     public init(placeholder: String? = nil,
@@ -28,7 +27,6 @@ public class TextFieldViewModel: ObservableObject {
         self.leadingLabelModel = leadingLabelModel
         self.trailingLabelModel = trailingLabelModel
         self.isSecureEntry = isSecureEntry
-        self.keyboardType = keyboardType
         self.onEditingDidEnd = onEditingDidEnd
         self.currText = currText
     }

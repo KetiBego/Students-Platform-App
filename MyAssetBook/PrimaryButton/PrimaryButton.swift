@@ -17,9 +17,7 @@ public enum ButtonState {
 public class PrimaryButton: UIView {
     
     private var tapAction: (() -> Void)?
-    
-    private var subscriptions = Set<AnyCancellable>()
-    
+        
     private lazy var loadingIndicator: UIActivityIndicatorView = {
         let loader = UIActivityIndicatorView()
         loader.translatesAutoresizingMaskIntoConstraints = false
@@ -52,7 +50,7 @@ public class PrimaryButton: UIView {
     
     public convenience init(model: PrimaryButtonModel) {
         self.init()
-        bind(with: model)
+        configure(with: model)
     }
     
     @available(*, unavailable)
@@ -127,19 +125,9 @@ extension PrimaryButton {
 
 extension PrimaryButton {
     
-    public func bind(with model: PrimaryButtonModel) {
+    public func configure(with model: PrimaryButtonModel) {
         titleLabel.configure(with: model.titleModel)
         addAction(action: model.action)
-        
-        //subscribe state
-        model.state.sink { [weak self] state in
-            DispatchQueue.main.async {
-                self?.updateButtonState(with: state)
-            }
-        }.store(in: &subscriptions)
     }
     
-    public func resetSubscriptions() {
-        subscriptions = Set<AnyCancellable>()
-    }
 }

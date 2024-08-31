@@ -6,7 +6,6 @@
 //
 
 import MyAssetBook
-import Resolver
 import Networking
 
 enum LoginPageRoute {

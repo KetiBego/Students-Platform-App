@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import Networking
-import Resolver
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

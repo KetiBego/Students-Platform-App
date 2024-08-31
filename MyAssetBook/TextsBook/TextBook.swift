@@ -8,7 +8,9 @@
 public struct MytextBook {
     
     public struct LoginTexts {
-        public static let login = "შესვლა"
+        public static let appName = "Studens Platform"
+        public static let loginLabelText = "გაიარე ავტორიზაცია"
+        public static let loginButtonText = "შესვლა"
         public static let password = "პაროლი"
         public static let email = "მეილი"
     }

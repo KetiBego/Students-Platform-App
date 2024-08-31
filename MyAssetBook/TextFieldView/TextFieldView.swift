@@ -170,10 +170,7 @@ extension TextFieldView {
         onEditingDidEnd = model.onEditingDidEnd
         textField.delegate = self
         configureTextField(with: model)
-        if let keyBoardType = model.keyboardType {
-            textField.keyboardType = keyBoardType
-        }
-        
+    
         if let text = model.currText,
            !text.isEmpty {
             textField.text = text

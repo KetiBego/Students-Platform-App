@@ -5,6 +5,7 @@
 //  Created by Ruska Keldishvili on 26.08.24.
 //
 
+import UIKit
 public struct Icons {
     
     public static let books = ImageWrapper(name: "books.vertical")
@@ -14,5 +15,8 @@ public struct Icons {
 }
 
 public struct Image {
+    public static let AppLogo = UIImage(named: "AppLogo",
+                                        in:  Bundle(identifier: "Free-University.MyAssetBook"),
+                                        compatibleWith: nil)!
     public static let person = ImageWrapper(name: "person")
 }

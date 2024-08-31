@@ -6,6 +6,8 @@ target 'Networking' do
   use_frameworks!
 
   # Pods for Networking
+pod "Resolver"
+
 
   target 'NetworkingTests' do
     # Pods for testing

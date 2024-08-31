@@ -7,13 +7,27 @@
 
 import UIKit
 import MyAssetBook
-import Resolver
 import Networking
 
 class LoginPageController: UIViewController {
     
-//    @Injected var loginUseCase: LoginUseCase
-
+    private var EmailValue:String?
+    private var PasswordValue:String?
+    
+    
+    private lazy var myImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.height(equalTo: 100)
+        imageView.width(equalTo: 100)
+        // Set the image to your UIImage (you can replace "yourImageName" with the actual image name)
+        imageView.image =  Image.AppLogo
+        
+        // Set additional properties like content mode, if necessary
+        imageView.contentMode = .scaleAspectFit
+        
+        return imageView
+    }()
     
     private lazy var mainStackView: UIStackView = {
         let stack = UIStackView()
@@ -31,7 +45,14 @@ class LoginPageController: UIViewController {
         return view
     }()
     
-    private lazy var label: LocalLabel = {
+    private lazy var LoginTextLabel: LocalLabel = {
+        let label = LocalLabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .clear
+        return label
+    }()
+    
+    private lazy var welcomeLabel: LocalLabel = {
         let label = LocalLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .clear
@@ -44,29 +65,39 @@ class LoginPageController: UIViewController {
         return textField
     }()
     
+    
     private lazy var passwordTextField: TextFieldView = {
         let textField = TextFieldView()
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     
-    private lazy var passwordResetLabel: LocalLabel = {
-        let label = LocalLabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .clear
+//    private lazy var registrationLabel: LocalLabel = {
+//        let label = LocalLabel()
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        label.backgroundColor = .clear
+//        label.setAlignment(with: .center)
+//        return label
+//    }()
+//    
+    private lazy var LoginTextLabelModel: LocalLabelModel = {
+        let label = LocalLabelModel(
+            text: MytextBook.LoginTexts.loginLabelText,
+            font: .systemFont(ofSize: .L))
         return label
     }()
     
-    private lazy var registrationLabel: LocalLabel = {
-        let label = LocalLabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .clear
-        label.setAlignment(with: .center)
-        return label
+    private lazy var emptyView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.height(equalTo: 40)
+        return view
     }()
     
-    private lazy var labelModel: LocalLabelModel = {
-        let label = LocalLabelModel(text: "ლეიბლი")
+    private lazy var WelcomeLabelModel: LocalLabelModel = {
+        let label = LocalLabelModel(
+            text: MytextBook.LoginTexts.appName,
+            font: .systemFont(ofSize: .XL, weight: .bold))
         return label
     }()
     
@@ -82,6 +113,7 @@ class LoginPageController: UIViewController {
     
     private lazy var button: PrimaryButton = {
         let button = PrimaryButton()
+        button.backgroundColor = Color.Yellow2
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -98,32 +130,8 @@ class LoginPageController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        setUp()
-//        handleLogin()
-        // Create a UIButton instance
-        let testButton = UIButton(type: .system)
-        
-        // Set the button title
-        testButton.setTitle("Test Button", for: .normal)
-        testButton.isEnabled = true
-        
-        testButton.isUserInteractionEnabled = true
-        
-        // Set the button's position and size
-        testButton.frame = CGRect(x: 100, y: 100, width: 200, height: 50)
-        
-        // Set the background color (optional)
-        testButton.backgroundColor = UIColor.systemBlue
-        
-        // Set the button title color
-        testButton.setTitleColor(UIColor.white, for: .normal)
-        
-        // Add target for the button to handle the tap event
-        testButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-        
-        // Add the button to the view
-        self.view.addSubview(testButton)
-        }
+        setUp()
+    }
         
         // Function to be called when the button is pressed
     @objc func buttonPressed() {
@@ -145,11 +153,38 @@ class LoginPageController: UIViewController {
 
 extension LoginPageController {
     func setUp() {
+        configureViews()
         setUpUI()
         addSubviews()
         addConstraints()
-        label.configure(with: labelModel)
         
+    }
+    func configureViews() {
+        LoginTextLabel.configure(with: LoginTextLabelModel)
+        welcomeLabel.configure(with: WelcomeLabelModel)
+
+        loginTextField.bind(model: .init(
+            placeholder: MytextBook.LoginTexts.email,
+            onEditingDidEnd: { email in
+                self.EmailValue = email
+        }))
+        
+        passwordTextField.bind(model: .init(
+            placeholder: MytextBook.LoginTexts.password,
+            isSecureEntry: true,
+            onEditingDidEnd: { email in
+                self.PasswordValue = email
+            }))
+        button.configure(with: .init(
+            titleModel: .init(
+                text: MytextBook.LoginTexts.loginButtonText,
+                font: .systemFont(ofSize: .XL2)
+            ),
+            action: {
+                print(self.EmailValue)
+                print(self.PasswordValue)
+                return
+            }))
     }
     
     func setUpUI() {
@@ -157,17 +192,22 @@ extension LoginPageController {
     }
     
     func addSubviews() {
-        containerView.addSubview(label)
+        containerView.addSubview(LoginTextLabel)
         containerView.addSubview(textFieldsContainer)
         containerView.addSubview(button)
+        mainStackView.addArrangedSubview(myImageView)
+        mainStackView.addArrangedSubview(emptyView)
         mainStackView.addArrangedSubview(containerView)
         view.addSubview(mainStackView)
     }
     
     func addConstraints() {
         
-        label.top(toView: containerView, constant: .XL)
-        label.left(toView: containerView, constant: .L)
+        emptyView.addSubview(welcomeLabel)
+        welcomeLabel.centerVertically(to: emptyView)
+        welcomeLabel.centerHorizontally(to: emptyView)
+        LoginTextLabel.top(toView: containerView, constant: .XL3)
+        LoginTextLabel.left(toView: containerView, constant: .XL3)
         
         textFieldsContainer.centerVertically(to: containerView)
         textFieldsContainer.centerHorizontally(to: containerView)
@@ -178,9 +218,10 @@ extension LoginPageController {
 //        textFieldsContainer.relativeTop(toView: label, constant: .XL)
         
         button.relativeTop(toView: textFieldsContainer, constant: .M)
-        button.left(toView: containerView)
-        button.right(toView: containerView)
+        button.left(toView: containerView, constant: .XL2)
+        button.right(toView: containerView, constant: .XL2)
         button.bottom(toView: containerView)
+        button.layer.cornerRadius = .S
         
         mainStackView.left(toView: view)
         mainStackView.right(toView: view)
@@ -202,17 +243,10 @@ extension LoginPageController {
 
 class testController: UIViewController {
     
-    @Injected var loginUseCase: LoginUseCase
 
     override func viewDidLoad() {
-        handleLogin()
     }
     
-    private func handleLogin() {
-        loginUseCase.loginUser(email: "rkeld",
-                                password: "12345678")
-        
-    }
     
 }
 
