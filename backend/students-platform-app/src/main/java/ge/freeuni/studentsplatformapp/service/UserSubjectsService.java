@@ -16,20 +16,21 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserSubjectsService {
 
+    private final UserService userService;
     private final UserSubjectsRepository userSubjectRepository;
     private final SubjectsRepository subjectsRepository;
 
 
     public void addUserSubject(AddUserSubjectRequest request) {
-        Long userId = request.getUserId();
+        Long userId = userService.getCurrentUserInfo().getId();
         Long subjectId = request.getSubjectId();
         UserSubjectId userSubjectId = new UserSubjectId(userId, subjectId);
         UserSubject userSubject = new UserSubject(userSubjectId);
         userSubjectRepository.save(userSubject);
     }
 
-    public GetUserSubjectsResponse getUserSubjects(GetUserSubjectsRequest request) {
-        Long userId = request.getUserId();
+    public GetUserSubjectsResponse getUserSubjects() {
+        Long userId = userService.getCurrentUserInfo().getId();
         GetUserSubjectsResponse response = new GetUserSubjectsResponse();
         List<UserSubject> userSubjects = userSubjectRepository.findByIdUserId(userId);
         response.setSubjects(
@@ -39,5 +40,12 @@ public class UserSubjectsService {
                                 .map(UserSubjectId::getSubjectId)
                                 .toList()));
         return response;
+    }
+
+    public void deleteUserSubject(AddUserSubjectRequest request) {
+        Long userId = userService.getCurrentUserInfo().getId();
+        Long subjectId = request.getSubjectId();
+        UserSubjectId userSubjectId = new UserSubjectId(userId, subjectId);
+        userSubjectRepository.deleteById(userSubjectId);
     }
 }

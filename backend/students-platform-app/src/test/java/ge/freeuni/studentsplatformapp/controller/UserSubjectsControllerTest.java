@@ -100,7 +100,7 @@ public class UserSubjectsControllerTest {
         GetUserSubjectsResponse response = new GetUserSubjectsResponse();
         response.setSubjects(Arrays.asList(math, english));
 
-        when(userSubjectsService.getUserSubjects(any(GetUserSubjectsRequest.class))).thenReturn(response);
+        when(userSubjectsService.getUserSubjects()).thenReturn(response);
 
         mockMvc.perform(get("/user/subjects")
                         .contentType(MediaType.APPLICATION_JSON)

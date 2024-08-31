@@ -26,7 +26,7 @@ public class UserUpvotesController {
         }
     }
 
-    @DeleteMapping()
+    @DeleteMapping
     public ResponseEntity<Void> removeUserUpvote(@RequestBody @Valid RemoveUserUpvoteRequest request) {
         try {
             userUpvotesService.removeUserUpvote(request);

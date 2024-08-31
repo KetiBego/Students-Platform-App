@@ -96,7 +96,7 @@ public class UserSubjectsServiceTest {
         GetUserSubjectsRequest request = new GetUserSubjectsRequest();
         request.setUserId(user.getId());
 
-        GetUserSubjectsResponse response = userSubjectsService.getUserSubjects(request);
+        GetUserSubjectsResponse response = userSubjectsService.getUserSubjects();
 
         assertEquals(2, response.getSubjects().size());
         assertEquals("Math", response.getSubjects().get(0).getSubjectName());

@@ -23,9 +23,15 @@ public class UserSubjectsController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @GetMapping()
-    public ResponseEntity<GetUserSubjectsResponse> getUserSubjects(@Valid GetUserSubjectsRequest request) {
-        GetUserSubjectsResponse response = userSubjectService.getUserSubjects(request);
+    @GetMapping
+    public ResponseEntity<GetUserSubjectsResponse> getUserSubjects() {
+        GetUserSubjectsResponse response = userSubjectService.getUserSubjects();
         return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @DeleteMapping
+    public ResponseEntity<Void> deleteUserSubject(@RequestBody @Valid AddUserSubjectRequest request) {
+        userSubjectService.deleteUserSubject(request);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

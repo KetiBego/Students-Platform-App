@@ -15,7 +15,7 @@ spring:
         temp:
           use_jdbc_metadata_defaults: false
     hibernate:
-      ddl-auto: create # Ensures schema creation for the test
+      ddl-auto: create
 
   h2:
     console:
