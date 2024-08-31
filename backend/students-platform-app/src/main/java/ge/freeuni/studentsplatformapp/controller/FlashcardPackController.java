@@ -18,13 +18,13 @@ public class FlashcardPackController {
 
     private final FlashcardPackService flashcardPackService;
 
-    @PostMapping()
+    @PostMapping
     public ResponseEntity<Void> createFlashcardPack(@RequestBody @Valid CreateFlashcardPackRequest request) {
         flashcardPackService.createFlashcardPack(request);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @DeleteMapping()
+    @DeleteMapping
     public ResponseEntity<Void> deleteFlashcardPack(@RequestBody @Valid Long flashcardPackId) {
         flashcardPackService.deleteFlashcardPack(flashcardPackId);
         return new ResponseEntity<>(HttpStatus.OK);

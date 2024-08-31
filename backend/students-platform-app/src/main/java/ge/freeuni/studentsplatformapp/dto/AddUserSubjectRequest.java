@@ -6,8 +6,5 @@ import lombok.Data;
 @Data
 public class AddUserSubjectRequest {
     @NotBlank
-    private Long userId;
-
-    @NotBlank
     private Long subjectId;
 }
