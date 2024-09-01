@@ -55,9 +55,9 @@ public class FileController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @GetMapping("/user/{userId}")
-    public ResponseEntity<List<GetFileInfoResponse>> getUserFiles(@PathVariable Long userId) {
-        List<GetFileInfoResponse> fileInfoResponses = fileService.getUserFiles(userId);
+    @GetMapping("/user")
+    public ResponseEntity<List<GetFileInfoResponse>> getUserFiles() {
+        List<GetFileInfoResponse> fileInfoResponses = fileService.getUserFiles();
         return ResponseEntity.ok(fileInfoResponses);
     }
 

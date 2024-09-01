@@ -75,23 +75,23 @@ public class FileService {
         return new GetFileInfoResponse(file.getId(), username, subjectName, file.getFileName(), file.getUpvoteCount(), isUpvoted);
     }
 
-    public List<GetFileInfoResponse> getUserFiles(Long userId) {
+    public List<GetFileInfoResponse> getUserFiles() {
+        Long userId = userService.getCurrentUserInfo().getId();
         List<File> files = fileRepository.findByUserIdOrderByUpvoteCountDescCreatedAtDesc(userId);
-        Long currentUserId = userService.getCurrentUserInfo().getId();
         return files.stream()
                 .map(file -> new GetFileInfoResponse(file.getId(), userService.getUserById(file.getUserId()).getUsername(),
                         subjectsService.getSubjectNameById(file.getId()), file.getFileName(), file.getUpvoteCount(),
-                        userUpvotesService.isUpvoted(currentUserId, file.getId())))
+                        userUpvotesService.isUpvoted(userId, file.getId())))
                 .toList();
     }
 
     public List<GetFileInfoResponse> getSubjectFiles(Long subjectId) {
         List<File> files = fileRepository.findBySubjectIdOrderByUpvoteCountDescCreatedAtDesc(subjectId);
-        Long currentUserId = userService.getCurrentUserInfo().getId();
+        Long userId = userService.getCurrentUserInfo().getId();
         return files.stream()
                 .map(file -> new GetFileInfoResponse(file.getId(), userService.getUserById(file.getUserId()).getUsername(),
                         subjectsService.getSubjectNameById(file.getId()), file.getFileName(), file.getUpvoteCount(),
-                        userUpvotesService.isUpvoted(currentUserId, file.getId())))
+                        userUpvotesService.isUpvoted(userId, file.getId())))
                 .toList();
     }
 
