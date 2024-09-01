@@ -21,10 +21,13 @@ import java.util.List;
 public class FileService {
 
     private final FileRepository fileRepository;
+    private final UserService userService;
+    private final SubjectsService subjectsService;
+    private final UserUpvotesService userUpvotesService;
 
     public void uploadFile(FileUploadRequest request) throws IOException {
         File file = new File();
-        file.setUserId(request.getUserId());
+        file.setUserId(userService.getCurrentUserInfo().getId());
         file.setSubjectId(request.getSubjectId());
         file.setFileName(request.getFile().getOriginalFilename());
         file.setUpvoteCount(0L);
@@ -66,24 +69,38 @@ public class FileService {
     public GetFileInfoResponse getFileInfo(Long fileId) {
         File file = fileRepository.findById(fileId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "File not found"));
-        return new GetFileInfoResponse(file.getUserId(), file.getSubjectId(), file.getFileName(), file.getUpvoteCount());
+        String username = userService.getUserById(file.getUserId()).getUsername();
+        String subjectName = subjectsService.getSubjectNameById(file.getSubjectId());
+        Boolean isUpvoted = userUpvotesService.isUpvoted(userService.getCurrentUserInfo().getId(), fileId);
+        return new GetFileInfoResponse(file.getId(), username, subjectName, file.getFileName(), file.getUpvoteCount(), isUpvoted);
     }
 
-    public List<Long> getUserFiles(Long userId) {
+    public List<GetFileInfoResponse> getUserFiles(Long userId) {
         List<File> files = fileRepository.findByUserIdOrderByUpvoteCountDescCreatedAtDesc(userId);
+        Long currentUserId = userService.getCurrentUserInfo().getId();
         return files.stream()
-                .map(File::getId)
+                .map(file -> new GetFileInfoResponse(file.getId(), userService.getUserById(file.getUserId()).getUsername(),
+                        subjectsService.getSubjectNameById(file.getId()), file.getFileName(), file.getUpvoteCount(),
+                        userUpvotesService.isUpvoted(currentUserId, file.getId())))
                 .toList();
     }
 
-    public List<Long> getSubjectFiles(Long subjectId) {
+    public List<GetFileInfoResponse> getSubjectFiles(Long subjectId) {
         List<File> files = fileRepository.findBySubjectIdOrderByUpvoteCountDescCreatedAtDesc(subjectId);
+        Long currentUserId = userService.getCurrentUserInfo().getId();
         return files.stream()
-                .map(File::getId)
+                .map(file -> new GetFileInfoResponse(file.getId(), userService.getUserById(file.getUserId()).getUsername(),
+                        subjectsService.getSubjectNameById(file.getId()), file.getFileName(), file.getUpvoteCount(),
+                        userUpvotesService.isUpvoted(currentUserId, file.getId())))
                 .toList();
     }
 
     public void deleteFile(Long fileId) {
+        File file = fileRepository.findById(fileId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "File not found"));
+        if (!file.getUserId().equals(userService.getCurrentUserInfo().getId())) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "You are not authorized to delete this file");
+        }
         fileRepository.deleteById(fileId);
     }
 }

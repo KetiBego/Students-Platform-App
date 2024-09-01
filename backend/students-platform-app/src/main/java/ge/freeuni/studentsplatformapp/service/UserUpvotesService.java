@@ -52,4 +52,9 @@ public class UserUpvotesService {
             throw new RuntimeException("Failed to remove upvote from file");
         }
     }
+
+    public Boolean isUpvoted(Long userId, Long fileId) {
+        UserUpvoteId userUpvoteId = new UserUpvoteId(userId, fileId);
+        return userUpvotesRepository.findById(userUpvoteId).isPresent();
+    }
 }

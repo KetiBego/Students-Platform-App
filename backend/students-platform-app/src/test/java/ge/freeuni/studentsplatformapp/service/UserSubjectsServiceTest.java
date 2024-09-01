@@ -64,7 +64,6 @@ public class UserSubjectsServiceTest {
         subjectsRepository.save(subject);
 
         AddUserSubjectRequest request = new AddUserSubjectRequest();
-        request.setUserId(user.getId());
         request.setSubjectId(subject.getId());
 
         userSubjectsService.addUserSubject(request);

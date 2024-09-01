@@ -24,8 +24,8 @@ public class FileController {
     private final FileService fileService;
 
     @PostMapping(value = "/upload", consumes = "multipart/form-data")
-    public ResponseEntity<Void> uploadFile(@RequestParam Long userId, @RequestParam Long subjectId, @RequestParam MultipartFile file) {
-        FileUploadRequest request = new FileUploadRequest(userId, subjectId, file);
+    public ResponseEntity<Void> uploadFile(@RequestParam Long subjectId, @RequestParam MultipartFile file) {
+        FileUploadRequest request = new FileUploadRequest(subjectId, file);
         try {
             fileService.uploadFile(request);
             return new ResponseEntity<>(HttpStatus.CREATED);
@@ -56,14 +56,14 @@ public class FileController {
     }
 
     @GetMapping("/user/{userId}")
-    public ResponseEntity<List<Long>> getUserFiles(@PathVariable Long userId) {
-        List<Long> fileIds = fileService.getUserFiles(userId);
-        return ResponseEntity.ok(fileIds);
+    public ResponseEntity<List<GetFileInfoResponse>> getUserFiles(@PathVariable Long userId) {
+        List<GetFileInfoResponse> fileInfoResponses = fileService.getUserFiles(userId);
+        return ResponseEntity.ok(fileInfoResponses);
     }
 
     @GetMapping("/subject/{subjectId}")
-    public ResponseEntity<List<Long>> getSubjectFiles(@PathVariable Long subjectId) {
-        List<Long> fileIds = fileService.getSubjectFiles(subjectId);
+    public ResponseEntity<List<GetFileInfoResponse>> getSubjectFiles(@PathVariable Long subjectId) {
+        List<GetFileInfoResponse> fileIds = fileService.getSubjectFiles(subjectId);
         return ResponseEntity.ok(fileIds);
     }
 

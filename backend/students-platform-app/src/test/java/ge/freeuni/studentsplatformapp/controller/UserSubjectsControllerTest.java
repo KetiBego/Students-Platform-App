@@ -71,7 +71,6 @@ public class UserSubjectsControllerTest {
         subjectsRepository.save(subject);
 
         AddUserSubjectRequest request = new AddUserSubjectRequest();
-        request.setUserId(user.getId());
         request.setSubjectId(subject.getId());
 
         mockMvc.perform(post("/user/subjects/add")
