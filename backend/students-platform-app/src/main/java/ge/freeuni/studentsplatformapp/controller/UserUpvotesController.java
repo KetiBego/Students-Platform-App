@@ -1,7 +1,6 @@
 package ge.freeuni.studentsplatformapp.controller;
 
-import ge.freeuni.studentsplatformapp.dto.AddUserUpvoteRequest;
-import ge.freeuni.studentsplatformapp.dto.RemoveUserUpvoteRequest;
+import ge.freeuni.studentsplatformapp.dto.UpvoteRequest;
 import ge.freeuni.studentsplatformapp.service.UserUpvotesService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +16,7 @@ public class UserUpvotesController {
     private final UserUpvotesService userUpvotesService;
 
     @PostMapping("/add")
-    public ResponseEntity<Void> addUserUpvote(@RequestBody @Valid AddUserUpvoteRequest request) {
+    public ResponseEntity<Void> addUserUpvote(@RequestBody @Valid UpvoteRequest request) {
         try {
             userUpvotesService.addUserUpvote(request);
             return new ResponseEntity<>(HttpStatus.CREATED);
@@ -27,7 +26,7 @@ public class UserUpvotesController {
     }
 
     @DeleteMapping
-    public ResponseEntity<Void> removeUserUpvote(@RequestBody @Valid RemoveUserUpvoteRequest request) {
+    public ResponseEntity<Void> removeUserUpvote(@RequestBody @Valid UpvoteRequest request) {
         try {
             userUpvotesService.removeUserUpvote(request);
             return new ResponseEntity<>(HttpStatus.OK);

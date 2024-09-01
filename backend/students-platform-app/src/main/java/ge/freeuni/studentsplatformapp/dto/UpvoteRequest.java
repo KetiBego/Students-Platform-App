@@ -4,10 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
-public class AddUserUpvoteRequest {
-    @NotBlank
-    private Long userId;
-
+public class UpvoteRequest {
     @NotBlank
     private Long fileId;
 }

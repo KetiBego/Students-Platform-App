@@ -1,7 +1,6 @@
 package ge.freeuni.studentsplatformapp.service;
 
-import ge.freeuni.studentsplatformapp.dto.AddUserUpvoteRequest;
-import ge.freeuni.studentsplatformapp.dto.RemoveUserUpvoteRequest;
+import ge.freeuni.studentsplatformapp.dto.UpvoteRequest;
 import ge.freeuni.studentsplatformapp.model.UserUpvote;
 import ge.freeuni.studentsplatformapp.model.UserUpvoteId;
 import ge.freeuni.studentsplatformapp.repository.FileRepository;
@@ -13,11 +12,12 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class UserUpvotesService {
 
+    private final UserService userService;
     private final UserUpvotesRepository userUpvotesRepository;
     private final FileRepository fileRepository;
 
-    public void addUserUpvote(AddUserUpvoteRequest request) {
-        Long userId = request.getUserId();
+    public void addUserUpvote(UpvoteRequest request) {
+        Long userId = userService.getCurrentUserInfo().getId();
         Long fileId = request.getFileId();
         UserUpvoteId userUpvoteId = new UserUpvoteId(userId, fileId);
         UserUpvote userUpvote = new UserUpvote(userUpvoteId);
@@ -35,8 +35,8 @@ public class UserUpvotesService {
         }
     }
 
-    public void removeUserUpvote(RemoveUserUpvoteRequest request) {
-        Long userId = request.getUserId();
+    public void removeUserUpvote(UpvoteRequest request) {
+        Long userId = userService.getCurrentUserInfo().getId();
         Long fileId = request.getFileId();
         UserUpvoteId userUpvoteId = new UserUpvoteId(userId, fileId);
         try {
