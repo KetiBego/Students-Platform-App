@@ -13,7 +13,7 @@ extension Service {
         
         let url = URL(string: UrlStrings.subjectsUrl)!
         
-        let token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJydXNrYUBmcmVldW5pLmVkdS5nZSIsImlhdCI6MTcyNTEzNjU0MCwiZXhwIjoxNzI1NzQ1MDQwfQ.eXbw0ChdHoCwa2B1Jxgvols740krEOCAEdgAf4LfWLSN3ckJlC-83Pk-BJRmWxit00tB4knUVR_EMfa-E3IsMw"
+        let token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJydXNrYUBmcmVldW5pLmVkdS5nZSIsImlhdCI6MTcyNTE5OTM4NCwiZXhwIjoxNzI1ODA3ODg0fQ.xi1e7wcOraWuJ-d3hqQt_arKRiHTvSumqrTKuF4-vTP7RsTm6OcPhHZpXKZaUi1dLwluJEPo2q6bhlz2VaNkEw"
         
         var request = URLRequest(url: url)
         request.httpMethod = HTTPMethod.get.rawValue

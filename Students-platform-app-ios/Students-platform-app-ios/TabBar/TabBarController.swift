@@ -39,11 +39,12 @@ class TabBarController: UITabBarController {
         maskLayer.path = path.cgPath
         maskLayer.borderColor = Color.Blue2.cgColor
         tabBar.layer.mask = maskLayer
+        
     }
     
     private func setUpUI() {
         
-        tabBar.backgroundColor =  Color.Yellow2
+
         
         let appearance = self.tabBar.standardAppearance.copy()
         appearance.stackedLayoutAppearance.normal.iconColor = Color.Blue1
@@ -57,6 +58,11 @@ class TabBarController: UITabBarController {
             .font : UIFont.systemFont(ofSize: .L)
         ]
         
+        appearance.backgroundColor = Color.Yellow2
+    
+        
+
+        tabBar.scrollEdgeAppearance = appearance
         self.tabBar.standardAppearance = appearance
     }
     

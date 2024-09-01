@@ -12,6 +12,7 @@ public struct Icons {
     public static let search = ImageWrapper(name: "magnifyingglass")
     public static let chat = ImageWrapper(name: "message")
     public static let profile = ImageWrapper(name: "person.crop.circle")
+    public static let more =  UIImage(systemName: "ellipsis")
 }
 
 public struct Image {

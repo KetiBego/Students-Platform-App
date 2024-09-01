@@ -15,7 +15,14 @@ public struct MytextBook {
         public static let email = "მეილი"
     }
     
-    
+    public struct SearchTexts {
+        public static let search = "საგნის ძებნა"
+        public static let addSubject = "ფავორიტებში დამატება"
+        public static let deleteSubject = "ფავორიტებიდან ამოშლა"
+
+        
+        
+    }
     
     
 }

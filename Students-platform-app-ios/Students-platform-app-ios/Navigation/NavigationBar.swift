@@ -62,4 +62,5 @@ public extension CustomNavigatable where Self: UIViewController {
             navigationItem.rightBarButtonItems = rightItems
         }
     }
+
 }
