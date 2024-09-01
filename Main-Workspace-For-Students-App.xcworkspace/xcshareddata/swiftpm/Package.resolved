@@ -1,13 +1,13 @@
 {
-  "originHash" : "c67032f211b382b33817e58cc83c52a3d06f2b036597dea0c43e488d3eab1403",
+  "originHash" : "0a79f2009ea5ba6a9e7c2c6471d05458a7ac9a981d2fd7ab914f1eb741af1ea1",
   "pins" : [
     {
-      "identity" : "resolver",
+      "identity" : "lottie-ios",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/hmlongco/Resolver.git",
+      "location" : "https://github.com/airbnb/lottie-ios",
       "state" : {
-        "revision" : "97de0b0320036607564af4a60025b48f8d041221",
-        "version" : "1.5.0"
+        "revision" : "fe4c6fe3a0aa66cdeb51d549623c82ca9704b9a5",
+        "version" : "4.5.0"
       }
     }
   ],

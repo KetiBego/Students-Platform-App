@@ -16,7 +16,7 @@ extension Service {
         let url = URL(string: UrlStrings.loginUrl)
             
         // Create a POST request
-        guard let request = makeRequest(with: url!, email: email, password: password) else {
+        guard let request = makeLoginRequest(with: url!, email: email, password: password) else {
             completion(.failure(ServiceError.invalidParameters))
             return
         }
@@ -42,7 +42,7 @@ extension Service {
     }
     
     
-    func makeRequest(with url : URL, email: String, password: String) -> URLRequest? {
+    func makeLoginRequest(with url : URL, email: String, password: String) -> URLRequest? {
         var request = URLRequest(url: url)
         request.httpMethod = HTTPMethod.post.rawValue
             

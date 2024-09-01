@@ -12,15 +12,14 @@
 		9905FF032C7D387900867AFD /* ApiLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FF022C7D387900867AFD /* ApiLoginModel.swift */; };
 		9905FF072C7D3B7A00867AFD /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FF062C7D3B7A00867AFD /* LoginUseCase.swift */; };
 		9905FF0A2C7D3C6900867AFD /* URLHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FF092C7D3C6900867AFD /* URLHelper.swift */; };
-		992AAFB82C7E7D6B0057AA16 /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 992AAFB72C7E7D6B0057AA16 /* Resolver */; };
-		992AAFBA2C7E7D6B0057AA16 /* Resolver-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 992AAFB92C7E7D6B0057AA16 /* Resolver-Dynamic */; };
-		992AAFBC2C7E7D6B0057AA16 /* Resolver-Static in Frameworks */ = {isa = PBXBuildFile; productRef = 992AAFBB2C7E7D6B0057AA16 /* Resolver-Static */; };
 		996BA3BC2BEE70EB00F7E3B4 /* Networking.docc in Sources */ = {isa = PBXBuildFile; fileRef = 996BA3BB2BEE70EB00F7E3B4 /* Networking.docc */; };
 		996BA3C22BEE70EB00F7E3B4 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 996BA3B72BEE70EB00F7E3B4 /* Networking.framework */; };
 		996BA3C72BEE70EB00F7E3B4 /* NetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996BA3C62BEE70EB00F7E3B4 /* NetworkingTests.swift */; };
 		996BA3C82BEE70EB00F7E3B4 /* Networking.h in Headers */ = {isa = PBXBuildFile; fileRef = 996BA3BA2BEE70EB00F7E3B4 /* Networking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		996BA3D22BEE710B00F7E3B4 /* TestFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996BA3D12BEE710B00F7E3B4 /* TestFile.swift */; };
-		9985DD202C8129F200D9D189 /* Resolver-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 992AAFB92C7E7D6B0057AA16 /* Resolver-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		997F6B3B2C83D18A0011DF7F /* ApiSubjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997F6B3A2C83D18A0011DF7F /* ApiSubjectModel.swift */; };
+		997F6B3D2C83D2CC0011DF7F /* SubjectsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997F6B3C2C83D2CC0011DF7F /* SubjectsEntity.swift */; };
+		997F6B3F2C83D37A0011DF7F /* SubjectsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997F6B3E2C83D37A0011DF7F /* SubjectsUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +39,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				9985DD202C8129F200D9D189 /* Resolver-Dynamic in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,6 +57,9 @@
 		996BA3C12BEE70EB00F7E3B4 /* NetworkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		996BA3C62BEE70EB00F7E3B4 /* NetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingTests.swift; sourceTree = "<group>"; };
 		996BA3D12BEE710B00F7E3B4 /* TestFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFile.swift; sourceTree = "<group>"; };
+		997F6B3A2C83D18A0011DF7F /* ApiSubjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSubjectModel.swift; sourceTree = "<group>"; };
+		997F6B3C2C83D2CC0011DF7F /* SubjectsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsEntity.swift; sourceTree = "<group>"; };
+		997F6B3E2C83D37A0011DF7F /* SubjectsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,9 +67,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				992AAFBA2C7E7D6B0057AA16 /* Resolver-Dynamic in Frameworks */,
-				992AAFBC2C7E7D6B0057AA16 /* Resolver-Static in Frameworks */,
-				992AAFB82C7E7D6B0057AA16 /* Resolver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				9905FF022C7D387900867AFD /* ApiLoginModel.swift */,
+				997F6B3A2C83D18A0011DF7F /* ApiSubjectModel.swift */,
 			);
 			path = "Api Models";
 			sourceTree = "<group>";
@@ -103,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				9905FF002C7D383B00867AFD /* LoginEntity.swift */,
+				997F6B3C2C83D2CC0011DF7F /* SubjectsEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -111,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				9905FF062C7D3B7A00867AFD /* LoginUseCase.swift */,
+				997F6B3E2C83D37A0011DF7F /* SubjectsUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -194,9 +195,6 @@
 			);
 			name = Networking;
 			packageProductDependencies = (
-				992AAFB72C7E7D6B0057AA16 /* Resolver */,
-				992AAFB92C7E7D6B0057AA16 /* Resolver-Dynamic */,
-				992AAFBB2C7E7D6B0057AA16 /* Resolver-Static */,
 			);
 			productName = Networking;
 			productReference = 996BA3B72BEE70EB00F7E3B4 /* Networking.framework */;
@@ -248,7 +246,6 @@
 			);
 			mainGroup = 996BA3AD2BEE70EB00F7E3B4;
 			packageReferences = (
-				992AAFB62C7E7D6B0057AA16 /* XCRemoteSwiftPackageReference "Resolver" */,
 			);
 			productRefGroup = 996BA3B82BEE70EB00F7E3B4 /* Products */;
 			projectDirPath = "";
@@ -282,9 +279,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				997F6B3D2C83D2CC0011DF7F /* SubjectsEntity.swift in Sources */,
 				996BA3BC2BEE70EB00F7E3B4 /* Networking.docc in Sources */,
+				997F6B3F2C83D37A0011DF7F /* SubjectsUseCase.swift in Sources */,
 				9905FF012C7D383B00867AFD /* LoginEntity.swift in Sources */,
 				9905FF032C7D387900867AFD /* ApiLoginModel.swift in Sources */,
+				997F6B3B2C83D18A0011DF7F /* ApiSubjectModel.swift in Sources */,
 				9905FF0A2C7D3C6900867AFD /* URLHelper.swift in Sources */,
 				9905FEF82C7D365300867AFD /* Endpoint.swift in Sources */,
 				996BA3D22BEE710B00F7E3B4 /* TestFile.swift in Sources */,
@@ -565,35 +565,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		992AAFB62C7E7D6B0057AA16 /* XCRemoteSwiftPackageReference "Resolver" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/hmlongco/Resolver.git";
-			requirement = {
-				kind = exactVersion;
-				version = 1.5.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		992AAFB72C7E7D6B0057AA16 /* Resolver */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 992AAFB62C7E7D6B0057AA16 /* XCRemoteSwiftPackageReference "Resolver" */;
-			productName = Resolver;
-		};
-		992AAFB92C7E7D6B0057AA16 /* Resolver-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 992AAFB62C7E7D6B0057AA16 /* XCRemoteSwiftPackageReference "Resolver" */;
-			productName = "Resolver-Dynamic";
-		};
-		992AAFBB2C7E7D6B0057AA16 /* Resolver-Static */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 992AAFB62C7E7D6B0057AA16 /* XCRemoteSwiftPackageReference "Resolver" */;
-			productName = "Resolver-Static";
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 996BA3AE2BEE70EB00F7E3B4 /* Project object */;
 }

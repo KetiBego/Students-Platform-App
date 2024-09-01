@@ -18,6 +18,7 @@ public class Service{
     
     public struct UrlStrings {
         public static let loginUrl = "http://localhost:8080/api/v1/user/signIn"
+        public static let subjectsUrl = "http://localhost:8080/api/v1/subjects/all"
     }
 }
     

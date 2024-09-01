@@ -20,3 +20,8 @@ public struct Image {
                                         compatibleWith: nil)!
     public static let person = ImageWrapper(name: "person")
 }
+
+public struct MyLottie {
+    public static let loader = "Loader"
+    
+}

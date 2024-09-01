@@ -230,15 +230,14 @@ extension EntryPage {
                 font: .systemFont(ofSize: .XL2)
             ),
             action: { [weak self] in
-                self?.service.CallLoginService(for: "rkeld20@freeuni.edu.ge", password: "12345678", completion: {[weak self] result in
+                  self?.service.CallLoginService(for: "rkeld20@freeuni.edu.ge", password: "12345678", completion: {[weak self] result in
                     guard let self = self else {return}
-                    switch result{
-                    case .success(let serviceResponse):
+                    switch result{                   case .success(let serviceResponse):
                         print(serviceResponse)
                     case .failure(let error):
                         print(error)
                     }
-                })
+              })
                 self?.navigationController?.pushViewController(TabBarController(), animated: true)
             }))
     }
