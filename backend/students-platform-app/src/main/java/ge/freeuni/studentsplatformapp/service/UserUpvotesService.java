@@ -1,11 +1,11 @@
 package ge.freeuni.studentsplatformapp.service;
 
-import ge.freeuni.studentsplatformapp.dto.AddUserUpvoteRequest;
-import ge.freeuni.studentsplatformapp.dto.RemoveUserUpvoteRequest;
+import ge.freeuni.studentsplatformapp.dto.UpvoteRequest;
 import ge.freeuni.studentsplatformapp.model.UserUpvote;
 import ge.freeuni.studentsplatformapp.model.UserUpvoteId;
 import ge.freeuni.studentsplatformapp.repository.FileRepository;
 import ge.freeuni.studentsplatformapp.repository.UserUpvotesRepository;
+import ge.freeuni.studentsplatformapp.security.SignedInUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,9 +15,10 @@ public class UserUpvotesService {
 
     private final UserUpvotesRepository userUpvotesRepository;
     private final FileRepository fileRepository;
+    private final SignedInUserService signedInUserService;
 
-    public void addUserUpvote(AddUserUpvoteRequest request) {
-        Long userId = request.getUserId();
+    public void addUserUpvote(UpvoteRequest request) {
+        Long userId = signedInUserService.getCurrentUserInfo().getId();
         Long fileId = request.getFileId();
         UserUpvoteId userUpvoteId = new UserUpvoteId(userId, fileId);
         UserUpvote userUpvote = new UserUpvote(userUpvoteId);
@@ -35,8 +36,8 @@ public class UserUpvotesService {
         }
     }
 
-    public void removeUserUpvote(RemoveUserUpvoteRequest request) {
-        Long userId = request.getUserId();
+    public void removeUserUpvote(UpvoteRequest request) {
+        Long userId = signedInUserService.getCurrentUserInfo().getId();
         Long fileId = request.getFileId();
         UserUpvoteId userUpvoteId = new UserUpvoteId(userId, fileId);
         try {
@@ -51,5 +52,10 @@ public class UserUpvotesService {
         } catch (Exception e) {
             throw new RuntimeException("Failed to remove upvote from file");
         }
+    }
+
+    public Boolean isUpvoted(Long userId, Long fileId) {
+        UserUpvoteId userUpvoteId = new UserUpvoteId(userId, fileId);
+        return userUpvotesRepository.findById(userUpvoteId).isPresent();
     }
 }

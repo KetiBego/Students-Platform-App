@@ -71,21 +71,13 @@ public class UserService {
                     .token(token)
                     .build();
         } catch (AuthenticationException e) {
+            System.out.println(e.getMessage());
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid email or password");
         }
     }
 
-    public org.springframework.security.core.userdetails.User getCurrentUser() {
-        org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Long id = userRepository.findByEmail(user.getUsername()).getId();
-        return user;
-    }
-
-    public CustomUserDetails getCurrentUserInfo() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication != null && authentication.getPrincipal() instanceof CustomUserDetails) {
-            return (CustomUserDetails) authentication.getPrincipal();
-        }
-        return null;
+    public User getUserById(Long userId) {
+        return userRepository.findById(userId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
     }
 }
