@@ -2,7 +2,7 @@ package ge.freeuni.studentsplatformapp.controller;
 
 import ge.freeuni.studentsplatformapp.dto.UpvoteRequest;
 import ge.freeuni.studentsplatformapp.service.UserUpvotesService;
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

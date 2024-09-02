@@ -4,7 +4,7 @@ import ge.freeuni.studentsplatformapp.dto.AddUserSubjectRequest;
 import ge.freeuni.studentsplatformapp.dto.GetUserSubjectsRequest;
 import ge.freeuni.studentsplatformapp.dto.GetUserSubjectsResponse;
 import ge.freeuni.studentsplatformapp.service.UserSubjectsService;
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

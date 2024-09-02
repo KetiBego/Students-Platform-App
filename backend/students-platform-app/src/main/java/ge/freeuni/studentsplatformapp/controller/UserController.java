@@ -6,7 +6,7 @@ import ge.freeuni.studentsplatformapp.dto.UserSignInResponse;
 import ge.freeuni.studentsplatformapp.security.CustomUserDetails;
 import ge.freeuni.studentsplatformapp.security.SignedInUserService;
 import ge.freeuni.studentsplatformapp.service.UserService;
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

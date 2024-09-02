@@ -36,9 +36,13 @@ public class SecurityConfig {
         );
         http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/user/signIn", "/user").permitAll()
-                        .requestMatchers("swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**", "/h2-console/**").permitAll()
+                        .antMatchers("/user/signIn").permitAll()
+                        .antMatchers("/user").permitAll()
+                        .antMatchers("swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**", "/h2-console/**").permitAll()
                         .anyRequest().authenticated()
+                )
+                .exceptionHandling(exceptionHandling -> exceptionHandling
+                        .authenticationEntryPoint(new UnauthorizedEntryPoint())
                 )
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)

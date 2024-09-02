@@ -3,7 +3,7 @@ package ge.freeuni.studentsplatformapp.controller;
 import ge.freeuni.studentsplatformapp.dto.CreateFlashcardPackRequest;
 import ge.freeuni.studentsplatformapp.dto.UpdateFlashcardPackRequest;
 import ge.freeuni.studentsplatformapp.service.FlashcardPackService;
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

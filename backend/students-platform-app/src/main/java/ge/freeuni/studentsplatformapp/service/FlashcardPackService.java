@@ -7,7 +7,9 @@ import ge.freeuni.studentsplatformapp.model.FlashcardPack;
 import ge.freeuni.studentsplatformapp.repository.FlashcardPackRepository;
 import ge.freeuni.studentsplatformapp.repository.FlashcardRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -52,7 +54,7 @@ public class FlashcardPackService {
                 flashcardRepository.save(newFlashcard);
             });
         } catch (Exception e) {
-            throw new RuntimeException("Flashcard pack not found");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Flashcard pack not found");
         }
     }
 

@@ -1,7 +1,7 @@
 package ge.freeuni.studentsplatformapp.dto;
 
 import ge.freeuni.studentsplatformapp.model.Conversation;
-import jakarta.validation.constraints.NotBlank;
+import javax.validation.constraints.NotBlank;
 import lombok.Data;
 
 import java.util.List;
