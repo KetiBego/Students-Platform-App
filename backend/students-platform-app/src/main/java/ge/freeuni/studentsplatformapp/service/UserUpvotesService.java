@@ -5,6 +5,7 @@ import ge.freeuni.studentsplatformapp.model.UserUpvote;
 import ge.freeuni.studentsplatformapp.model.UserUpvoteId;
 import ge.freeuni.studentsplatformapp.repository.FileRepository;
 import ge.freeuni.studentsplatformapp.repository.UserUpvotesRepository;
+import ge.freeuni.studentsplatformapp.security.SignedInUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,12 +13,12 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class UserUpvotesService {
 
-    private final UserService userService;
     private final UserUpvotesRepository userUpvotesRepository;
     private final FileRepository fileRepository;
+    private final SignedInUserService signedInUserService;
 
     public void addUserUpvote(UpvoteRequest request) {
-        Long userId = userService.getCurrentUserInfo().getId();
+        Long userId = signedInUserService.getCurrentUserInfo().getId();
         Long fileId = request.getFileId();
         UserUpvoteId userUpvoteId = new UserUpvoteId(userId, fileId);
         UserUpvote userUpvote = new UserUpvote(userUpvoteId);
@@ -36,7 +37,7 @@ public class UserUpvotesService {
     }
 
     public void removeUserUpvote(UpvoteRequest request) {
-        Long userId = userService.getCurrentUserInfo().getId();
+        Long userId = signedInUserService.getCurrentUserInfo().getId();
         Long fileId = request.getFileId();
         UserUpvoteId userUpvoteId = new UserUpvoteId(userId, fileId);
         try {

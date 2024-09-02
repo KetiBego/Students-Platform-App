@@ -71,16 +71,9 @@ public class UserService {
                     .token(token)
                     .build();
         } catch (AuthenticationException e) {
+            System.out.println(e.getMessage());
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid email or password");
         }
-    }
-
-    public CustomUserDetails getCurrentUserInfo() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication != null && authentication.getPrincipal() instanceof CustomUserDetails) {
-            return (CustomUserDetails) authentication.getPrincipal();
-        }
-        return null;
     }
 
     public User getUserById(Long userId) {

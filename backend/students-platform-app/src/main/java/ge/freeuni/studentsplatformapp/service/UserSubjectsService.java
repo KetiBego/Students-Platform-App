@@ -1,12 +1,12 @@
 package ge.freeuni.studentsplatformapp.service;
 
 import ge.freeuni.studentsplatformapp.dto.AddUserSubjectRequest;
-import ge.freeuni.studentsplatformapp.dto.GetUserSubjectsRequest;
 import ge.freeuni.studentsplatformapp.dto.GetUserSubjectsResponse;
 import ge.freeuni.studentsplatformapp.model.UserSubject;
 import ge.freeuni.studentsplatformapp.model.UserSubjectId;
 import ge.freeuni.studentsplatformapp.repository.SubjectsRepository;
 import ge.freeuni.studentsplatformapp.repository.UserSubjectsRepository;
+import ge.freeuni.studentsplatformapp.security.SignedInUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,13 +16,12 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserSubjectsService {
 
-    private final UserService userService;
     private final UserSubjectsRepository userSubjectRepository;
     private final SubjectsRepository subjectsRepository;
-
+    private final SignedInUserService signedInUserService;
 
     public void addUserSubject(AddUserSubjectRequest request) {
-        Long userId = userService.getCurrentUserInfo().getId();
+        Long userId = signedInUserService.getCurrentUserInfo().getId();
         Long subjectId = request.getSubjectId();
         UserSubjectId userSubjectId = new UserSubjectId(userId, subjectId);
         UserSubject userSubject = new UserSubject(userSubjectId);
@@ -30,7 +29,7 @@ public class UserSubjectsService {
     }
 
     public GetUserSubjectsResponse getUserSubjects() {
-        Long userId = userService.getCurrentUserInfo().getId();
+        Long userId = signedInUserService.getCurrentUserInfo().getId();
         GetUserSubjectsResponse response = new GetUserSubjectsResponse();
         List<UserSubject> userSubjects = userSubjectRepository.findByIdUserId(userId);
         response.setSubjects(
@@ -43,7 +42,7 @@ public class UserSubjectsService {
     }
 
     public void deleteUserSubject(AddUserSubjectRequest request) {
-        Long userId = userService.getCurrentUserInfo().getId();
+        Long userId = signedInUserService.getCurrentUserInfo().getId();
         Long subjectId = request.getSubjectId();
         UserSubjectId userSubjectId = new UserSubjectId(userId, subjectId);
         userSubjectRepository.deleteById(userSubjectId);

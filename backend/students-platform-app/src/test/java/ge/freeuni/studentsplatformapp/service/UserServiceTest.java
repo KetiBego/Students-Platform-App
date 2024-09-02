@@ -5,12 +5,17 @@ import ge.freeuni.studentsplatformapp.dto.UserSignInRequest;
 import ge.freeuni.studentsplatformapp.dto.UserSignInResponse;
 import ge.freeuni.studentsplatformapp.model.User;
 import ge.freeuni.studentsplatformapp.repository.UserRepository;
+import ge.freeuni.studentsplatformapp.security.SecurityConfig;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.security.MessageDigest;
@@ -20,13 +25,17 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
+@SpringBootTest
 public class UserServiceTest {
 
-    @Mock
+    @MockBean
     private UserRepository userRepository;
 
-    @InjectMocks
+    @Autowired
     private UserService userService;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     private User user;
 
@@ -116,19 +125,6 @@ public class UserServiceTest {
     }
 
     private String hashPassword() {
-        try {
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            byte[] hash = digest.digest("password".getBytes());
-
-            StringBuilder hexString = new StringBuilder();
-            for (byte b : hash) {
-                String hex = Integer.toHexString(0xff & b);
-                if (hex.length() == 1) hexString.append('0');
-                hexString.append(hex);
-            }
-            return hexString.toString();
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException("SHA-256 algorithm not found", e);
-        }
+        return passwordEncoder.encode("password");
     }
 }
