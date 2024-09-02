@@ -3,6 +3,7 @@ package ge.freeuni.studentsplatformapp.service;
 import ge.freeuni.studentsplatformapp.dto.AddUserSubjectRequest;
 import ge.freeuni.studentsplatformapp.dto.GetUserSubjectsRequest;
 import ge.freeuni.studentsplatformapp.dto.GetUserSubjectsResponse;
+import ge.freeuni.studentsplatformapp.dto.UserSignInRequest;
 import ge.freeuni.studentsplatformapp.model.Subject;
 import ge.freeuni.studentsplatformapp.model.User;
 import ge.freeuni.studentsplatformapp.model.UserSubject;
@@ -10,16 +11,21 @@ import ge.freeuni.studentsplatformapp.model.UserSubjectId;
 import ge.freeuni.studentsplatformapp.repository.SubjectsRepository;
 import ge.freeuni.studentsplatformapp.repository.UserRepository;
 import ge.freeuni.studentsplatformapp.repository.UserSubjectsRepository;
+import ge.freeuni.studentsplatformapp.security.CustomUserDetails;
+import ge.freeuni.studentsplatformapp.security.SignedInUserService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
 
 @SpringBootTest
 public class UserSubjectsServiceTest {
@@ -35,6 +41,12 @@ public class UserSubjectsServiceTest {
 
     @Autowired
     private UserSubjectsService userSubjectsService;
+
+    @MockBean
+    private SignedInUserService signedInUserService;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @BeforeEach
     void setUp() {
@@ -55,16 +67,16 @@ public class UserSubjectsServiceTest {
         User user = User.builder()
                 .email("test@freeuni.edu.ge")
                 .username("testuser")
-                .hashedPassword("password")
+                .hashedPassword(passwordEncoder.encode("password"))
                 .schoolId(1)
                 .build();
         userRepository.save(user);
 
         Subject subject = Subject.builder().id(1L).subjectName("Math").build();
         subjectsRepository.save(subject);
-
+        when(signedInUserService.getCurrentUserInfo()).thenReturn(new CustomUserDetails(
+                user.getId(), user.getEmail(), user.getUsername(), "", null));
         AddUserSubjectRequest request = new AddUserSubjectRequest();
-        request.setUserId(user.getId());
         request.setSubjectId(subject.getId());
 
         userSubjectsService.addUserSubject(request);
@@ -78,11 +90,12 @@ public class UserSubjectsServiceTest {
         User user = User.builder()
                 .email("test@freeuni.edu.ge")
                 .username("testuser")
-                .hashedPassword("password")
+                .hashedPassword(passwordEncoder.encode("password"))
                 .schoolId(1)
                 .build();
         userRepository.save(user);
-
+        when(signedInUserService.getCurrentUserInfo()).thenReturn(new CustomUserDetails(
+                user.getId(), user.getEmail(), user.getUsername(), "", null));
         Subject math = Subject.builder().id(1L).subjectName("Math").build();
         Subject english = Subject.builder().id(2L).subjectName("English").build();
         subjectsRepository.saveAll(Arrays.asList(math, english));
@@ -96,7 +109,7 @@ public class UserSubjectsServiceTest {
         GetUserSubjectsRequest request = new GetUserSubjectsRequest();
         request.setUserId(user.getId());
 
-        GetUserSubjectsResponse response = userSubjectsService.getUserSubjects(request);
+        GetUserSubjectsResponse response = userSubjectsService.getUserSubjects();
 
         assertEquals(2, response.getSubjects().size());
         assertEquals("Math", response.getSubjects().get(0).getSubjectName());

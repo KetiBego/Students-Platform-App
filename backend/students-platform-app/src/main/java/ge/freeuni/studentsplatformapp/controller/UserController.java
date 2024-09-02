@@ -3,15 +3,14 @@ package ge.freeuni.studentsplatformapp.controller;
 import ge.freeuni.studentsplatformapp.dto.UserCreateRequest;
 import ge.freeuni.studentsplatformapp.dto.UserSignInRequest;
 import ge.freeuni.studentsplatformapp.dto.UserSignInResponse;
+import ge.freeuni.studentsplatformapp.security.CustomUserDetails;
+import ge.freeuni.studentsplatformapp.security.SignedInUserService;
 import ge.freeuni.studentsplatformapp.service.UserService;
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
@@ -19,8 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     private final UserService userService;
+    private final SignedInUserService signedInUserService;
 
-    @PostMapping()
+    @PostMapping
     public ResponseEntity<Void> createUser(@RequestBody @Valid UserCreateRequest request) {
         userService.createUser(request);
         return new ResponseEntity<>(HttpStatus.CREATED);
@@ -30,5 +30,11 @@ public class UserController {
     public ResponseEntity<UserSignInResponse> signInUser(@RequestBody @Valid UserSignInRequest request) {
         UserSignInResponse response = userService.signInUser(request);
         return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/me")
+    public ResponseEntity<CustomUserDetails> getCurrentUser() {
+        CustomUserDetails userDetails = signedInUserService.getCurrentUserInfo();
+        return new ResponseEntity<>(userDetails, HttpStatus.OK);
     }
 }

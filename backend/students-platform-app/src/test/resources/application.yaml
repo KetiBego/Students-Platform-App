@@ -1,6 +1,8 @@
 spring:
   application:
     name: students-platform-app
+  profiles:
+    active: test
   jpa:
     open-in-view: true
     properties:
@@ -15,7 +17,7 @@ spring:
         temp:
           use_jdbc_metadata_defaults: false
     hibernate:
-      ddl-auto: create # Ensures schema creation for the test
+      ddl-auto: create
 
   h2:
     console:
@@ -26,6 +28,10 @@ spring:
     url: jdbc:h2:mem:students-platform-test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false
     username: sa
     password:
+
+jwt:
+  secret: 3RISUJrdkXMNtQwlX/JRqVcn42O4hmLm7ZQScGuKcXC7mGkW/BM1duzVs14zIDiUYc2ldkJrsFYUcD1rVpwP/w==
+  expiration: 3600000
 
 server:
   port: 8080

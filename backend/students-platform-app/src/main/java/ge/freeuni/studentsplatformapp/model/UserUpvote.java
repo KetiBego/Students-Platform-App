@@ -1,7 +1,7 @@
 package ge.freeuni.studentsplatformapp.model;
 
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -8,8 +8,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GetFileInfoResponse {
-    private Long userId;
-    private Long subjectId;
+    private Long id;
+    private String username;
+    private String subjectName;
     private String fileName;
     private Long upvoteCount;
+    private Boolean isUpvoted;
 }

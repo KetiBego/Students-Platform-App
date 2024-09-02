@@ -4,10 +4,7 @@ import javax.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
-public class StartConversationRequest {
+public class UpvoteRequest {
     @NotBlank
-    private Long user1Id;
-
-    @NotBlank
-    private Long user2Id;
+    private Long fileId;
 }

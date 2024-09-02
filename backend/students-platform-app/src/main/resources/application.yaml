@@ -25,6 +25,10 @@ spring:
     username: sa
     password:
 
+jwt:
+  secret: 3RISUJrdkXMNtQwlX/JRqVcn42O4hmLm7ZQScGuKcXC7mGkW/BM1duzVs14zIDiUYc2ldkJrsFYUcD1rVpwP/w==
+  expiration: 3600000
+
 server:
   port: 8080
   servlet:
