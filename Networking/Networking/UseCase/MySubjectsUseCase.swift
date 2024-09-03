@@ -1,17 +1,17 @@
 //
-//  SubjectsUseCase.swift
+//  MySubjectsUseCase.swift
 //  Networking
 //
-//  Created by Ruska Keldishvili on 01.09.24.
+//  Created by Ruska Keldishvili on 02.09.24.
 //
 
 extension Service {
     
-    public func CallSubjectsService(
+    public func CallMySubjectsService(
         completion: @escaping(Result<[SubjectEntity], Error>) -> ()
     ){
         
-        let url = URL(string: UrlStrings.subjectsUrl)!
+        let url = URL(string: UrlStrings.mySubjectsUrl)!
         
         let token = UserDefaults.standard.string(forKey: "authToken") ?? ""
 

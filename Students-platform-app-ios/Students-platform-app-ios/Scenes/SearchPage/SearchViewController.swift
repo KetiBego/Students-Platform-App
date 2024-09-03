@@ -11,7 +11,12 @@ import Networking
 import Combine
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CustomNavigatable {
         
+
+    private let refreshControl = UIRefreshControl()
+
+    
     private var subjects: [SubjectEntity] = []
+    private var mySubjects: [SubjectEntity] = []
     private var filteredSubjects: [SubjectEntity] = []
     private let tableView = UITableView()
     private let  service = Service()
@@ -48,6 +53,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         setUp()
         view.backgroundColor = Color.background
         fetchSubjects()
+        fetchMySubjects()
         configureNavigationBar()
         navigationItem.hidesBackButton = true
         setupSearch()
@@ -110,19 +116,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.left(toView: view)
         tableView.right(toView: view)
         tableView.bottom(toView: view)
-    
-//        NSLayoutConstraint.activate([
-//            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-//            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-//            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-//        ])
-//        NSLayoutConstraint.activate([
-//            searchTextField.topAnchor.constraint(equalTo: view.topAnchor),
-////            searchTextField.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-//            searchTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//            searchTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-//        ])
     }
     
     private func setupTableView() {
@@ -133,9 +126,17 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.dataSource = self
         tableView.delegate = self
         
-        // Register your custom cell class
         tableView.register(SubjectTableViewCell.self, forCellReuseIdentifier: "SubjectCell")
+        
+        refreshControl.addTarget(self, action: #selector(refreshSubjectsData), for: .valueChanged)
+        tableView.refreshControl = refreshControl
     }
+    
+    @objc private func refreshSubjectsData() {
+        fetchSubjects()
+        fetchMySubjects()
+    }
+    
     
     private func fetchSubjects() {
         service.CallSubjectsService { [weak self] result in
@@ -148,10 +149,28 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                 }
             case .failure(let error):
                 print("Failed to fetch subjects: \(error)")
-                // Handle error (e.g., show an alert)
             }
         }
     }
+    
+    private func fetchMySubjects() {
+        service.CallMySubjectsService { [weak self] result in
+            switch result {
+            case .success(let subjects):
+                self?.mySubjects = subjects
+                DispatchQueue.main.async {
+                    self?.refreshControl.endRefreshing()
+                    self?.tableView.reloadData()
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self?.refreshControl.endRefreshing()
+                }
+                print("Failed to fetch my subjects: \(error)")
+            }
+        }
+    }
+    
     
     // MARK: - UITableViewDataSource
     
@@ -168,36 +187,67 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         cell.configure(with: subject)
         
         cell.moreButtonTapped = { [weak self] in
-            self?.handleMoreButtonTapped(for: subject)
+            if let index = self?.mySubjects.firstIndex(where: { $0.id == subject.id }) {
+                self?.handleMoreButtonForMySubjectTapped(for: subject)
+            }
+            else {
+                self?.handleMoreButtonTapped(for: subject)
+            }
         }
         
         return cell
     }
     
-    private func handleMoreButtonTapped(for subject: SubjectEntity) {
+    private func handleMoreButtonForMySubjectTapped(for subject: SubjectEntity) {
          // Handle the action for the more button tap
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             
+        let firstAction = UIAlertAction(title: MytextBook.SearchTexts.deleteSubject, style: .default) { _ in
+            self.service.CallDeleteSubjectService(subjectId: subject.id!) { result in
+                switch result {
+                case .success:
+                    if let index = self.mySubjects.firstIndex(where: { $0.id == subject.id }) {
+                        self.mySubjects.remove(at: index)
+                    }
+                case .failure(let error):
+                    print("Failed to delete subject: \(error)")
+                }
+            }
+        }
+            
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alertController.addAction(firstAction)
+        alertController.addAction(cancelAction)
+            
+        if let topController = UIApplication.shared.windows.first?.rootViewController {
+            topController.present(alertController, animated: true, completion: nil)
+        }
+     }
+    
+    private func handleMoreButtonTapped(for subject: SubjectEntity) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            
         let firstAction = UIAlertAction(title: MytextBook.SearchTexts.addSubject, style: .default) { _ in
-                print("Action 1 tapped")
-                // Add your action 1 code here
+            self.service.CallAddSubjectsService(subjectId: subject.id!) { result in
+                switch result {
+                case .success:
+                    self.mySubjects.insert(subject, at: 0)
+                case .failure(let error):
+                    print("Failed to add subject: \(error)")
+                }
             }
+        }
+       
             
-        let secondAction = UIAlertAction(title: MytextBook.SearchTexts.deleteSubject, style: .default) { _ in
-                print("Action 2 tapped")
-                // Add your action 2 code here
-            }
+        let cancelAction = UIAlertAction(title: "გაუქმება", style: .cancel)
+        
+        alertController.addAction(firstAction)
+        alertController.addAction(cancelAction)
             
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-            
-            alertController.addAction(firstAction)
-            alertController.addAction(secondAction)
-            alertController.addAction(cancelAction)
-            
-            // Present the action sheet
-            if let topController = UIApplication.shared.windows.first?.rootViewController {
-                topController.present(alertController, animated: true, completion: nil)
-            }
+        if let topController = UIApplication.shared.windows.first?.rootViewController {
+            topController.present(alertController, animated: true, completion: nil)
+        }
      }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

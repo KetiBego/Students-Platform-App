@@ -6,12 +6,12 @@
 //
 
 public struct SubjectEntity {
-    public init(id: Int64?, subjectName: String?) {
+    public init(id: Int?, subjectName: String?) {
         self.id = id
         self.subjectName = subjectName
     }
     
-    public var id: Int64?
+    public var id: Int?
     public var subjectName: String?
     
     // Initializer that takes a Subject model

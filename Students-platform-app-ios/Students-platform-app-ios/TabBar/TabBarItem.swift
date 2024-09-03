@@ -43,7 +43,7 @@ enum TabBarItem {
     var controller: UIViewController {
         switch self {
         case .Subjects:
-            return SearchViewController()
+            return MySubjectsViewController()
         case .Search:
             return SearchViewController()
         case .Chat:

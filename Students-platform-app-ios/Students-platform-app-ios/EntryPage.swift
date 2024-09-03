@@ -71,8 +71,8 @@ class EntryPage: UIViewController {
     private let service = Service()
     
     
-    private var EmailValue:String?
-    private var PasswordValue:String?
+    private var EmailValue :String = ""
+    private var PasswordValue :String = ""
     
     
     private lazy var myImageView: UIImageView = {
@@ -80,10 +80,8 @@ class EntryPage: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.height(equalTo: 100)
         imageView.width(equalTo: 100)
-        // Set the image to your UIImage (you can replace "yourImageName" with the actual image name)
         imageView.image =  Image.AppLogo
         
-        // Set additional properties like content mode, if necessary
         imageView.contentMode = .scaleAspectFit
         
         return imageView
@@ -131,15 +129,7 @@ class EntryPage: UIViewController {
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
-    
-    //    private lazy var registrationLabel: LocalLabel = {
-    //        let label = LocalLabel()
-    //        label.translatesAutoresizingMaskIntoConstraints = false
-    //        label.backgroundColor = .clear
-    //        label.setAlignment(with: .center)
-    //        return label
-    //    }()
-    //
+   
     private lazy var LoginTextLabelModel: LocalLabelModel = {
         let label = LocalLabelModel(
             text: MytextBook.LoginTexts.loginLabelText,
@@ -194,10 +184,6 @@ class EntryPage: UIViewController {
     
 }
   
-//        self.navigationController?.pushViewController(nextViewController, animated: true)
-
-    
-
 
 extension EntryPage {
     
@@ -221,24 +207,31 @@ extension EntryPage {
         passwordTextField.bind(model: .init(
             placeholder: MytextBook.LoginTexts.password,
             isSecureEntry: true,
-            onEditingDidEnd: { email in
-                self.PasswordValue = email
+            onEditingDidEnd: { password in
+                self.PasswordValue = password
             }))
+
         button.configure(with: .init(
             titleModel: .init(
                 text: MytextBook.LoginTexts.loginButtonText,
                 font: .systemFont(ofSize: .XL2)
             ),
             action: { [weak self] in
-                  self?.service.CallLoginService(for: "rkeld20@freeuni.edu.ge", password: "12345678", completion: {[weak self] result in
+                self?.service.CallLoginService(for: self?.EmailValue ?? "" , password: self?.PasswordValue ?? "", completion: {[weak self] result in
                     guard let self = self else {return}
-                    switch result{                   case .success(let serviceResponse):
+                    switch result{                   
+                    case .success(let serviceResponse):
                         print(serviceResponse)
+                        DispatchQueue.main.async {
+                            UserDefaults.standard.set(serviceResponse.token!, forKey: "authToken")
+                            self.navigationController?.pushViewController(TabBarController(), animated: true)
+                        }
                     case .failure(let error):
                         print(error)
                     }
               })
-                self?.navigationController?.pushViewController(TabBarController(), animated: true)
+//                self?.navigationController?.pushViewController(TabBarController(), animated: true)
+
             }))
     }
     
@@ -270,7 +263,6 @@ extension EntryPage {
         
         textFieldsContainer.left(toView: containerView, constant: .XL2)
         textFieldsContainer.right(toView: containerView, constant: .XL2)
-//        textFieldsContainer.relativeTop(toView: label, constant: .XL)
         
         button.relativeTop(toView: textFieldsContainer, constant: .M)
         button.left(toView: containerView, constant: .XL2)

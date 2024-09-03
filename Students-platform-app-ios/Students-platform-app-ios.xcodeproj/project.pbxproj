@@ -10,6 +10,7 @@
 		9905FECD2C7D05C700867AFD /* LoginPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FECC2C7D05C700867AFD /* LoginPageController.swift */; };
 		9905FECF2C7D073900867AFD /* LoginPagaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FECE2C7D073900867AFD /* LoginPagaViewModel.swift */; };
 		9905FED12C7D075700867AFD /* LoginPageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FED02C7D075700867AFD /* LoginPageRouter.swift */; };
+		9916E3812C86460000CB6B62 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 9916E3802C86460000CB6B62 /* Lottie */; };
 		991E5A9B2BEE62CC004D3CA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E5A9A2BEE62CC004D3CA4 /* AppDelegate.swift */; };
 		991E5A9D2BEE62CC004D3CA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E5A9C2BEE62CC004D3CA4 /* SceneDelegate.swift */; };
 		991E5A9F2BEE62CC004D3CA4 /* EntryPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E5A9E2BEE62CC004D3CA4 /* EntryPage.swift */; };
@@ -21,7 +22,7 @@
 		991E5ABE2BEE62CD004D3CA4 /* Students_platform_app_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E5ABD2BEE62CD004D3CA4 /* Students_platform_app_iosUITestsLaunchTests.swift */; };
 		996BA3D82BEE75E200F7E3B4 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 996BA3D42BEE74D600F7E3B4 /* Networking.framework */; };
 		996BA3D92BEE75E200F7E3B4 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 996BA3D42BEE74D600F7E3B4 /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		997F6B342C83C37F0011DF7F /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 997F6B332C83C37F0011DF7F /* Lottie */; };
+		9974EAFB2C8669F800929E57 /* MysubjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974EAFA2C8669F800929E57 /* MysubjectsViewController.swift */; };
 		997F6B422C84BD630011DF7F /* SubjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997F6B412C84BD630011DF7F /* SubjectCell.swift */; };
 		9985DD192C81286F00D9D189 /* MyAssetBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9985DD182C81286F00D9D189 /* MyAssetBook.framework */; };
 		9985DD1B2C8129C000D9D189 /* MyAssetBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9998E7952C7BF9B000069CE9 /* MyAssetBook.framework */; };
@@ -125,6 +126,7 @@
 		991E5ABD2BEE62CD004D3CA4 /* Students_platform_app_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Students_platform_app_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		996BA3D42BEE74D600F7E3B4 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		996BA3DB2BEE76BC00F7E3B4 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9974EAFA2C8669F800929E57 /* MysubjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MysubjectsViewController.swift; sourceTree = "<group>"; };
 		997F6B412C84BD630011DF7F /* SubjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCell.swift; sourceTree = "<group>"; };
 		9985DD182C81286F00D9D189 /* MyAssetBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MyAssetBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9985DD232C8132B200D9D189 /* MyAssetBook.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MyAssetBook.xcodeproj; path = ../../MyAssetBook/MyAssetBook.xcodeproj; sourceTree = "<group>"; };
@@ -145,7 +147,7 @@
 				9985DD192C81286F00D9D189 /* MyAssetBook.framework in Frameworks */,
 				9985DD1B2C8129C000D9D189 /* MyAssetBook.framework in Frameworks */,
 				9985DD1E2C8129C200D9D189 /* Networking.framework in Frameworks */,
-				997F6B342C83C37F0011DF7F /* Lottie in Frameworks */,
+				9916E3812C86460000CB6B62 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +314,7 @@
 		9998E7A72C7C048200069CE9 /* MySubjects */ = {
 			isa = PBXGroup;
 			children = (
+				9974EAFA2C8669F800929E57 /* MysubjectsViewController.swift */,
 			);
 			path = MySubjects;
 			sourceTree = "<group>";
@@ -357,7 +360,7 @@
 			);
 			name = "Students-platform-app-ios";
 			packageProductDependencies = (
-				997F6B332C83C37F0011DF7F /* Lottie */,
+				9916E3802C86460000CB6B62 /* Lottie */,
 			);
 			productName = "Students-platform-app-ios";
 			productReference = 991E5A972BEE62CC004D3CA4 /* Students-platform-app-ios.app */;
@@ -433,7 +436,7 @@
 			);
 			mainGroup = 991E5A8E2BEE62CC004D3CA4;
 			packageReferences = (
-				997F6B322C83C37F0011DF7F /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				9916E37F2C86460000CB6B62 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 991E5A982BEE62CC004D3CA4 /* Products */;
 			projectDirPath = "";
@@ -520,6 +523,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				997F6B422C84BD630011DF7F /* SubjectCell.swift in Sources */,
+				9974EAFB2C8669F800929E57 /* MysubjectsViewController.swift in Sources */,
 				991E5A9F2BEE62CC004D3CA4 /* EntryPage.swift in Sources */,
 				9998E7942C7BF8EA00069CE9 /* TabBarController.swift in Sources */,
 				9998E7B02C7C068300069CE9 /* NavigationBackButton.swift in Sources */,
@@ -875,7 +879,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		997F6B322C83C37F0011DF7F /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+		9916E37F2C86460000CB6B62 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios";
 			requirement = {
@@ -886,9 +890,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		997F6B332C83C37F0011DF7F /* Lottie */ = {
+		9916E3802C86460000CB6B62 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 997F6B322C83C37F0011DF7F /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			package = 9916E37F2C86460000CB6B62 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */

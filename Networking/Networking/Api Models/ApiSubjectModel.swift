@@ -10,6 +10,6 @@ public struct ApiSubjectResponse: Codable {
 }
 
 public struct ApiSubject: Codable {
-    let id: Int64?
+    let id: Int?
     let subjectName: String?
 }

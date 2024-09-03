@@ -6,7 +6,8 @@
 //
 
 public struct ApiLoginModel: Codable {
-    var id: Int64?
+    var id: Int?
     var email: String?
     var username: String?
+    var token: String?
 }

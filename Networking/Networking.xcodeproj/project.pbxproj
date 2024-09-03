@@ -17,6 +17,9 @@
 		996BA3C72BEE70EB00F7E3B4 /* NetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996BA3C62BEE70EB00F7E3B4 /* NetworkingTests.swift */; };
 		996BA3C82BEE70EB00F7E3B4 /* Networking.h in Headers */ = {isa = PBXBuildFile; fileRef = 996BA3BA2BEE70EB00F7E3B4 /* Networking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		996BA3D22BEE710B00F7E3B4 /* TestFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996BA3D12BEE710B00F7E3B4 /* TestFile.swift */; };
+		9974EAFD2C866C4400929E57 /* MySubjectsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974EAFC2C866C4400929E57 /* MySubjectsUseCase.swift */; };
+		9974EAFF2C86752200929E57 /* AddSubjectUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974EAFE2C86752200929E57 /* AddSubjectUseCase.swift */; };
+		9974EB012C867C4A00929E57 /* DeleteSubjectUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974EB002C867C4A00929E57 /* DeleteSubjectUseCase.swift */; };
 		997F6B3B2C83D18A0011DF7F /* ApiSubjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997F6B3A2C83D18A0011DF7F /* ApiSubjectModel.swift */; };
 		997F6B3D2C83D2CC0011DF7F /* SubjectsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997F6B3C2C83D2CC0011DF7F /* SubjectsEntity.swift */; };
 		997F6B3F2C83D37A0011DF7F /* SubjectsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997F6B3E2C83D37A0011DF7F /* SubjectsUseCase.swift */; };
@@ -57,6 +60,10 @@
 		996BA3C12BEE70EB00F7E3B4 /* NetworkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		996BA3C62BEE70EB00F7E3B4 /* NetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingTests.swift; sourceTree = "<group>"; };
 		996BA3D12BEE710B00F7E3B4 /* TestFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFile.swift; sourceTree = "<group>"; };
+		9974EAFC2C866C4400929E57 /* MySubjectsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySubjectsUseCase.swift; sourceTree = "<group>"; };
+		9974EAFE2C86752200929E57 /* AddSubjectUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubjectUseCase.swift; sourceTree = "<group>"; };
+		9974EB002C867C4A00929E57 /* DeleteSubjectUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteSubjectUseCase.swift; sourceTree = "<group>"; };
+		9974EB052C868C2100929E57 /* KeyChainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainHelper.swift; sourceTree = "<group>"; };
 		997F6B3A2C83D18A0011DF7F /* ApiSubjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSubjectModel.swift; sourceTree = "<group>"; };
 		997F6B3C2C83D2CC0011DF7F /* SubjectsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsEntity.swift; sourceTree = "<group>"; };
 		997F6B3E2C83D37A0011DF7F /* SubjectsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsUseCase.swift; sourceTree = "<group>"; };
@@ -112,6 +119,9 @@
 			children = (
 				9905FF062C7D3B7A00867AFD /* LoginUseCase.swift */,
 				997F6B3E2C83D37A0011DF7F /* SubjectsUseCase.swift */,
+				9974EAFC2C866C4400929E57 /* MySubjectsUseCase.swift */,
+				9974EAFE2C86752200929E57 /* AddSubjectUseCase.swift */,
+				9974EB002C867C4A00929E57 /* DeleteSubjectUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -119,6 +129,7 @@
 		9905FF082C7D3C5400867AFD /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				9974EB062C868C2100929E57 /* KeyChainHelper */,
 				9905FF092C7D3C6900867AFD /* URLHelper.swift */,
 			);
 			path = Helpers;
@@ -163,6 +174,14 @@
 				996BA3C62BEE70EB00F7E3B4 /* NetworkingTests.swift */,
 			);
 			path = NetworkingTests;
+			sourceTree = "<group>";
+		};
+		9974EB062C868C2100929E57 /* KeyChainHelper */ = {
+			isa = PBXGroup;
+			children = (
+				9974EB052C868C2100929E57 /* KeyChainHelper.swift */,
+			);
+			path = KeyChainHelper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,9 +298,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9974EB012C867C4A00929E57 /* DeleteSubjectUseCase.swift in Sources */,
 				997F6B3D2C83D2CC0011DF7F /* SubjectsEntity.swift in Sources */,
 				996BA3BC2BEE70EB00F7E3B4 /* Networking.docc in Sources */,
+				9974EAFD2C866C4400929E57 /* MySubjectsUseCase.swift in Sources */,
 				997F6B3F2C83D37A0011DF7F /* SubjectsUseCase.swift in Sources */,
+				9974EAFF2C86752200929E57 /* AddSubjectUseCase.swift in Sources */,
 				9905FF012C7D383B00867AFD /* LoginEntity.swift in Sources */,
 				9905FF032C7D387900867AFD /* ApiLoginModel.swift in Sources */,
 				997F6B3B2C83D18A0011DF7F /* ApiSubjectModel.swift in Sources */,
