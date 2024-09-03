@@ -20,6 +20,7 @@
 		991E5AB22BEE62CD004D3CA4 /* Students_platform_app_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E5AB12BEE62CD004D3CA4 /* Students_platform_app_iosTests.swift */; };
 		991E5ABC2BEE62CD004D3CA4 /* Students_platform_app_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E5ABB2BEE62CD004D3CA4 /* Students_platform_app_iosUITests.swift */; };
 		991E5ABE2BEE62CD004D3CA4 /* Students_platform_app_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E5ABD2BEE62CD004D3CA4 /* Students_platform_app_iosUITestsLaunchTests.swift */; };
+		9948CFAB2C87C638008F1C54 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9948CFAA2C87C638008F1C54 /* RegistrationViewController.swift */; };
 		996BA3D82BEE75E200F7E3B4 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 996BA3D42BEE74D600F7E3B4 /* Networking.framework */; };
 		996BA3D92BEE75E200F7E3B4 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 996BA3D42BEE74D600F7E3B4 /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9974EAFB2C8669F800929E57 /* MysubjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974EAFA2C8669F800929E57 /* MysubjectsViewController.swift */; };
@@ -124,6 +125,7 @@
 		991E5AB72BEE62CD004D3CA4 /* Students-platform-app-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Students-platform-app-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		991E5ABB2BEE62CD004D3CA4 /* Students_platform_app_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Students_platform_app_iosUITests.swift; sourceTree = "<group>"; };
 		991E5ABD2BEE62CD004D3CA4 /* Students_platform_app_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Students_platform_app_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9948CFAA2C87C638008F1C54 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		996BA3D42BEE74D600F7E3B4 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		996BA3DB2BEE76BC00F7E3B4 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9974EAFA2C8669F800929E57 /* MysubjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MysubjectsViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				9905FECC2C7D05C700867AFD /* LoginPageController.swift */,
 				9905FECE2C7D073900867AFD /* LoginPagaViewModel.swift */,
 				9905FED02C7D075700867AFD /* LoginPageRouter.swift */,
+				9948CFAA2C87C638008F1C54 /* RegistrationViewController.swift */,
 			);
 			path = LoginPage;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				9974EAFB2C8669F800929E57 /* MysubjectsViewController.swift in Sources */,
 				991E5A9F2BEE62CC004D3CA4 /* EntryPage.swift in Sources */,
 				9998E7942C7BF8EA00069CE9 /* TabBarController.swift in Sources */,
+				9948CFAB2C87C638008F1C54 /* RegistrationViewController.swift in Sources */,
 				9998E7B02C7C068300069CE9 /* NavigationBackButton.swift in Sources */,
 				9905FECF2C7D073900867AFD /* LoginPagaViewModel.swift in Sources */,
 				9905FED12C7D075700867AFD /* LoginPageRouter.swift in Sources */,

@@ -24,5 +24,6 @@ public struct Image {
 
 public struct MyLottie {
     public static let loader = "Loader"
+    public static let registrationAnimation = "RegistrationAnimation"
     
 }

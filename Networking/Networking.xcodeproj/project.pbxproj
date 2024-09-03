@@ -12,6 +12,11 @@
 		9905FF032C7D387900867AFD /* ApiLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FF022C7D387900867AFD /* ApiLoginModel.swift */; };
 		9905FF072C7D3B7A00867AFD /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FF062C7D3B7A00867AFD /* LoginUseCase.swift */; };
 		9905FF0A2C7D3C6900867AFD /* URLHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FF092C7D3C6900867AFD /* URLHelper.swift */; };
+		9948CFA92C87B6CF008F1C54 /* RegistrationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9948CFA82C87B6CF008F1C54 /* RegistrationUseCase.swift */; };
+		9948CFAD2C87D425008F1C54 /* ApiMyFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9948CFAC2C87D425008F1C54 /* ApiMyFile.swift */; };
+		9948CFAF2C87D492008F1C54 /* MyFileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9948CFAE2C87D492008F1C54 /* MyFileEntity.swift */; };
+		9948CFB12C87D554008F1C54 /* GetMyFilesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9948CFB02C87D554008F1C54 /* GetMyFilesUseCase.swift */; };
+		9948CFB32C87D732008F1C54 /* SubjectFilesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9948CFB22C87D732008F1C54 /* SubjectFilesUseCase.swift */; };
 		996BA3BC2BEE70EB00F7E3B4 /* Networking.docc in Sources */ = {isa = PBXBuildFile; fileRef = 996BA3BB2BEE70EB00F7E3B4 /* Networking.docc */; };
 		996BA3C22BEE70EB00F7E3B4 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 996BA3B72BEE70EB00F7E3B4 /* Networking.framework */; };
 		996BA3C72BEE70EB00F7E3B4 /* NetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996BA3C62BEE70EB00F7E3B4 /* NetworkingTests.swift */; };
@@ -54,6 +59,11 @@
 		9905FF022C7D387900867AFD /* ApiLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiLoginModel.swift; sourceTree = "<group>"; };
 		9905FF062C7D3B7A00867AFD /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		9905FF092C7D3C6900867AFD /* URLHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHelper.swift; sourceTree = "<group>"; };
+		9948CFA82C87B6CF008F1C54 /* RegistrationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationUseCase.swift; sourceTree = "<group>"; };
+		9948CFAC2C87D425008F1C54 /* ApiMyFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiMyFile.swift; sourceTree = "<group>"; };
+		9948CFAE2C87D492008F1C54 /* MyFileEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFileEntity.swift; sourceTree = "<group>"; };
+		9948CFB02C87D554008F1C54 /* GetMyFilesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMyFilesUseCase.swift; sourceTree = "<group>"; };
+		9948CFB22C87D732008F1C54 /* SubjectFilesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectFilesUseCase.swift; sourceTree = "<group>"; };
 		996BA3B72BEE70EB00F7E3B4 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		996BA3BA2BEE70EB00F7E3B4 /* Networking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Networking.h; sourceTree = "<group>"; };
 		996BA3BB2BEE70EB00F7E3B4 /* Networking.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Networking.docc; sourceTree = "<group>"; };
@@ -101,6 +111,7 @@
 			children = (
 				9905FF022C7D387900867AFD /* ApiLoginModel.swift */,
 				997F6B3A2C83D18A0011DF7F /* ApiSubjectModel.swift */,
+				9948CFAC2C87D425008F1C54 /* ApiMyFile.swift */,
 			);
 			path = "Api Models";
 			sourceTree = "<group>";
@@ -110,6 +121,7 @@
 			children = (
 				9905FF002C7D383B00867AFD /* LoginEntity.swift */,
 				997F6B3C2C83D2CC0011DF7F /* SubjectsEntity.swift */,
+				9948CFAE2C87D492008F1C54 /* MyFileEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -122,6 +134,9 @@
 				9974EAFC2C866C4400929E57 /* MySubjectsUseCase.swift */,
 				9974EAFE2C86752200929E57 /* AddSubjectUseCase.swift */,
 				9974EB002C867C4A00929E57 /* DeleteSubjectUseCase.swift */,
+				9948CFA82C87B6CF008F1C54 /* RegistrationUseCase.swift */,
+				9948CFB02C87D554008F1C54 /* GetMyFilesUseCase.swift */,
+				9948CFB22C87D732008F1C54 /* SubjectFilesUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -298,10 +313,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9948CFAF2C87D492008F1C54 /* MyFileEntity.swift in Sources */,
+				9948CFB12C87D554008F1C54 /* GetMyFilesUseCase.swift in Sources */,
+				9948CFAD2C87D425008F1C54 /* ApiMyFile.swift in Sources */,
 				9974EB012C867C4A00929E57 /* DeleteSubjectUseCase.swift in Sources */,
 				997F6B3D2C83D2CC0011DF7F /* SubjectsEntity.swift in Sources */,
 				996BA3BC2BEE70EB00F7E3B4 /* Networking.docc in Sources */,
+				9948CFB32C87D732008F1C54 /* SubjectFilesUseCase.swift in Sources */,
 				9974EAFD2C866C4400929E57 /* MySubjectsUseCase.swift in Sources */,
+				9948CFA92C87B6CF008F1C54 /* RegistrationUseCase.swift in Sources */,
 				997F6B3F2C83D37A0011DF7F /* SubjectsUseCase.swift in Sources */,
 				9974EAFF2C86752200929E57 /* AddSubjectUseCase.swift in Sources */,
 				9905FF012C7D383B00867AFD /* LoginEntity.swift in Sources */,

@@ -15,7 +15,7 @@ public class LocalLabelModel: ObservableObject {
     var action: (() -> Void)?
     
     public init(text: String? = nil,
-                color: UIColor = Color.Blue3,
+                color: UIColor = Color.Blue1,
                 font: UIFont = .systemFont(ofSize: .L),
                 action: (() -> Void)? = nil) {
         self.text =  text

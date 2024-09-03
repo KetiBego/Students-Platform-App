@@ -17,6 +17,7 @@
 		9905FEEA2C7D16A000867AFD /* PrimaryButtonState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FEE92C7D16A000867AFD /* PrimaryButtonState.swift */; };
 		9905FEEC2C7D1C1900867AFD /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FEEB2C7D1C1900867AFD /* BannerView.swift */; };
 		9905FEEF2C7D1C6500867AFD /* StatusBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FEEE2C7D1C6500867AFD /* StatusBanner.swift */; };
+		9948CFA72C87B6B5008F1C54 /* RegistrationAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 9948CFA62C87B6B5008F1C54 /* RegistrationAnimation.json */; };
 		9956EAB52C83649E0044D641 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9956EAB42C83649E0044D641 /* Images.xcassets */; };
 		9974EAF92C86470D00929E57 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 9974EAF82C86470D00929E57 /* Lottie */; };
 		997F6B2E2C83BF1A0011DF7F /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997F6B2D2C83BF1A0011DF7F /* Loader.swift */; };
@@ -56,6 +57,7 @@
 		9905FEE92C7D16A000867AFD /* PrimaryButtonState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonState.swift; sourceTree = "<group>"; };
 		9905FEEB2C7D1C1900867AFD /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		9905FEEE2C7D1C6500867AFD /* StatusBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBanner.swift; sourceTree = "<group>"; };
+		9948CFA62C87B6B5008F1C54 /* RegistrationAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = RegistrationAnimation.json; path = ../../../../../Downloads/RegistrationAnimation.json; sourceTree = "<group>"; };
 		9956EAB42C83649E0044D641 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		997F6B2D2C83BF1A0011DF7F /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		997F6B382C83C6FD0011DF7F /* Loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Loader.json; path = ../../../../../Downloads/Loader.json; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 		997F6B372C83C6070011DF7F /* MyLottieAnimations */ = {
 			isa = PBXGroup;
 			children = (
+				9948CFA62C87B6B5008F1C54 /* RegistrationAnimation.json */,
 				997F6B382C83C6FD0011DF7F /* Loader.json */,
 			);
 			path = MyLottieAnimations;
@@ -337,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9956EAB52C83649E0044D641 /* Images.xcassets in Resources */,
+				9948CFA72C87B6B5008F1C54 /* RegistrationAnimation.json in Resources */,
 				9998E78D2C7BF6EB00069CE9 /* Colors.xcassets in Resources */,
 				997F6B392C83C6FD0011DF7F /* Loader.json in Resources */,
 			);

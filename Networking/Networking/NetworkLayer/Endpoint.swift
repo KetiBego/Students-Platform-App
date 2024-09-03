@@ -22,6 +22,7 @@ public class Service{
         public static let mySubjectsUrl = "http://localhost:8080/api/v1/user/subjects"
         public static let addSubjects = "http://localhost:8080/api/v1/user/subjects/add"
         public static let deleteSubject  = "http://localhost:8080/api/v1/user/subjects"
+        public static let registerUrl = "http://localhost:8080/api/v1/user"
     }
 }
     

@@ -133,7 +133,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     @objc private func refreshSubjectsData() {
-        fetchSubjects()
+        fetchSubjects() 
         fetchMySubjects()
     }
     

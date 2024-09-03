@@ -73,6 +73,10 @@ extension LocalLabel {
         if let action = model.action { configureAction(action: action) }
     }
     
+    public func changeBackground(color: UIColor) {
+        self.backgroundColor = color
+    }
+    
     private func configureAction(action: @escaping () -> Void) {
         label.isUserInteractionEnabled = true
         self.tapAction = action

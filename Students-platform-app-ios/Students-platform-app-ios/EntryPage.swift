@@ -87,6 +87,21 @@ class EntryPage: UIViewController {
         return imageView
     }()
     
+    private lazy var registrationButton: PrimaryButton = {
+        let button = PrimaryButton()
+        button.backgroundColor = .clear
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    private lazy var button: PrimaryButton = {
+        let button = PrimaryButton()
+        button.backgroundColor = Color.Yellow2
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    
     private lazy var mainStackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -133,6 +148,7 @@ class EntryPage: UIViewController {
     private lazy var LoginTextLabelModel: LocalLabelModel = {
         let label = LocalLabelModel(
             text: MytextBook.LoginTexts.loginLabelText,
+            color: Color.Blue1,
             font: .systemFont(ofSize: .L))
         return label
     }()
@@ -161,12 +177,7 @@ class EntryPage: UIViewController {
         return stack
     }()
     
-    private lazy var button: PrimaryButton = {
-        let button = PrimaryButton()
-        button.backgroundColor = Color.Yellow2
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+  
     
     
     init() {
@@ -210,7 +221,17 @@ extension EntryPage {
             onEditingDidEnd: { password in
                 self.PasswordValue = password
             }))
+        
+        registrationButton.configure(with: .init(
+            titleModel: .init(
+                text: MytextBook.LoginTexts.registration,
+                color: Color.Red,
+                font: .systemFont(ofSize: .L)),
+            action: { [weak self] in
+                self?.navigationController?.pushViewController(RegistrationViewController(), animated: true)
+            }))
 
+        
         button.configure(with: .init(
             titleModel: .init(
                 text: MytextBook.LoginTexts.loginButtonText,
@@ -230,8 +251,7 @@ extension EntryPage {
                         print(error)
                     }
               })
-//                self?.navigationController?.pushViewController(TabBarController(), animated: true)
-
+                
             }))
     }
     
@@ -246,7 +266,9 @@ extension EntryPage {
         mainStackView.addArrangedSubview(myImageView)
         mainStackView.addArrangedSubview(emptyView)
         mainStackView.addArrangedSubview(containerView)
+        mainStackView.addArrangedSubview(registrationButton)
         view.addSubview(mainStackView)
+        
     }
     
     func addConstraints() {
@@ -269,6 +291,10 @@ extension EntryPage {
         button.right(toView: containerView, constant: .XL2)
         button.bottom(toView: containerView)
         button.layer.cornerRadius = .S
+        
+        registrationButton.width(equalTo: 150)
+        registrationButton.height(equalTo: 40)
+
         
         mainStackView.left(toView: view)
         mainStackView.right(toView: view)
