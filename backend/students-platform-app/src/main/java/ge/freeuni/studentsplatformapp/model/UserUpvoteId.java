@@ -1,6 +1,6 @@
 package ge.freeuni.studentsplatformapp.model;
 
-import jakarta.persistence.Embeddable;
+import javax.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

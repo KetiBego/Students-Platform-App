@@ -7,7 +7,9 @@ import ge.freeuni.studentsplatformapp.repository.FileRepository;
 import ge.freeuni.studentsplatformapp.repository.UserUpvotesRepository;
 import ge.freeuni.studentsplatformapp.security.SignedInUserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 @Service
 @RequiredArgsConstructor
@@ -24,7 +26,7 @@ public class UserUpvotesService {
         UserUpvote userUpvote = new UserUpvote(userUpvoteId);
         try {
             if (userUpvotesRepository.existsById(userUpvoteId)) {
-                throw new RuntimeException("User already upvoted this file");
+                throw new ResponseStatusException(HttpStatus.CONFLICT, "User already upvoted this file");
             }
             userUpvotesRepository.save(userUpvote);
             fileRepository.findById(fileId).ifPresent(file -> {
@@ -32,7 +34,7 @@ public class UserUpvotesService {
                 fileRepository.save(file);
             });
         } catch (Exception e) {
-            throw new RuntimeException("Failed to upvote file");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Failed to upvote file");
         }
     }
 
@@ -42,7 +44,7 @@ public class UserUpvotesService {
         UserUpvoteId userUpvoteId = new UserUpvoteId(userId, fileId);
         try {
             if (!userUpvotesRepository.existsById(userUpvoteId)) {
-                throw new RuntimeException("User did not upvote this file");
+                throw new ResponseStatusException(HttpStatus.CONFLICT, "User did not upvote this file");
             }
             userUpvotesRepository.deleteById(userUpvoteId);
             fileRepository.findById(fileId).ifPresent(file -> {
@@ -50,7 +52,7 @@ public class UserUpvotesService {
                 fileRepository.save(file);
             });
         } catch (Exception e) {
-            throw new RuntimeException("Failed to remove upvote from file");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Failed to remove upvote from file");
         }
     }
 
