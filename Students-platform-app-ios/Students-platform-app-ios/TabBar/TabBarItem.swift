@@ -49,7 +49,7 @@ enum TabBarItem {
         case .Chat:
             return SearchViewController()
         case .Profile:
-            return SearchViewController()
+            return MyFilesViewController()
         }
     }
 }

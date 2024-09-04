@@ -81,6 +81,11 @@ class FileTableViewCell: UITableViewCell {
     }
     
     
+    public func hideButton() {
+        deleteButton.isHidden = true
+    }
+    
+    
      @objc private func moreButtonTappedAction() {
          deleteButtonTapped?()
      }

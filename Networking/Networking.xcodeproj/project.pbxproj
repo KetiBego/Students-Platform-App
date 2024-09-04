@@ -30,6 +30,7 @@
 		997F6B3F2C83D37A0011DF7F /* SubjectsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997F6B3E2C83D37A0011DF7F /* SubjectsUseCase.swift */; };
 		99909BFC2C8876E500A92F7A /* DownloadFileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99909BFB2C8876E500A92F7A /* DownloadFileUseCase.swift */; };
 		99909C052C88A22C00A92F7A /* DeleteFileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99909C042C88A22C00A92F7A /* DeleteFileUseCase.swift */; };
+		99909C072C88BD5B00A92F7A /* AddFileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99909C062C88BD5B00A92F7A /* AddFileUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		997F6B3E2C83D37A0011DF7F /* SubjectsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsUseCase.swift; sourceTree = "<group>"; };
 		99909BFB2C8876E500A92F7A /* DownloadFileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadFileUseCase.swift; sourceTree = "<group>"; };
 		99909C042C88A22C00A92F7A /* DeleteFileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFileUseCase.swift; sourceTree = "<group>"; };
+		99909C062C88BD5B00A92F7A /* AddFileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFileUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 				9948CFB22C87D732008F1C54 /* SubjectFilesUseCase.swift */,
 				99909BFB2C8876E500A92F7A /* DownloadFileUseCase.swift */,
 				99909C042C88A22C00A92F7A /* DeleteFileUseCase.swift */,
+				99909C062C88BD5B00A92F7A /* AddFileUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				9905FEF82C7D365300867AFD /* Endpoint.swift in Sources */,
 				996BA3D22BEE710B00F7E3B4 /* TestFile.swift in Sources */,
 				9905FF072C7D3B7A00867AFD /* LoginUseCase.swift in Sources */,
+				99909C072C88BD5B00A92F7A /* AddFileUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

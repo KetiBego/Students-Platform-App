@@ -41,7 +41,7 @@ class SubjectTableViewCell: UITableViewCell {
         super.init(coder: coder)
         setupCell()
     }
-    
+  
     private func setupCell() {
         // Add your UI components to the cell's contentView
         contentView.backgroundColor = Color.background

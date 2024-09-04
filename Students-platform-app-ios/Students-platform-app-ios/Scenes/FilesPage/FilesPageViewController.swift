@@ -388,3 +388,13 @@ extension MyFilesViewController {
     }
 }
 
+
+
+//
+//var rightBarItems: [UIBarButtonItem]? {
+//    let button = AddBarButtonItem()
+//    button.addButtonTappedAction = { [weak self] in
+//
+//    }
+//    return [button]
+//}

@@ -258,11 +258,9 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let subject = subjects[indexPath.row]
-        print("Selected subject: \(subject.subjectName ?? "No Name")")
-        // Handle row selection (e.g., navigate to a detail view)
+        self.navigationController?.pushViewController(SubjectFilesViewController(subjectId: subject.id!), animated: true)
     }
     
-
 }
 
 extension SearchViewController {

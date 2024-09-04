@@ -65,8 +65,10 @@
 import UIKit
 import MyAssetBook
 import Networking
+import UniformTypeIdentifiers
 
-class EntryPage: UIViewController {
+class EntryPage: UIViewController{
+    
     
     private let service = Service()
     
@@ -191,6 +193,7 @@ class EntryPage: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
+//        presentDocumentPicker()
     }
     
 }
@@ -245,7 +248,7 @@ extension EntryPage {
                         print(serviceResponse)
                         DispatchQueue.main.async {
                             UserDefaults.standard.set(serviceResponse.token!, forKey: "authToken")
-                            self.navigationController?.pushViewController(MyFilesViewController(), animated: true)
+                            self.navigationController?.pushViewController(TabBarController(), animated: true)
                         }
                     case .failure(let error):
                         print(error)
@@ -304,7 +307,6 @@ extension EntryPage {
     override func viewDidLayoutSubviews() {
        
     }
-
 }
 
 

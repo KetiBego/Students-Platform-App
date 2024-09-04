@@ -16,6 +16,13 @@ class ImageViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
+    private let blurView: UIVisualEffectView = {
+        let blurEffect = UIBlurEffect(style: .light) // Adjust the style as needed
+        let view = UIVisualEffectView(effect: blurEffect)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -27,6 +34,11 @@ class ImageViewController: UIViewController {
     }
     
     private func setupImageView() {
+        view.addSubview(blurView)
+        blurView.topNotSafe(toView: view)
+        blurView.bottomNotSafe(toView: view)
+        blurView.left(toView: view)
+        blurView.right(toView: view)
         imageView.contentMode = .scaleAspectFit
         view.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false

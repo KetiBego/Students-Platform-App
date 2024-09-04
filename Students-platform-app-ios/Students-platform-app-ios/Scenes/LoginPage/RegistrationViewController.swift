@@ -138,7 +138,7 @@ extension RegistrationViewController {
         
         passwordTextField.bind(model: .init(
             placeholder: MytextBook.RegistrationTexts.password,
-            isSecureEntry: true,
+            isSecureEntry: false,
             onEditingDidEnd: { password in
                 self.passwordValue = password
         }))
