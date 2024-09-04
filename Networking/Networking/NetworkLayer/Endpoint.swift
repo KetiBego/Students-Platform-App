@@ -34,5 +34,6 @@ enum ServiceError: Error{
     case invalidParameters
     case SessionErrorOccurred
     case DecoderError
+    case invalidURL
 }
 

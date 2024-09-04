@@ -269,25 +269,25 @@ class MyFilesViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     private func handleDeleteButtonTapped(for file: MyFileEntity) {
-            
-//            self.service.CallDeleteSubjectService(subjectId: subject.id!) { result in
-//                switch result {
-//                case .success:
-//                    DispatchQueue.main.async {
-//                        if let index = self.subjects.firstIndex(where: { $0.id == subject.id }) {
-//                            self.subjects.remove(at: index)
-//                            
-//                            self.tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
-//                        }
-//                    }
-//                case .failure(let error):
-//                    print("Failed to delete subject: \(error)")
-//                }
-//            }
-//
-//        }
+        
+        self.service.callDeleteFileService(fileId: file.id!) { result in
+            switch result {
+            case .success:
+                DispatchQueue.main.async {
+                    if let index = self.files.firstIndex(where: { $0.id == file.id }) {
+                        self.files.remove(at: index)
+                        
+                        self.tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+                    }
+                }
+            case .failure(let error):
+                print("Failed to delete subject: \(error)")
+            }
+        }
+        
+    }
     
-     }
+     
     
     // MARK: - UITableViewDelegate
     
