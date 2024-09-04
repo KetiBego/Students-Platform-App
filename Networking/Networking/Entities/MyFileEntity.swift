@@ -22,12 +22,12 @@ public struct MyFileEntity {
         self.isUpvoted = isUpvoted
     }
     
-    var id: Int?
-    var username: String?
-    var subjectName: String?
-    var fileName: String?
-    var upvoteCount: Int?
-    var isUpvoted: Bool?
+    public var id: Int?
+    public var username: String?
+    public var subjectName: String?
+    public var fileName: String?
+    public var upvoteCount: Int?
+    public var isUpvoted: Bool?
     
     
     public init(with model: ApiMyFile) {

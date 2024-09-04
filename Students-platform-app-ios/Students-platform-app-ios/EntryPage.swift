@@ -245,13 +245,13 @@ extension EntryPage {
                         print(serviceResponse)
                         DispatchQueue.main.async {
                             UserDefaults.standard.set(serviceResponse.token!, forKey: "authToken")
-                            self.navigationController?.pushViewController(TabBarController(), animated: true)
+                            self.navigationController?.pushViewController(MyFilesViewController(), animated: true)
                         }
                     case .failure(let error):
                         print(error)
                     }
               })
-                
+                                
             }))
     }
     

@@ -30,6 +30,10 @@
 		9985DD1C2C8129C000D9D189 /* MyAssetBook.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9998E7952C7BF9B000069CE9 /* MyAssetBook.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9985DD1E2C8129C200D9D189 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 996BA3DB2BEE76BC00F7E3B4 /* Networking.framework */; };
 		9985DD1F2C8129C200D9D189 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 996BA3DB2BEE76BC00F7E3B4 /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		99909BFA2C88694900A92F7A /* FilesPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99909BF92C88694900A92F7A /* FilesPageViewController.swift */; };
+		99909BFE2C8880C300A92F7A /* FileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99909BFD2C8880C200A92F7A /* FileTableViewCell.swift */; };
+		99909C002C8884C300A92F7A /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99909BFF2C8884C300A92F7A /* ImageViewController.swift */; };
+		99909C022C8888C600A92F7A /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99909C012C8888C600A92F7A /* PDFViewController.swift */; };
 		9998E7942C7BF8EA00069CE9 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998E7932C7BF8EA00069CE9 /* TabBarController.swift */; };
 		9998E79C2C7BFB2C00069CE9 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998E79B2C7BFB2C00069CE9 /* TabBarItem.swift */; };
 		9998E7AB2C7C04AC00069CE9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998E7AA2C7C04AC00069CE9 /* SearchViewController.swift */; };
@@ -133,6 +137,10 @@
 		9985DD182C81286F00D9D189 /* MyAssetBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MyAssetBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9985DD232C8132B200D9D189 /* MyAssetBook.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MyAssetBook.xcodeproj; path = ../../MyAssetBook/MyAssetBook.xcodeproj; sourceTree = "<group>"; };
 		9985DD2C2C8132BD00D9D189 /* Networking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Networking.xcodeproj; path = ../../Networking/Networking.xcodeproj; sourceTree = "<group>"; };
+		99909BF92C88694900A92F7A /* FilesPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesPageViewController.swift; sourceTree = "<group>"; };
+		99909BFD2C8880C200A92F7A /* FileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTableViewCell.swift; sourceTree = "<group>"; };
+		99909BFF2C8884C300A92F7A /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		99909C012C8888C600A92F7A /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
 		9998E7932C7BF8EA00069CE9 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		9998E7952C7BF9B000069CE9 /* MyAssetBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MyAssetBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9998E79B2C7BFB2C00069CE9 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
@@ -254,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				997F6B412C84BD630011DF7F /* SubjectCell.swift */,
+				99909BFD2C8880C200A92F7A /* FileTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -285,6 +294,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		99909BF82C88692800A92F7A /* FilesPage */ = {
+			isa = PBXGroup;
+			children = (
+				99909BF92C88694900A92F7A /* FilesPageViewController.swift */,
+			);
+			path = FilesPage;
+			sourceTree = "<group>";
+		};
 		9998E7922C7BF8D100069CE9 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,11 +314,14 @@
 		9998E7A52C7C046E00069CE9 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				99909BF82C88692800A92F7A /* FilesPage */,
 				9905FECB2C7D055700867AFD /* LoginPage */,
 				9998E7A92C7C049600069CE9 /* Profile */,
 				9998E7A82C7C048F00069CE9 /* Chat */,
 				9998E7A72C7C048200069CE9 /* MySubjects */,
 				9998E7A62C7C047400069CE9 /* SearchPage */,
+				99909BFF2C8884C300A92F7A /* ImageViewController.swift */,
+				99909C012C8888C600A92F7A /* PDFViewController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -525,10 +545,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99909C022C8888C600A92F7A /* PDFViewController.swift in Sources */,
 				997F6B422C84BD630011DF7F /* SubjectCell.swift in Sources */,
 				9974EAFB2C8669F800929E57 /* MysubjectsViewController.swift in Sources */,
 				991E5A9F2BEE62CC004D3CA4 /* EntryPage.swift in Sources */,
+				99909C002C8884C300A92F7A /* ImageViewController.swift in Sources */,
 				9998E7942C7BF8EA00069CE9 /* TabBarController.swift in Sources */,
+				99909BFA2C88694900A92F7A /* FilesPageViewController.swift in Sources */,
+				99909BFE2C8880C300A92F7A /* FileTableViewCell.swift in Sources */,
 				9948CFAB2C87C638008F1C54 /* RegistrationViewController.swift in Sources */,
 				9998E7B02C7C068300069CE9 /* NavigationBackButton.swift in Sources */,
 				9905FECF2C7D073900867AFD /* LoginPagaViewModel.swift in Sources */,

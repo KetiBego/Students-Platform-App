@@ -13,6 +13,9 @@ public struct Icons {
     public static let chat = ImageWrapper(name: "message")
     public static let profile = ImageWrapper(name: "person.crop.circle")
     public static let more =  UIImage(systemName: "ellipsis")
+    public static let delete =  UIImage(systemName: "minus.circle.fill")
+    public static let imageIcon = ImageWrapper(name: "photo")
+    public static let pdfIcon = ImageWrapper(name: "doc.text.image")
 }
 
 public struct Image {

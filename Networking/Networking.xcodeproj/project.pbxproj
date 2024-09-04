@@ -28,6 +28,7 @@
 		997F6B3B2C83D18A0011DF7F /* ApiSubjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997F6B3A2C83D18A0011DF7F /* ApiSubjectModel.swift */; };
 		997F6B3D2C83D2CC0011DF7F /* SubjectsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997F6B3C2C83D2CC0011DF7F /* SubjectsEntity.swift */; };
 		997F6B3F2C83D37A0011DF7F /* SubjectsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997F6B3E2C83D37A0011DF7F /* SubjectsUseCase.swift */; };
+		99909BFC2C8876E500A92F7A /* DownloadFileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99909BFB2C8876E500A92F7A /* DownloadFileUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		997F6B3A2C83D18A0011DF7F /* ApiSubjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSubjectModel.swift; sourceTree = "<group>"; };
 		997F6B3C2C83D2CC0011DF7F /* SubjectsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsEntity.swift; sourceTree = "<group>"; };
 		997F6B3E2C83D37A0011DF7F /* SubjectsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsUseCase.swift; sourceTree = "<group>"; };
+		99909BFB2C8876E500A92F7A /* DownloadFileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadFileUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 				9948CFA82C87B6CF008F1C54 /* RegistrationUseCase.swift */,
 				9948CFB02C87D554008F1C54 /* GetMyFilesUseCase.swift */,
 				9948CFB22C87D732008F1C54 /* SubjectFilesUseCase.swift */,
+				99909BFB2C8876E500A92F7A /* DownloadFileUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 			files = (
 				9948CFAF2C87D492008F1C54 /* MyFileEntity.swift in Sources */,
 				9948CFB12C87D554008F1C54 /* GetMyFilesUseCase.swift in Sources */,
+				99909BFC2C8876E500A92F7A /* DownloadFileUseCase.swift in Sources */,
 				9948CFAD2C87D425008F1C54 /* ApiMyFile.swift in Sources */,
 				9974EB012C867C4A00929E57 /* DeleteSubjectUseCase.swift in Sources */,
 				997F6B3D2C83D2CC0011DF7F /* SubjectsEntity.swift in Sources */,
