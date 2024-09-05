@@ -3,175 +3,6 @@
 ////  Students-platform-app-ios
 ////
 ////  Created by Ruska Keldishvili on 04.09.24.
-////
-//
-//import Networking
-//
-////class FilesPageViewController: UIViewController {
-////    
-////    let service = Service()
-////    let subjectId = 44
-////    
-////    // MARK: - Lifecycle Methods
-////    
-////    override func viewDidLoad() {
-////        super.viewDidLoad()
-////        setUpUI()
-////        
-//////        service.getSubjectFiles(subjectId: subjectId) { result in
-//////            switch result {
-//////            case .success(let files):
-//////                // Process the files, which are instances of MyFileEntity
-//////                for file in files {
-//////                    print("File: \(file.fileName ?? "Unknown")")
-//////                }
-//////            case .failure(let error):
-//////                print("Error retrieving subject files: \(error)")
-//////            }
-//////        }
-////        
-////        service.getUserFiles() { result in
-////            switch result {
-////            case .success(let files):
-////                // Process the files, which are instances of MyFileEntity
-////                for file in files {
-////                    print("File: \(file.fileName ?? "Unknown")")
-////                }
-////            case .failure(let error):
-////                print("Error retrieving subject files: \(error)")
-////            }
-////        }
-////    }
-////    
-////    
-////   
-////    
-////    override func viewWillAppear(_ animated: Bool) {
-////        super.viewWillAppear(animated)
-////        // Add any additional setup before the view appears
-////    }
-////    
-////    override func viewDidLayoutSubviews() {
-////        super.viewDidLayoutSubviews()
-////        // Add any layout adjustments after the subviews have been laid out
-////    }
-////    
-////    // MARK: - Setup UI
-////    
-////    private func setUpUI() {
-////        // Set up the user interface components here
-////        view.backgroundColor = .white  // Set background color to white
-////    }
-////}
-//
-//
-//
-////import UIKit
-////
-////class FileDisplayViewController: UIViewController {
-////    
-////    var downloadedImage: UIImageView!
-////    let service = Service()
-////    
-////    override func viewDidLoad() {
-////        super.viewDidLoad()
-////        setupUI()
-////        downloadAndDisplayImage()
-////    }
-////    
-////    private func setupUI() {
-////        view.backgroundColor = .white
-////        
-////        downloadedImage = UIImageView()
-////        downloadedImage.translatesAutoresizingMaskIntoConstraints = false
-////        downloadedImage.contentMode = .scaleAspectFit
-////        view.addSubview(downloadedImage)
-////        
-////        // Set constraints
-////        NSLayoutConstraint.activate([
-////            downloadedImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-////            downloadedImage.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-////            downloadedImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
-////            downloadedImage.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.6)
-////        ])
-////    }
-////    
-////    private func downloadAndDisplayImage() {
-////        // Assuming Service class is already initialized as 'service'
-////        service.downloadFile(withId: 2) { [weak self] result in
-////            switch result {
-////            case .success(let fileURL):
-////                DispatchQueue.main.async {
-////                    if let data = try? Data(contentsOf: fileURL),
-////                       let image = UIImage(data: data) {
-////                        self?.downloadedImage.image = image
-////                    } else {
-////                        // Handle error, e.g. show an alert
-////                    }
-////                }
-////            case .failure(let error):
-////                print("Error downloading file: \(error)")
-////                // Handle error, e.g. show an alert
-////            }
-////        }
-////    }
-////}
-//
-//
-//
-//import UIKit
-//import PDFKit
-//
-//class PDFDisplayViewController: UIViewController {
-//    
-//    var pdfView: PDFView!
-//    let service = Service()
-//    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        setupUI()
-//        downloadAndDisplayPDF()
-//    }
-//    
-//    private func setupUI() {
-//        view.backgroundColor = .white
-//        
-//        // Initialize and configure PDFView
-//        pdfView = PDFView(frame: view.bounds)
-//        pdfView.autoScales = true
-//        pdfView.translatesAutoresizingMaskIntoConstraints = false
-//        view.addSubview(pdfView)
-//        
-//        // Set constraints
-//        NSLayoutConstraint.activate([
-//            pdfView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//            pdfView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-//            pdfView.topAnchor.constraint(equalTo: view.topAnchor),
-//            pdfView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-//        ])
-//    }
-//    
-//    private func downloadAndDisplayPDF() {
-//        // Assuming Service class is already initialized as 'service'
-//        service.downloadFile(withId: 3) { [weak self] result in
-//            switch result {
-//            case .success(let fileURL):
-//                DispatchQueue.main.async {
-//                    if let pdfDocument = PDFDocument(url: fileURL) {
-//                        self?.pdfView.document = pdfDocument
-//                    } else {
-//                        // Handle error, e.g., show an alert
-//                        print("Failed to load PDF document")
-//                    }
-//                }
-//            case .failure(let error):
-//                print("Error downloading file: \(error)")
-//                // Handle error, e.g., show an alert
-//            }
-//        }
-//    }
-//}
-
 
 import MyAssetBook
 import UIKit
@@ -262,31 +93,51 @@ class MyFilesViewController: UIViewController, UITableViewDataSource, UITableVie
         let file = files[indexPath.row]
         cell.configure(with: file)
         
-        cell.deleteButtonTapped = { [weak self] in
-            self?.handleDeleteButtonTapped(for: file)
-        }
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPressGesture(_:)))
+        cell.addGestureRecognizer(longPressGesture)
+        
+        cell.hideButton()
+        
         return cell
     }
     
     private func handleDeleteButtonTapped(for file: MyFileEntity) {
+        // Create the alert controller
+        let alertController = UIAlertController(title: "წაშლა",
+                                                message: "დარწმუნებული ხარ რომ ფაილის წაშლა გინდა?",
+                                                preferredStyle: .alert)
         
-        self.service.callDeleteFileService(fileId: file.id!) { result in
-            switch result {
-            case .success:
-                DispatchQueue.main.async {
-                    if let index = self.files.firstIndex(where: { $0.id == file.id }) {
-                        self.files.remove(at: index)
-                        
-                        self.tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        // Add the "Delete" action
+        let deleteAction = UIAlertAction(title: "წაშლა", style: .destructive) { _ in
+            // Perform the deletion if user confirms
+            self.service.callDeleteFileService(fileId: file.id!) { result in
+                switch result {
+                case .success:
+                    DispatchQueue.main.async {
+                        if let index = self.files.firstIndex(where: { $0.id == file.id }) {
+                            self.files.remove(at: index)
+                            self.tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+                        }
                     }
+                case .failure(let error):
+                    print("Failed to delete file: \(error)")
                 }
-            case .failure(let error):
-                print("Failed to delete subject: \(error)")
             }
         }
         
+        // Add the "Cancel" action
+        let cancelAction = UIAlertAction(title: "გაუქმება", style: .cancel, handler: nil)
+        
+        // Add the actions to the alert controller
+        alertController.addAction(deleteAction)
+        alertController.addAction(cancelAction)
+        
+        // Present the alert controller
+        self.present(alertController, animated: true, completion: nil)
     }
-    
+
+
+
      
     
     // MARK: - UITableViewDelegate
@@ -305,24 +156,17 @@ class MyFilesViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    // MARK: - File Handling
     
-//    private func previewPDF(for file: MyFileEntity) {
-//        guard let fileId = file.id else { return }
-//        service.downloadFile(withId: fileId) { [weak self] result in
-//            switch result {
-//            case .success(let fileURL):
-//                DispatchQueue.main.async {
-//                    let previewController = QLPreviewController()
-//                    self?.downloadedFiles = [fileURL]
-//                    previewController.dataSource = self
-//                    self?.present(previewController, animated: true, completion: nil)
-//                }
-//            case .failure(let error):
-//                print("Failed to download file: \(error)")
-//            }
-//        }
-//    }
+    @objc func handleLongPressGesture(_ gesture: UILongPressGestureRecognizer) {
+           if gesture.state == .began {
+               let location = gesture.location(in: self.tableView)
+               if let indexPath = self.tableView.indexPathForRow(at: location) {
+                   let file = files[indexPath.row]
+                   self.handleDeleteButtonTapped(for: file)
+               }
+           }
+       }
+    
     
     private func previewImage(for file: MyFileEntity) {
         guard let fileId = file.id else { return }
@@ -339,6 +183,7 @@ class MyFilesViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
+    
     private func previewPDF(for file: MyFileEntity) {
         guard let fileId = file.id else { return }
         service.downloadFile(withId: fileId) { [weak self] result in
@@ -353,16 +198,6 @@ class MyFilesViewController: UIViewController, UITableViewDataSource, UITableVie
             }
         }
     }
-    
-//     MARK: - QLPreviewControllerDataSource
-//    
-//    func numberOfPreviewItems(in controller: QLPreviewController) -> Int {
-//        return 1
-//    }
-//    
-//    func previewController(_ controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem {
-//        return convertToPDF(downloadedFiles[0] as QLPreviewItem
-//    }
     
     // MARK: - Helper Methods
     
@@ -387,14 +222,3 @@ extension MyFilesViewController {
         .init(text: "ჩემი ფაილები", color: Color.Blue1)
     }
 }
-
-
-
-//
-//var rightBarItems: [UIBarButtonItem]? {
-//    let button = AddBarButtonItem()
-//    button.addButtonTappedAction = { [weak self] in
-//
-//    }
-//    return [button]
-//}

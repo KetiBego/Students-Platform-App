@@ -103,29 +103,46 @@ class SubjectFilesViewController: UIViewController, UITableViewDataSource, UITab
         let file = files[indexPath.row]
         cell.configure(with: file)
         
-        cell.deleteButtonTapped = { [weak self] in
-            self?.handleDeleteButtonTapped(for: file)
+        if file.isUpvoted! {
+            cell.upVoteButtonTapped = { [weak self] in
+                self?.handleDownVote(for: file.id!)
+            }
         }
-        cell.hideButton()
+        else {
+            cell.upVoteButtonTapped = { [weak self] in
+                self?.handleUpvoteCount(for: file.id!)
+            }
+            cell.downVote()
+        }
+        
         return cell
     }
     
-    private func handleDeleteButtonTapped(for file: MyFileEntity) {
+    private func handleUpvoteCount(for fileId: Int) {
         
-        self.service.callDeleteFileService(fileId: file.id!) { result in
+        service.addUpvoteToFile(fileId: fileId) { result in
             switch result {
             case .success:
-                DispatchQueue.main.async {
-                    if let index = self.files.firstIndex(where: { $0.id == file.id }) {
-                        self.files.remove(at: index)
-                        
-                        self.tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
-                    }
-                }
+                print("Upvote successfully added.")
             case .failure(let error):
-                print("Failed to delete subject: \(error)")
+                print("Failed to add upvote: \(error.localizedDescription)")
             }
         }
+    }
+    
+    private func handleDownVote(for fileId: Int) {
+        service.callDeleteUpvoteService(fileId: fileId) { result in
+            switch result {
+            case .success:
+                print("Successfully deleted upvote")
+                // Handle success (e.g., update UI)
+            case .failure(let error):
+                print("Failed to delete upvote: \(error)")
+                // Handle error (e.g., show an error message)
+            }
+        }
+
+        
         
     }
     
