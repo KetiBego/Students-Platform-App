@@ -3,7 +3,6 @@ package ge.freeuni.studentsplatformapp.service;
 import ge.freeuni.studentsplatformapp.dto.*;
 import ge.freeuni.studentsplatformapp.model.User;
 import ge.freeuni.studentsplatformapp.repository.UserRepository;
-import ge.freeuni.studentsplatformapp.security.CustomUserDetails;
 import ge.freeuni.studentsplatformapp.security.JwtUtil;
 import ge.freeuni.studentsplatformapp.security.SignedInUserService;
 import lombok.RequiredArgsConstructor;
@@ -15,9 +14,6 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-
-import java.util.Objects;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
