@@ -1,14 +1,14 @@
 package ge.freeuni.studentsplatformapp.controller;
 
-import ge.freeuni.studentsplatformapp.dto.GetUserConversationsResponse;
-import ge.freeuni.studentsplatformapp.dto.StartConversationRequest;
-import ge.freeuni.studentsplatformapp.dto.StartConversationResponse;
+import ge.freeuni.studentsplatformapp.dto.*;
 import ge.freeuni.studentsplatformapp.service.ConversationService;
 import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/conversations")
@@ -23,9 +23,15 @@ public class ConversationController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @GetMapping("/user/{userId}")
-    public ResponseEntity<GetUserConversationsResponse> getUserConversations(@PathVariable Long userId) {
-        GetUserConversationsResponse response = conversationService.getUserConversations(userId);
+    @GetMapping("/user")
+    public ResponseEntity<GetUserConversationsResponse> getUserConversations() {
+        GetUserConversationsResponse response = conversationService.getUserConversations();
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/recipients")
+    public ResponseEntity<List<RecipientInfoResponse>> getAllRecipients() {
+        List<RecipientInfoResponse> response = conversationService.getAllRecipients();
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

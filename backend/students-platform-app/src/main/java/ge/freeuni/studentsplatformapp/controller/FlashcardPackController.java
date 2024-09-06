@@ -1,6 +1,7 @@
 package ge.freeuni.studentsplatformapp.controller;
 
 import ge.freeuni.studentsplatformapp.dto.CreateFlashcardPackRequest;
+import ge.freeuni.studentsplatformapp.dto.GetFlashcardPackInfoResponse;
 import ge.freeuni.studentsplatformapp.dto.UpdateFlashcardPackRequest;
 import ge.freeuni.studentsplatformapp.service.FlashcardPackService;
 import javax.validation.Valid;
@@ -37,8 +38,8 @@ public class FlashcardPackController {
     }
 
     @GetMapping("/subject/{subjectId}")
-    public ResponseEntity<List<Long>> getFlashcardPacksBySubject(@PathVariable Long subjectId) {
-        List<Long> flashcardPackIds = flashcardPackService.getSubjectFlashcardPacks(subjectId);
+    public ResponseEntity<List<GetFlashcardPackInfoResponse>> getFlashcardPacksBySubject(@PathVariable Long subjectId) {
+        List<GetFlashcardPackInfoResponse> flashcardPackIds = flashcardPackService.getSubjectFlashcardPacks(subjectId);
         return new ResponseEntity<>(flashcardPackIds, HttpStatus.OK);
     }
 }

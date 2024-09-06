@@ -63,8 +63,8 @@ public class FileController {
 
     @GetMapping("/subject/{subjectId}")
     public ResponseEntity<List<GetFileInfoResponse>> getSubjectFiles(@PathVariable Long subjectId) {
-        List<GetFileInfoResponse> fileIds = fileService.getSubjectFiles(subjectId);
-        return ResponseEntity.ok(fileIds);
+        List<GetFileInfoResponse> fileInfoResponses = fileService.getSubjectFiles(subjectId);
+        return ResponseEntity.ok(fileInfoResponses);
     }
 
     @DeleteMapping("/{fileId}")

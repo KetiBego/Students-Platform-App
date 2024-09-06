@@ -14,9 +14,6 @@ public class CreateFlashcardPackRequest {
     private Long subjectId;
 
     @NotBlank
-    private Long userId;
-
-    @NotBlank
     private List<CreateFlashcardRequest> flashcards;
 
 }

@@ -1,12 +1,11 @@
 package ge.freeuni.studentsplatformapp.service;
 
-import ge.freeuni.studentsplatformapp.dto.UserCreateRequest;
-import ge.freeuni.studentsplatformapp.dto.UserSignInRequest;
-import ge.freeuni.studentsplatformapp.dto.UserSignInResponse;
+import ge.freeuni.studentsplatformapp.dto.*;
 import ge.freeuni.studentsplatformapp.model.User;
 import ge.freeuni.studentsplatformapp.repository.UserRepository;
 import ge.freeuni.studentsplatformapp.security.CustomUserDetails;
 import ge.freeuni.studentsplatformapp.security.JwtUtil;
+import ge.freeuni.studentsplatformapp.security.SignedInUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -16,6 +15,9 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -27,6 +29,7 @@ public class UserService {
     private final AuthenticationManager authenticationManager;
 
     private static final String ACCEPTABLE_SUFFIX = "freeuni.edu.ge";
+    private final SignedInUserService signedInUserService;
 
     public void createUser(UserCreateRequest request) {
         String email = request.getEmail();
