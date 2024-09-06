@@ -248,7 +248,9 @@ extension EntryPage {
                         print(serviceResponse)
                         DispatchQueue.main.async {
                             UserDefaults.standard.set(serviceResponse.token!, forKey: "authToken")
-                            self.navigationController?.pushViewController(TabBarController(), animated: true)
+                            let vc = FlashcardsViewController()
+                            vc.setSubject(subjectId: 9)
+                            self.navigationController?.pushViewController(vc, animated: true)
                         }
                     case .failure(let error):
                         print(error)

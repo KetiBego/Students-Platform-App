@@ -20,6 +20,9 @@
 		991E5AB22BEE62CD004D3CA4 /* Students_platform_app_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E5AB12BEE62CD004D3CA4 /* Students_platform_app_iosTests.swift */; };
 		991E5ABC2BEE62CD004D3CA4 /* Students_platform_app_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E5ABB2BEE62CD004D3CA4 /* Students_platform_app_iosUITests.swift */; };
 		991E5ABE2BEE62CD004D3CA4 /* Students_platform_app_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E5ABD2BEE62CD004D3CA4 /* Students_platform_app_iosUITestsLaunchTests.swift */; };
+		994414D42C8A83CC00150FEC /* FlashCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994414D32C8A83CC00150FEC /* FlashCardsViewController.swift */; };
+		994414DE2C8A8A6700150FEC /* FlashCardtabelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994414DD2C8A8A6700150FEC /* FlashCardtabelViewCell.swift */; };
+		994414E62C8A98E600150FEC /* SpacerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994414E52C8A98E500150FEC /* SpacerCell.swift */; };
 		9948CFAB2C87C638008F1C54 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9948CFAA2C87C638008F1C54 /* RegistrationViewController.swift */; };
 		996BA3D82BEE75E200F7E3B4 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 996BA3D42BEE74D600F7E3B4 /* Networking.framework */; };
 		996BA3D92BEE75E200F7E3B4 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 996BA3D42BEE74D600F7E3B4 /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -41,6 +44,10 @@
 		9998E7AB2C7C04AC00069CE9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998E7AA2C7C04AC00069CE9 /* SearchViewController.swift */; };
 		9998E7AE2C7C060200069CE9 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998E7AD2C7C060200069CE9 /* NavigationBar.swift */; };
 		9998E7B02C7C068300069CE9 /* NavigationBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998E7AF2C7C068300069CE9 /* NavigationBackButton.swift */; };
+		99CE2A7F2C8A9BDF00F953A2 /* FlashCardsPackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CE2A7E2C8A9BDF00F953A2 /* FlashCardsPackController.swift */; };
+		99CE2A852C8A9D9A00F953A2 /* FlashCardPackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CE2A842C8A9D9A00F953A2 /* FlashCardPackCell.swift */; };
+		99CE2A872C8AA6FD00F953A2 /* CreatePackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CE2A862C8AA6FD00F953A2 /* CreatePackController.swift */; };
+		99CE2A892C8AB6DC00F953A2 /* CreateFlashCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CE2A882C8AB6DC00F953A2 /* CreateFlashCardController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +138,9 @@
 		991E5AB72BEE62CD004D3CA4 /* Students-platform-app-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Students-platform-app-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		991E5ABB2BEE62CD004D3CA4 /* Students_platform_app_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Students_platform_app_iosUITests.swift; sourceTree = "<group>"; };
 		991E5ABD2BEE62CD004D3CA4 /* Students_platform_app_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Students_platform_app_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		994414D32C8A83CC00150FEC /* FlashCardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardsViewController.swift; sourceTree = "<group>"; };
+		994414DD2C8A8A6700150FEC /* FlashCardtabelViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardtabelViewCell.swift; sourceTree = "<group>"; };
+		994414E52C8A98E500150FEC /* SpacerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacerCell.swift; sourceTree = "<group>"; };
 		9948CFAA2C87C638008F1C54 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		996BA3D42BEE74D600F7E3B4 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		996BA3DB2BEE76BC00F7E3B4 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +161,10 @@
 		9998E7AA2C7C04AC00069CE9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		9998E7AD2C7C060200069CE9 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		9998E7AF2C7C068300069CE9 /* NavigationBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBackButton.swift; sourceTree = "<group>"; };
+		99CE2A7E2C8A9BDF00F953A2 /* FlashCardsPackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardsPackController.swift; sourceTree = "<group>"; };
+		99CE2A842C8A9D9A00F953A2 /* FlashCardPackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardPackCell.swift; sourceTree = "<group>"; };
+		99CE2A862C8AA6FD00F953A2 /* CreatePackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePackController.swift; sourceTree = "<group>"; };
+		99CE2A882C8AB6DC00F953A2 /* CreateFlashCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFlashCardController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +265,17 @@
 			path = "Students-platform-app-iosUITests";
 			sourceTree = "<group>";
 		};
+		994414D22C8A83B800150FEC /* FlashCards */ = {
+			isa = PBXGroup;
+			children = (
+				994414D32C8A83CC00150FEC /* FlashCardsViewController.swift */,
+				99CE2A7E2C8A9BDF00F953A2 /* FlashCardsPackController.swift */,
+				99CE2A862C8AA6FD00F953A2 /* CreatePackController.swift */,
+				99CE2A882C8AB6DC00F953A2 /* CreateFlashCardController.swift */,
+			);
+			path = FlashCards;
+			sourceTree = "<group>";
+		};
 		996BA3D32BEE74D600F7E3B4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +292,9 @@
 			children = (
 				997F6B412C84BD630011DF7F /* SubjectCell.swift */,
 				99909BFD2C8880C200A92F7A /* FileTableViewCell.swift */,
+				994414DD2C8A8A6700150FEC /* FlashCardtabelViewCell.swift */,
+				994414E52C8A98E500150FEC /* SpacerCell.swift */,
+				99CE2A842C8A9D9A00F953A2 /* FlashCardPackCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -327,6 +355,7 @@
 		9998E7A52C7C046E00069CE9 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				994414D22C8A83B800150FEC /* FlashCards */,
 				99909C082C88BF6000A92F7A /* AddFile */,
 				99909BF82C88692800A92F7A /* FilesPage */,
 				9905FECB2C7D055700867AFD /* LoginPage */,
@@ -559,16 +588,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99CE2A852C8A9D9A00F953A2 /* FlashCardPackCell.swift in Sources */,
+				99CE2A892C8AB6DC00F953A2 /* CreateFlashCardController.swift in Sources */,
 				99909C022C8888C600A92F7A /* PDFViewController.swift in Sources */,
 				997F6B422C84BD630011DF7F /* SubjectCell.swift in Sources */,
 				99909C0A2C88BF7500A92F7A /* FileUploadViewController.swift in Sources */,
+				99CE2A872C8AA6FD00F953A2 /* CreatePackController.swift in Sources */,
 				9974EAFB2C8669F800929E57 /* MysubjectsViewController.swift in Sources */,
+				994414DE2C8A8A6700150FEC /* FlashCardtabelViewCell.swift in Sources */,
+				994414D42C8A83CC00150FEC /* FlashCardsViewController.swift in Sources */,
 				991E5A9F2BEE62CC004D3CA4 /* EntryPage.swift in Sources */,
+				99CE2A7F2C8A9BDF00F953A2 /* FlashCardsPackController.swift in Sources */,
 				99909C002C8884C300A92F7A /* ImageViewController.swift in Sources */,
 				9998E7942C7BF8EA00069CE9 /* TabBarController.swift in Sources */,
 				99909BFA2C88694900A92F7A /* FilesPageViewController.swift in Sources */,
 				99909BFE2C8880C300A92F7A /* FileTableViewCell.swift in Sources */,
 				9948CFAB2C87C638008F1C54 /* RegistrationViewController.swift in Sources */,
+				994414E62C8A98E600150FEC /* SpacerCell.swift in Sources */,
 				9998E7B02C7C068300069CE9 /* NavigationBackButton.swift in Sources */,
 				9905FECF2C7D073900867AFD /* LoginPagaViewModel.swift in Sources */,
 				9905FED12C7D075700867AFD /* LoginPageRouter.swift in Sources */,
