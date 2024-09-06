@@ -44,6 +44,8 @@
 		9998E7AB2C7C04AC00069CE9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998E7AA2C7C04AC00069CE9 /* SearchViewController.swift */; };
 		9998E7AE2C7C060200069CE9 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998E7AD2C7C060200069CE9 /* NavigationBar.swift */; };
 		9998E7B02C7C068300069CE9 /* NavigationBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998E7AF2C7C068300069CE9 /* NavigationBackButton.swift */; };
+		99A1368C2C8BA1960056EBD3 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A1368B2C8BA1960056EBD3 /* ChatViewController.swift */; };
+		99A1368E2C8BA1A40056EBD3 /* ChatHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A1368D2C8BA1A40056EBD3 /* ChatHeaderCell.swift */; };
 		99CE2A7F2C8A9BDF00F953A2 /* FlashCardsPackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CE2A7E2C8A9BDF00F953A2 /* FlashCardsPackController.swift */; };
 		99CE2A852C8A9D9A00F953A2 /* FlashCardPackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CE2A842C8A9D9A00F953A2 /* FlashCardPackCell.swift */; };
 		99CE2A872C8AA6FD00F953A2 /* CreatePackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CE2A862C8AA6FD00F953A2 /* CreatePackController.swift */; };
@@ -161,6 +163,8 @@
 		9998E7AA2C7C04AC00069CE9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		9998E7AD2C7C060200069CE9 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		9998E7AF2C7C068300069CE9 /* NavigationBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBackButton.swift; sourceTree = "<group>"; };
+		99A1368B2C8BA1960056EBD3 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		99A1368D2C8BA1A40056EBD3 /* ChatHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHeaderCell.swift; sourceTree = "<group>"; };
 		99CE2A7E2C8A9BDF00F953A2 /* FlashCardsPackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardsPackController.swift; sourceTree = "<group>"; };
 		99CE2A842C8A9D9A00F953A2 /* FlashCardPackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardPackCell.swift; sourceTree = "<group>"; };
 		99CE2A862C8AA6FD00F953A2 /* CreatePackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePackController.swift; sourceTree = "<group>"; };
@@ -295,6 +299,7 @@
 				994414DD2C8A8A6700150FEC /* FlashCardtabelViewCell.swift */,
 				994414E52C8A98E500150FEC /* SpacerCell.swift */,
 				99CE2A842C8A9D9A00F953A2 /* FlashCardPackCell.swift */,
+				99A1368D2C8BA1A40056EBD3 /* ChatHeaderCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -388,6 +393,7 @@
 		9998E7A82C7C048F00069CE9 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				99A1368B2C8BA1960056EBD3 /* ChatViewController.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -598,6 +604,7 @@
 				994414DE2C8A8A6700150FEC /* FlashCardtabelViewCell.swift in Sources */,
 				994414D42C8A83CC00150FEC /* FlashCardsViewController.swift in Sources */,
 				991E5A9F2BEE62CC004D3CA4 /* EntryPage.swift in Sources */,
+				99A1368C2C8BA1960056EBD3 /* ChatViewController.swift in Sources */,
 				99CE2A7F2C8A9BDF00F953A2 /* FlashCardsPackController.swift in Sources */,
 				99909C002C8884C300A92F7A /* ImageViewController.swift in Sources */,
 				9998E7942C7BF8EA00069CE9 /* TabBarController.swift in Sources */,
@@ -608,6 +615,7 @@
 				9998E7B02C7C068300069CE9 /* NavigationBackButton.swift in Sources */,
 				9905FECF2C7D073900867AFD /* LoginPagaViewModel.swift in Sources */,
 				9905FED12C7D075700867AFD /* LoginPageRouter.swift in Sources */,
+				99A1368E2C8BA1A40056EBD3 /* ChatHeaderCell.swift in Sources */,
 				9905FECD2C7D05C700867AFD /* LoginPageController.swift in Sources */,
 				9998E79C2C7BFB2C00069CE9 /* TabBarItem.swift in Sources */,
 				991E5A9B2BEE62CC004D3CA4 /* AppDelegate.swift in Sources */,

@@ -47,7 +47,7 @@ enum TabBarItem {
         case .Search:
             return SearchViewController()
         case .Chat:
-            return SearchViewController()
+            return ChatViewController()
         case .Profile:
             return SearchViewController()
         }

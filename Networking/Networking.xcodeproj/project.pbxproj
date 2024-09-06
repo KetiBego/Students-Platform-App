@@ -39,6 +39,15 @@
 		99909C072C88BD5B00A92F7A /* AddFileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99909C062C88BD5B00A92F7A /* AddFileUseCase.swift */; };
 		99909C0E2C8A436200A92F7A /* UpVotesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99909C0D2C8A436200A92F7A /* UpVotesUseCase.swift */; };
 		99909C102C8A6A1600A92F7A /* DeleteUpVoteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99909C0F2C8A6A1600A92F7A /* DeleteUpVoteUseCase.swift */; };
+		99A1367A2C8B9AAB0056EBD3 /* ApiConversationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A136792C8B9AAB0056EBD3 /* ApiConversationResponse.swift */; };
+		99A1367C2C8B9B180056EBD3 /* ConversationResposeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A1367B2C8B9B180056EBD3 /* ConversationResposeEntity.swift */; };
+		99A1367E2C8B9BC30056EBD3 /* GetConversationsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A1367D2C8B9BC30056EBD3 /* GetConversationsUseCase.swift */; };
+		99A136802C8B9C520056EBD3 /* ApiRecipient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A1367F2C8B9C520056EBD3 /* ApiRecipient.swift */; };
+		99A136822C8B9C640056EBD3 /* RecipientEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A136812C8B9C640056EBD3 /* RecipientEntity.swift */; };
+		99A136842C8B9CB70056EBD3 /* FetchRecipientsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A136832C8B9CB70056EBD3 /* FetchRecipientsUseCase.swift */; };
+		99A136862C8B9DEB0056EBD3 /* ApiConversationStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A136852C8B9DEB0056EBD3 /* ApiConversationStart.swift */; };
+		99A136882C8B9DFE0056EBD3 /* ConversationStartEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A136872C8B9DFE0056EBD3 /* ConversationStartEntity.swift */; };
+		99A1368A2C8B9EB20056EBD3 /* StartConversationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A136892C8B9EB20056EBD3 /* StartConversationUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +108,15 @@
 		99909C062C88BD5B00A92F7A /* AddFileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFileUseCase.swift; sourceTree = "<group>"; };
 		99909C0D2C8A436200A92F7A /* UpVotesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpVotesUseCase.swift; sourceTree = "<group>"; };
 		99909C0F2C8A6A1600A92F7A /* DeleteUpVoteUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUpVoteUseCase.swift; sourceTree = "<group>"; };
+		99A136792C8B9AAB0056EBD3 /* ApiConversationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConversationResponse.swift; sourceTree = "<group>"; };
+		99A1367B2C8B9B180056EBD3 /* ConversationResposeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationResposeEntity.swift; sourceTree = "<group>"; };
+		99A1367D2C8B9BC30056EBD3 /* GetConversationsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetConversationsUseCase.swift; sourceTree = "<group>"; };
+		99A1367F2C8B9C520056EBD3 /* ApiRecipient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRecipient.swift; sourceTree = "<group>"; };
+		99A136812C8B9C640056EBD3 /* RecipientEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipientEntity.swift; sourceTree = "<group>"; };
+		99A136832C8B9CB70056EBD3 /* FetchRecipientsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRecipientsUseCase.swift; sourceTree = "<group>"; };
+		99A136852C8B9DEB0056EBD3 /* ApiConversationStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConversationStart.swift; sourceTree = "<group>"; };
+		99A136872C8B9DFE0056EBD3 /* ConversationStartEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationStartEntity.swift; sourceTree = "<group>"; };
+		99A136892C8B9EB20056EBD3 /* StartConversationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartConversationUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +153,9 @@
 				997F6B3A2C83D18A0011DF7F /* ApiSubjectModel.swift */,
 				9948CFAC2C87D425008F1C54 /* ApiMyFile.swift */,
 				994414DB2C8A87BB00150FEC /* ApiFlashCards.swift */,
+				99A136792C8B9AAB0056EBD3 /* ApiConversationResponse.swift */,
+				99A1367F2C8B9C520056EBD3 /* ApiRecipient.swift */,
+				99A136852C8B9DEB0056EBD3 /* ApiConversationStart.swift */,
 			);
 			path = "Api Models";
 			sourceTree = "<group>";
@@ -146,6 +167,9 @@
 				997F6B3C2C83D2CC0011DF7F /* SubjectsEntity.swift */,
 				9948CFAE2C87D492008F1C54 /* MyFileEntity.swift */,
 				994414DF2C8A8AB100150FEC /* FlashCardEntity.swift */,
+				99A1367B2C8B9B180056EBD3 /* ConversationResposeEntity.swift */,
+				99A136812C8B9C640056EBD3 /* RecipientEntity.swift */,
+				99A136872C8B9DFE0056EBD3 /* ConversationStartEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -170,6 +194,9 @@
 				994414D52C8A84BA00150FEC /* UpdateFlashCardUseCase.swift */,
 				994414D72C8A853500150FEC /* DeletePackUseCase.swift */,
 				994414D92C8A85A800150FEC /* GetSubjectFlashCardsUseCase.swift */,
+				99A1367D2C8B9BC30056EBD3 /* GetConversationsUseCase.swift */,
+				99A136832C8B9CB70056EBD3 /* FetchRecipientsUseCase.swift */,
+				99A136892C8B9EB20056EBD3 /* StartConversationUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -348,22 +375,31 @@
 			files = (
 				9948CFAF2C87D492008F1C54 /* MyFileEntity.swift in Sources */,
 				9948CFB12C87D554008F1C54 /* GetMyFilesUseCase.swift in Sources */,
+				99A136802C8B9C520056EBD3 /* ApiRecipient.swift in Sources */,
+				99A136842C8B9CB70056EBD3 /* FetchRecipientsUseCase.swift in Sources */,
 				99909BFC2C8876E500A92F7A /* DownloadFileUseCase.swift in Sources */,
 				9948CFAD2C87D425008F1C54 /* ApiMyFile.swift in Sources */,
+				99A136882C8B9DFE0056EBD3 /* ConversationStartEntity.swift in Sources */,
 				99909C102C8A6A1600A92F7A /* DeleteUpVoteUseCase.swift in Sources */,
 				9974EB012C867C4A00929E57 /* DeleteSubjectUseCase.swift in Sources */,
 				997F6B3D2C83D2CC0011DF7F /* SubjectsEntity.swift in Sources */,
 				996BA3BC2BEE70EB00F7E3B4 /* Networking.docc in Sources */,
 				994414D12C8A834E00150FEC /* FlashCardsCreateUseCase.swift in Sources */,
 				9948CFB32C87D732008F1C54 /* SubjectFilesUseCase.swift in Sources */,
+				99A1368A2C8B9EB20056EBD3 /* StartConversationUseCase.swift in Sources */,
 				9974EAFD2C866C4400929E57 /* MySubjectsUseCase.swift in Sources */,
+				99A1367C2C8B9B180056EBD3 /* ConversationResposeEntity.swift in Sources */,
 				994414D82C8A853500150FEC /* DeletePackUseCase.swift in Sources */,
+				99A1367A2C8B9AAB0056EBD3 /* ApiConversationResponse.swift in Sources */,
 				994414DA2C8A85A800150FEC /* GetSubjectFlashCardsUseCase.swift in Sources */,
+				99A136822C8B9C640056EBD3 /* RecipientEntity.swift in Sources */,
+				99A1367E2C8B9BC30056EBD3 /* GetConversationsUseCase.swift in Sources */,
 				994414E02C8A8AB100150FEC /* FlashCardEntity.swift in Sources */,
 				9948CFA92C87B6CF008F1C54 /* RegistrationUseCase.swift in Sources */,
 				99909C052C88A22C00A92F7A /* DeleteFileUseCase.swift in Sources */,
 				997F6B3F2C83D37A0011DF7F /* SubjectsUseCase.swift in Sources */,
 				9974EAFF2C86752200929E57 /* AddSubjectUseCase.swift in Sources */,
+				99A136862C8B9DEB0056EBD3 /* ApiConversationStart.swift in Sources */,
 				9905FF012C7D383B00867AFD /* LoginEntity.swift in Sources */,
 				9905FF032C7D387900867AFD /* ApiLoginModel.swift in Sources */,
 				997F6B3B2C83D18A0011DF7F /* ApiSubjectModel.swift in Sources */,
