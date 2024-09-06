@@ -6,9 +6,6 @@ import lombok.Data;
 @Data
 public class SendMessageRequest {
     @NotBlank
-    private Long senderId;
-
-    @NotBlank
     private Long conversationId;
 
     @NotBlank
