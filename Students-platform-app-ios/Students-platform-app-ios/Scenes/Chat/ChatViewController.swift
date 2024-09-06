@@ -79,12 +79,8 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let conversation = conversations[indexPath.row]
+        let chatDetailVC = ChatDetailsViewController(recipientUserId: conversation.userId!)
+        navigationController?.pushViewController(chatDetailVC, animated: true)
     }
-//        let chatDetailVC = ChatDetailViewController(conversationId: conversation.conversationId, userId: conversation.userId)
-//        navigationController?.pushViewController(chatDetailVC, animated: true)
-//    }
 
-//    private func configureNavigationBar() {
-//        navigationItem.title = "Conversations"
-//    }
 }

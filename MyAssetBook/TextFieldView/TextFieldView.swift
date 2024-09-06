@@ -202,8 +202,11 @@ extension TextFieldView {
     
     public func resetSubscriptions() {
         subscriptions = Set<AnyCancellable>()
-        textField.text = ""
+        DispatchQueue.main.async {
+            self.textField.text = ""
+        }
     }
+
 }
 
 extension TextFieldView: UITextFieldDelegate {

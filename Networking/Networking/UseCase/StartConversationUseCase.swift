@@ -6,7 +6,7 @@
 //
 
 extension Service {
-    func startConversation(recipientUserId: Int, completion: @escaping (Result<ConversationStartResponseEntity, Error>) -> Void) {
+    public func startConversation(recipientUserId: Int, completion: @escaping (Result<ConversationStartResponseEntity, Error>) -> Void) {
         // API endpoint URL
         guard let url = URL(string: "http://localhost:8080/api/v1/conversations/start") else {
             completion(.failure(ServiceError.invalidURL))

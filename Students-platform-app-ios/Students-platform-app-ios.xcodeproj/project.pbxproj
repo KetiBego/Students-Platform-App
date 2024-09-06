@@ -10,6 +10,8 @@
 		9905FECD2C7D05C700867AFD /* LoginPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FECC2C7D05C700867AFD /* LoginPageController.swift */; };
 		9905FECF2C7D073900867AFD /* LoginPagaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FECE2C7D073900867AFD /* LoginPagaViewModel.swift */; };
 		9905FED12C7D075700867AFD /* LoginPageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FED02C7D075700867AFD /* LoginPageRouter.swift */; };
+		990683942C8BAB810042287D /* chatDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990683932C8BAB810042287D /* chatDetailsViewController.swift */; };
+		990683962C8BB0FF0042287D /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990683952C8BB0FF0042287D /* MessageTableViewCell.swift */; };
 		9916E3812C86460000CB6B62 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 9916E3802C86460000CB6B62 /* Lottie */; };
 		991E5A9B2BEE62CC004D3CA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E5A9A2BEE62CC004D3CA4 /* AppDelegate.swift */; };
 		991E5A9D2BEE62CC004D3CA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E5A9C2BEE62CC004D3CA4 /* SceneDelegate.swift */; };
@@ -127,6 +129,8 @@
 		9905FECC2C7D05C700867AFD /* LoginPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageController.swift; sourceTree = "<group>"; };
 		9905FECE2C7D073900867AFD /* LoginPagaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPagaViewModel.swift; sourceTree = "<group>"; };
 		9905FED02C7D075700867AFD /* LoginPageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageRouter.swift; sourceTree = "<group>"; };
+		990683932C8BAB810042287D /* chatDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatDetailsViewController.swift; sourceTree = "<group>"; };
+		990683952C8BB0FF0042287D /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		991E5A972BEE62CC004D3CA4 /* Students-platform-app-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Students-platform-app-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		991E5A9A2BEE62CC004D3CA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		991E5A9C2BEE62CC004D3CA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -300,6 +304,7 @@
 				994414E52C8A98E500150FEC /* SpacerCell.swift */,
 				99CE2A842C8A9D9A00F953A2 /* FlashCardPackCell.swift */,
 				99A1368D2C8BA1A40056EBD3 /* ChatHeaderCell.swift */,
+				990683952C8BB0FF0042287D /* MessageTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -394,6 +399,7 @@
 			isa = PBXGroup;
 			children = (
 				99A1368B2C8BA1960056EBD3 /* ChatViewController.swift */,
+				990683932C8BAB810042287D /* chatDetailsViewController.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -596,6 +602,7 @@
 			files = (
 				99CE2A852C8A9D9A00F953A2 /* FlashCardPackCell.swift in Sources */,
 				99CE2A892C8AB6DC00F953A2 /* CreateFlashCardController.swift in Sources */,
+				990683962C8BB0FF0042287D /* MessageTableViewCell.swift in Sources */,
 				99909C022C8888C600A92F7A /* PDFViewController.swift in Sources */,
 				997F6B422C84BD630011DF7F /* SubjectCell.swift in Sources */,
 				99909C0A2C88BF7500A92F7A /* FileUploadViewController.swift in Sources */,
@@ -613,6 +620,7 @@
 				9948CFAB2C87C638008F1C54 /* RegistrationViewController.swift in Sources */,
 				994414E62C8A98E600150FEC /* SpacerCell.swift in Sources */,
 				9998E7B02C7C068300069CE9 /* NavigationBackButton.swift in Sources */,
+				990683942C8BAB810042287D /* chatDetailsViewController.swift in Sources */,
 				9905FECF2C7D073900867AFD /* LoginPagaViewModel.swift in Sources */,
 				9905FED12C7D075700867AFD /* LoginPageRouter.swift in Sources */,
 				99A1368E2C8BA1A40056EBD3 /* ChatHeaderCell.swift in Sources */,
