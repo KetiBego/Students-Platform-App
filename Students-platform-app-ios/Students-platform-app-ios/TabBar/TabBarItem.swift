@@ -43,13 +43,13 @@ enum TabBarItem {
     var controller: UIViewController {
         switch self {
         case .Subjects:
-            return SubjectsViewController()
+            return MySubjectsViewController()
         case .Search:
-            return SubjectsViewController()
+            return SearchViewController()
         case .Chat:
-            return SubjectsViewController()
+            return ChatViewController()
         case .Profile:
-            return SubjectsViewController()
+            return ProfileViewController()
         }
     }
 }
