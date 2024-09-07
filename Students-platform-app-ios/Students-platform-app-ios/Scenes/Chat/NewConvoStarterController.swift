@@ -70,7 +70,7 @@ class NewConvoStarterController: UIViewController, UITableViewDataSource, UITabl
     private func addSubviews() {
         
         searchTextField.bind(model: .init(
-            placeholder: MytextBook.SearchTexts.search,
+            placeholder: "მომხმარებლის ძებნა",
             onEditingDidEnd: { subject in
                 print(subject)
         }))
