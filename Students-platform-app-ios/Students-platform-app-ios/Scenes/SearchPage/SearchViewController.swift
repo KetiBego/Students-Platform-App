@@ -258,7 +258,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let subject = subjects[indexPath.row]
-        self.navigationController?.pushViewController(SubjectFilesViewController(subjectId: subject.id!), animated: true)
+        self.navigationController?.pushViewController(SubjectFilesViewController(subjectId: subject.id!, subjectName: subject.subjectName!), animated: true)
     }
     
 }

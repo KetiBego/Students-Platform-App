@@ -21,7 +21,7 @@ class FlashcardsViewController: UIViewController, UITableViewDataSource, UITable
         super.viewDidLoad()
         configureNavigationBar()
         setUp()
-        tableView.estimatedRowHeight = 100 // Provide an estimated row height
+        tableView.estimatedRowHeight = 100 
         view.backgroundColor = Color.background
         fetchFlashcardPacks()
     }
@@ -112,8 +112,6 @@ class FlashcardsViewController: UIViewController, UITableViewDataSource, UITable
         return [button]
     }
     
-    var leftBarItems: [UIBarButtonItem]? { nil }
-
     
     
     private func presentFlashcardPackMaker() {
@@ -133,8 +131,9 @@ class FlashcardsViewController: UIViewController, UITableViewDataSource, UITable
                    self?.fetchFlashcardPacks()
                }
            case .failure(let error):
-               print("Failed to create flashcard pack: \(error)")
-               // Optionally show an error message
+               DispatchQueue.main.async {
+                   self?.displayBanner(with: "შეფერხებაა, მოგვიანებით სცადე", state: .failure)
+               }
            }
        }
    }

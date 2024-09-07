@@ -1,63 +1,115 @@
-////
-////  FilesPageViewController.swift
-////  Students-platform-app-ios
-////
-////  Created by Ruska Keldishvili on 04.09.24.
+//
+//  ProfileViewController.swift
+//  Students-platform-app-ios
+//
+//  Created by Ruska Keldishvili on 07.09.24.
+//
 
-import MyAssetBook
+
 import UIKit
+import MyAssetBook
 import Networking
 import PDFKit
-import QuickLook // For previewing PDFs and other documents
+import QuickLook
 
-class MyFilesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CustomNavigatable {
+class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CustomNavigatable {
     
-    private var files: [MyFileEntity] = []
-    private var downloadedFiles: [URL] = []
-    private let tableView = UITableView()
     private let service = Service()
     
+    private var username: String?
+    private var email: String?
+    private var files: [MyFileEntity] = []
+    
+    private let usernameLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        label.textColor = Color.Blue1
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let emailLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        label.textColor = Color.Blue1
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let tableView = UITableView()
     private let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
         view.backgroundColor = Color.background
+        fetchCurrentUser()
         fetchFiles()
         configureNavigationBar()
         navigationItem.hidesBackButton = true
     }
     
     private func setUp() {
+        setupSubviews()
+        setupConstraints()
         setupTableView()
-        AddSubviews()
-        addConstraints()
     }
     
-    private func AddSubviews() {
+    private func setupSubviews() {
+        view.addSubview(usernameLabel)
+        view.addSubview(emailLabel)
         view.addSubview(tableView)
     }
     
-    private func addConstraints() {
-        tableView.top(toView: view, constant: .XL2)
-        tableView.left(toView: view, constant: .XL2)
-        tableView.right(toView: view, constant: .XL2)
-        tableView.bottom(toView: view)
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            // Username label constraints
+            usernameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            usernameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            // Email label constraints
+            emailLabel.topAnchor.constraint(equalTo: usernameLabel.bottomAnchor, constant: 8),
+            emailLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            // TableView constraints
+            tableView.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 16),
+            tableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
+            tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
     
     private func setupTableView() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundView?.backgroundColor = Color.background
         tableView.backgroundColor = Color.background
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(FileTableViewCell.self, forCellReuseIdentifier: "FileCell")
-        refreshControl.addTarget(self, action: #selector(refreshFilesData), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         tableView.refreshControl = refreshControl
     }
     
-    @objc private func refreshFilesData() {
+    @objc private func refreshData() {
+        fetchCurrentUser()
         fetchFiles()
+    }
+    
+    private func fetchCurrentUser() {
+        service.fetchCurrentUser { [weak self] result in
+            switch result {
+            case .success(let userEntity):
+                self?.username = userEntity.displayName
+                self?.email = userEntity.username
+                DispatchQueue.main.async {
+                    self?.usernameLabel.text = self?.username
+                    self?.emailLabel.text = self?.email
+                }
+            case .failure(let error):
+                print("Failed to fetch user: \(error)")
+            }
+        }
     }
     
     private func fetchFiles() {
@@ -74,7 +126,6 @@ class MyFilesViewController: UIViewController, UITableViewDataSource, UITableVie
                     self?.refreshControl.endRefreshing()
                 }
                 print("Failed to fetch files: \(error)")
-                // Handle error (e.g., show an alert)
             }
         }
     }
@@ -96,20 +147,24 @@ class MyFilesViewController: UIViewController, UITableViewDataSource, UITableVie
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPressGesture(_:)))
         cell.addGestureRecognizer(longPressGesture)
         
-        cell.hideButton()
         
         return cell
     }
     
+    @objc func handleLongPressGesture(_ gesture: UILongPressGestureRecognizer) {
+        if gesture.state == .began {
+            let location = gesture.location(in: self.tableView)
+            if let indexPath = self.tableView.indexPathForRow(at: location) {
+                let file = files[indexPath.row]
+                handleDeleteButtonTapped(for: file)
+            }
+        }
+    }
+    
     private func handleDeleteButtonTapped(for file: MyFileEntity) {
-        // Create the alert controller
-        let alertController = UIAlertController(title: "წაშლა",
-                                                message: "დარწმუნებული ხარ რომ ფაილის წაშლა გინდა?",
-                                                preferredStyle: .alert)
+        let alertController = UIAlertController(title: "წაშლა", message: "დარწმუნებული ხარ რომ ფაილის წაშლა გინდა?", preferredStyle: .alert)
         
-        // Add the "Delete" action
         let deleteAction = UIAlertAction(title: "წაშლა", style: .destructive) { _ in
-            // Perform the deletion if user confirms
             self.service.callDeleteFileService(fileId: file.id!) { result in
                 switch result {
                 case .success:
@@ -125,20 +180,11 @@ class MyFilesViewController: UIViewController, UITableViewDataSource, UITableVie
             }
         }
         
-        // Add the "Cancel" action
         let cancelAction = UIAlertAction(title: "გაუქმება", style: .cancel, handler: nil)
-        
-        // Add the actions to the alert controller
         alertController.addAction(deleteAction)
         alertController.addAction(cancelAction)
-        
-        // Present the alert controller
-        self.present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
-
-
-
-     
     
     // MARK: - UITableViewDelegate
     
@@ -146,27 +192,13 @@ class MyFilesViewController: UIViewController, UITableViewDataSource, UITableVie
         let file = files[indexPath.row]
         
         if let fileName = file.fileName, fileName.hasSuffix(".pdf") {
-            // Handle PDF file preview
             previewPDF(for: file)
         } else if let fileName = file.fileName, fileName.hasSuffix(".jpg") || fileName.hasSuffix(".png") {
-            // Handle image preview
             previewImage(for: file)
         } else {
             print("Unsupported file type")
         }
     }
-    
-    
-    @objc func handleLongPressGesture(_ gesture: UILongPressGestureRecognizer) {
-           if gesture.state == .began {
-               let location = gesture.location(in: self.tableView)
-               if let indexPath = self.tableView.indexPathForRow(at: location) {
-                   let file = files[indexPath.row]
-                   self.handleDeleteButtonTapped(for: file)
-               }
-           }
-       }
-    
     
     private func previewImage(for file: MyFileEntity) {
         guard let fileId = file.id else { return }
@@ -183,15 +215,14 @@ class MyFilesViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    
     private func previewPDF(for file: MyFileEntity) {
         guard let fileId = file.id else { return }
         service.downloadFile(withId: fileId) { [weak self] result in
             switch result {
             case .success(let fileURL):
                 DispatchQueue.main.async {
-                    let imageViewController = PDFDisplayViewController(fileUrl: fileURL)
-                    self?.present(imageViewController, animated: true, completion: nil)
+                    let pdfViewController = PDFDisplayViewController(fileUrl: fileURL)
+                    self?.present(pdfViewController, animated: true, completion: nil)
                 }
             case .failure(let error):
                 print("Failed to download file: \(error)")
@@ -199,26 +230,30 @@ class MyFilesViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    // MARK: - Helper Methods
+    // MARK: - CustomNavigatable
     
-    private func convertToPDF(from fileURL: URL) -> PDFDocument? {
-        return PDFDocument(url: fileURL)
-    }
-    
-    private func displayPDF(at url: URL) {
-        let pdfView = PDFView(frame: self.view.bounds)
-        pdfView.autoScales = true
-        if let pdfDocument = PDFDocument(url: url) {
-            pdfView.document = pdfDocument
-            self.view.addSubview(pdfView)
-        } else {
-            print("Failed to load PDF")
-        }
-    }
-}
-
-extension MyFilesViewController {
     var navTitle: NavigationTitle {
-        .init(text: "ჩემი ფაილები", color: Color.Blue1)
+        return .init(text: "ჩემი პროფილი", color: Color.Blue1)
     }
+    
+    var rightBarItems: [UIBarButtonItem]? {
+        let button = LogOutBarButtonItem()
+        button.addButtonTappedAction = { [weak self] in
+            DispatchQueue.main.async {
+               UserDefaults.standard.set("", forKey: "authToken")
+               
+               let entryPage = EntryPage()
+               
+               let navigationController = UINavigationController(rootViewController: entryPage)
+               navigationController.modalPresentationStyle = .fullScreen
+               
+               self?.view.window?.rootViewController = navigationController
+               self?.view.window?.makeKeyAndVisible()
+           }
+        }
+        return [button]
+    }
+    
+    
+    var leftBarItems: [UIBarButtonItem]? { nil }
 }

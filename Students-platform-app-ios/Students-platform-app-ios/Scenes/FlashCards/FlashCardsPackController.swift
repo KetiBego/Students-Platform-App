@@ -38,7 +38,7 @@ class FlashCardsPackViewController: UIViewController, UITableViewDataSource, UIT
         super.viewDidLoad()
         setUp()
         configureNavigationBar()
-        tableView.estimatedRowHeight = 100 // Provide an estimated row height
+        tableView.estimatedRowHeight = 100
         view.backgroundColor = Color.background
     }
 
@@ -75,19 +75,17 @@ class FlashCardsPackViewController: UIViewController, UITableViewDataSource, UIT
         return flashcards.count * 2 - 1
     }
     
-    // In your UITableViewDelegate method
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row % 2 == 1 { // Example condition to identify spacer rows
-            return 20 // Height for spacer cell
+        if indexPath.row % 2 == 1 {
+            return 20
         } else {
-            return UITableView.automaticDimension // Or a fixed height for other cells
+            return UITableView.automaticDimension
         }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row % 2 == 1 { // Example condition to identify spacer rows
             let cell = tableView.dequeueReusableCell(withIdentifier: "SpacerCell", for: indexPath) as! SpacerTableViewCell
-            // Optionally, configure spacer cell if needed
             return cell
         }
         else {
@@ -115,8 +113,6 @@ class FlashCardsPackViewController: UIViewController, UITableViewDataSource, UIT
         return [button]
     }
     
-    var leftBarItems: [UIBarButtonItem]? { nil }
-
     
     private func addFlashcardTapped() {
           let addFlashcardVC = AddFlashcardViewController()
@@ -133,11 +129,12 @@ class FlashCardsPackViewController: UIViewController, UITableViewDataSource, UIT
                switch result {
                case .success:
                    DispatchQueue.main.async {
-                       self?.fetchFlashcards(question: question, answer: answer) // Fetch updated flashcards
+                       self?.fetchFlashcards(question: question, answer: answer)
                    }
                case .failure(let error):
-                   print("Failed to add flashcard: \(error)")
-                   // Optionally show an error message
+                   DispatchQueue.main.async {
+                       self?.displayBanner(with: "შეფერხებაა, მოგვიანებით სცადე", state: .failure)
+                   }
                }
            }
        }

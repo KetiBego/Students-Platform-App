@@ -10,8 +10,8 @@ import Lottie
 import UIKit
 
 
-class Loader {
-    static let shared = Loader()
+public class Loader {
+    public static let shared = Loader()
     
     let animationView: LottieAnimationView = {
         let animation = LottieAnimationView()
@@ -34,7 +34,7 @@ class Loader {
     
     private init() {}
     
-    func show() {
+    public func show() {
         
         if let windowScene = UIApplication.shared.connectedScenes
             .filter({ $0.activationState == .foregroundActive })
@@ -58,7 +58,7 @@ class Loader {
     
     }
     
-    func hide() {
+    public func hide() {
         animationView.stop()
         animationView.removeFromSuperview()
         blurView.removeFromSuperview()

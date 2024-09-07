@@ -7,6 +7,7 @@
 
 import UIKit
 import Networking
+import MyAssetBook
 
 class ConversationTableViewCell: UITableViewCell {
     
@@ -28,8 +29,13 @@ class ConversationTableViewCell: UITableViewCell {
     }
     
     private func addSubviews() {
+        contentView.backgroundColor = Color.background
         contentView.addSubview(usernameLabel)
         contentView.addSubview(lastMessageLabel)
+        usernameLabel.font = .systemFont(ofSize: .L, weight: .bold)
+        usernameLabel.textColor = Color.Blue3
+        lastMessageLabel.font = .systemFont(ofSize: .M)
+        lastMessageLabel.textColor = Color.Blue1
     }
     
     private func addConstraints() {

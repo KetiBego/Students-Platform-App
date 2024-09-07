@@ -17,7 +17,7 @@ class AddFlashcardViewController: UIViewController {
         let textField = TextFieldView()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.bind(model: .init(
-            placeholder: "Enter Question",
+            placeholder: "შეიყვანე კითხვა",
             onEditingDidEnd: { [weak self] text in
                 self?.question = text
             }))
@@ -28,7 +28,7 @@ class AddFlashcardViewController: UIViewController {
         let textField = TextFieldView()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.bind(model: .init(
-            placeholder: "Enter Answer",
+            placeholder: "შეიყვანე პასუხი",
             onEditingDidEnd: { [weak self] text in
                 self?.answer = text
             }))
@@ -38,11 +38,11 @@ class AddFlashcardViewController: UIViewController {
     private lazy var createButton: PrimaryButton = {
         let button = PrimaryButton()
         button.layer.cornerRadius = .S
-        button.backgroundColor = Color.Yellow2
+        button.backgroundColor = Color.Emerald
         button.translatesAutoresizingMaskIntoConstraints = false
         button.configure(with: .init(
             titleModel: .init(
-                text: "Create",
+                text: "შექმნა",
                 color: .white,
                 font: .systemFont(ofSize: .L)),
             action: { [weak self] in
@@ -58,7 +58,7 @@ class AddFlashcardViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.configure(with: .init(
             titleModel: .init(
-                text: "Cancel",
+                text: "გაუქმება",
                 color: .white,
                 font: .systemFont(ofSize: .L)),
             action: { [weak self] in
@@ -123,7 +123,9 @@ class AddFlashcardViewController: UIViewController {
             onCreate?(question, answer)
             dismiss(animated: true, completion: nil)
         } else {
-            // Show error if needed
+            DispatchQueue.main.async {
+                self.displayBanner(with: "შეფერხებაა, მოგვიანებით სცადე", state: .failure)
+            }
         }
     }
 }

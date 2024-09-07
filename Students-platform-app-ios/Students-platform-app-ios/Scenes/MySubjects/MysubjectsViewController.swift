@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 import MyAssetBook
 import Networking
 
@@ -17,7 +18,17 @@ class MySubjectsViewController: UIViewController, UITableViewDataSource, UITable
     
     private let refreshControl = UIRefreshControl()
 
-
+    let animationView: LottieAnimationView = {
+        let animation = LottieAnimationView()
+        animation.translatesAutoresizingMaskIntoConstraints = false
+        animation.loopMode = .loop
+        animation.animation = .named(MyLottie.emptyAnimation, bundle: Bundle(identifier: "Free-University.MyAssetBook")!)
+        animation.height(equalTo: 250)
+        animation.width(equalTo: 200)
+        animation.isHidden = true
+        return animation
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,11 +46,15 @@ class MySubjectsViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     private func AddSubviews() {
-            
+        view.addSubview(animationView)
+        animationView.play()
         view.addSubview(tableView)
     }
     
     private func addConstraints() {
+        
+        animationView.centerVertically(to: view)
+        animationView.centerHorizontally(to: view)
         
         tableView.top(toView: view, constant: .XL2)
         tableView.left(toView: view)
@@ -78,12 +93,17 @@ class MySubjectsViewController: UIViewController, UITableViewDataSource, UITable
                     self?.tableView.reloadData()
                     self?.refreshControl.endRefreshing()
                 }
+                if subjects.isEmpty {
+                    DispatchQueue.main.async {
+                        self?.animationView.isHidden = false
+                        self?.tableView.isHidden = true
+                    }
+                }
             case .failure(let error):
                 DispatchQueue.main.async {
                     self?.refreshControl.endRefreshing()
                 }
                 print("Failed to fetch subjects: \(error)")
-                // Handle error (e.g., show an alert)
             }
         })
     }
@@ -148,10 +168,8 @@ class MySubjectsViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let subject = subjects[indexPath.row]
-        print("Selected subject: \(subject.subjectName ?? "No Name")")
-        // Handle row selection (e.g., navigate to a detail view)
+        self.navigationController?.pushViewController(SubjectFilesViewController(subjectId: subject.id!, subjectName: subject.subjectName!), animated: true)
     }
-    
 
 }
 

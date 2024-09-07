@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9905FECD2C7D05C700867AFD /* LoginPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FECC2C7D05C700867AFD /* LoginPageController.swift */; };
-		9905FECF2C7D073900867AFD /* LoginPagaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FECE2C7D073900867AFD /* LoginPagaViewModel.swift */; };
-		9905FED12C7D075700867AFD /* LoginPageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FED02C7D075700867AFD /* LoginPageRouter.swift */; };
 		990683942C8BAB810042287D /* chatDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990683932C8BAB810042287D /* chatDetailsViewController.swift */; };
 		990683962C8BB0FF0042287D /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990683952C8BB0FF0042287D /* MessageTableViewCell.swift */; };
+		990683982C8C8E0A0042287D /* NewConvoStarterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990683972C8C8E0A0042287D /* NewConvoStarterController.swift */; };
+		9906839B2C8CA49A0042287D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9906839A2C8CA49A0042287D /* ProfileViewController.swift */; };
+		990683A32C8CD8640042287D /* LogOutBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990683A22C8CD8640042287D /* LogOutBarItem.swift */; };
 		9916E3812C86460000CB6B62 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 9916E3802C86460000CB6B62 /* Lottie */; };
 		991E5A9B2BEE62CC004D3CA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E5A9A2BEE62CC004D3CA4 /* AppDelegate.swift */; };
 		991E5A9D2BEE62CC004D3CA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E5A9C2BEE62CC004D3CA4 /* SceneDelegate.swift */; };
@@ -35,11 +35,9 @@
 		9985DD1C2C8129C000D9D189 /* MyAssetBook.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9998E7952C7BF9B000069CE9 /* MyAssetBook.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9985DD1E2C8129C200D9D189 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 996BA3DB2BEE76BC00F7E3B4 /* Networking.framework */; };
 		9985DD1F2C8129C200D9D189 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 996BA3DB2BEE76BC00F7E3B4 /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		99909BFA2C88694900A92F7A /* FilesPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99909BF92C88694900A92F7A /* FilesPageViewController.swift */; };
 		99909BFE2C8880C300A92F7A /* FileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99909BFD2C8880C200A92F7A /* FileTableViewCell.swift */; };
 		99909C002C8884C300A92F7A /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99909BFF2C8884C300A92F7A /* ImageViewController.swift */; };
 		99909C022C8888C600A92F7A /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99909C012C8888C600A92F7A /* PDFViewController.swift */; };
-		99909C0A2C88BF7500A92F7A /* FileUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99909C092C88BF7500A92F7A /* FileUploadViewController.swift */; };
 		99909C0C2C88F38500A92F7A /* SubjectFilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99909C0B2C88F38500A92F7A /* SubjectFilesViewController.swift */; };
 		9998E7942C7BF8EA00069CE9 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998E7932C7BF8EA00069CE9 /* TabBarController.swift */; };
 		9998E79C2C7BFB2C00069CE9 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998E79B2C7BFB2C00069CE9 /* TabBarItem.swift */; };
@@ -126,11 +124,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9905FECC2C7D05C700867AFD /* LoginPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageController.swift; sourceTree = "<group>"; };
-		9905FECE2C7D073900867AFD /* LoginPagaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPagaViewModel.swift; sourceTree = "<group>"; };
-		9905FED02C7D075700867AFD /* LoginPageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageRouter.swift; sourceTree = "<group>"; };
 		990683932C8BAB810042287D /* chatDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatDetailsViewController.swift; sourceTree = "<group>"; };
 		990683952C8BB0FF0042287D /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		990683972C8C8E0A0042287D /* NewConvoStarterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConvoStarterController.swift; sourceTree = "<group>"; };
+		9906839A2C8CA49A0042287D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		990683A22C8CD8640042287D /* LogOutBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutBarItem.swift; sourceTree = "<group>"; };
 		991E5A972BEE62CC004D3CA4 /* Students-platform-app-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Students-platform-app-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		991E5A9A2BEE62CC004D3CA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		991E5A9C2BEE62CC004D3CA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -155,11 +153,9 @@
 		9985DD182C81286F00D9D189 /* MyAssetBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MyAssetBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9985DD232C8132B200D9D189 /* MyAssetBook.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MyAssetBook.xcodeproj; path = ../../MyAssetBook/MyAssetBook.xcodeproj; sourceTree = "<group>"; };
 		9985DD2C2C8132BD00D9D189 /* Networking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Networking.xcodeproj; path = ../../Networking/Networking.xcodeproj; sourceTree = "<group>"; };
-		99909BF92C88694900A92F7A /* FilesPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesPageViewController.swift; sourceTree = "<group>"; };
 		99909BFD2C8880C200A92F7A /* FileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTableViewCell.swift; sourceTree = "<group>"; };
 		99909BFF2C8884C300A92F7A /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		99909C012C8888C600A92F7A /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
-		99909C092C88BF7500A92F7A /* FileUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUploadViewController.swift; sourceTree = "<group>"; };
 		99909C0B2C88F38500A92F7A /* SubjectFilesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectFilesViewController.swift; sourceTree = "<group>"; };
 		9998E7932C7BF8EA00069CE9 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		9998E7952C7BF9B000069CE9 /* MyAssetBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MyAssetBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,12 +204,17 @@
 		9905FECB2C7D055700867AFD /* LoginPage */ = {
 			isa = PBXGroup;
 			children = (
-				9905FECC2C7D05C700867AFD /* LoginPageController.swift */,
-				9905FECE2C7D073900867AFD /* LoginPagaViewModel.swift */,
-				9905FED02C7D075700867AFD /* LoginPageRouter.swift */,
 				9948CFAA2C87C638008F1C54 /* RegistrationViewController.swift */,
 			);
 			path = LoginPage;
+			sourceTree = "<group>";
+		};
+		990683992C8CA4800042287D /* MyProfilePage */ = {
+			isa = PBXGroup;
+			children = (
+				9906839A2C8CA49A0042287D /* ProfileViewController.swift */,
+			);
+			path = MyProfilePage;
 			sourceTree = "<group>";
 		};
 		991E5A8E2BEE62CC004D3CA4 = {
@@ -339,18 +340,9 @@
 		99909BF82C88692800A92F7A /* FilesPage */ = {
 			isa = PBXGroup;
 			children = (
-				99909BF92C88694900A92F7A /* FilesPageViewController.swift */,
 				99909C0B2C88F38500A92F7A /* SubjectFilesViewController.swift */,
 			);
 			path = FilesPage;
-			sourceTree = "<group>";
-		};
-		99909C082C88BF6000A92F7A /* AddFile */ = {
-			isa = PBXGroup;
-			children = (
-				99909C092C88BF7500A92F7A /* FileUploadViewController.swift */,
-			);
-			path = AddFile;
 			sourceTree = "<group>";
 		};
 		9998E7922C7BF8D100069CE9 /* TabBar */ = {
@@ -365,11 +357,10 @@
 		9998E7A52C7C046E00069CE9 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				990683992C8CA4800042287D /* MyProfilePage */,
 				994414D22C8A83B800150FEC /* FlashCards */,
-				99909C082C88BF6000A92F7A /* AddFile */,
 				99909BF82C88692800A92F7A /* FilesPage */,
 				9905FECB2C7D055700867AFD /* LoginPage */,
-				9998E7A92C7C049600069CE9 /* Profile */,
 				9998E7A82C7C048F00069CE9 /* Chat */,
 				9998E7A72C7C048200069CE9 /* MySubjects */,
 				9998E7A62C7C047400069CE9 /* SearchPage */,
@@ -400,15 +391,9 @@
 			children = (
 				99A1368B2C8BA1960056EBD3 /* ChatViewController.swift */,
 				990683932C8BAB810042287D /* chatDetailsViewController.swift */,
+				990683972C8C8E0A0042287D /* NewConvoStarterController.swift */,
 			);
 			path = Chat;
-			sourceTree = "<group>";
-		};
-		9998E7A92C7C049600069CE9 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Profile;
 			sourceTree = "<group>";
 		};
 		9998E7AC2C7C05EA00069CE9 /* Navigation */ = {
@@ -416,6 +401,7 @@
 			children = (
 				9998E7AD2C7C060200069CE9 /* NavigationBar.swift */,
 				9998E7AF2C7C068300069CE9 /* NavigationBackButton.swift */,
+				990683A22C8CD8640042287D /* LogOutBarItem.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -605,7 +591,8 @@
 				990683962C8BB0FF0042287D /* MessageTableViewCell.swift in Sources */,
 				99909C022C8888C600A92F7A /* PDFViewController.swift in Sources */,
 				997F6B422C84BD630011DF7F /* SubjectCell.swift in Sources */,
-				99909C0A2C88BF7500A92F7A /* FileUploadViewController.swift in Sources */,
+				990683A32C8CD8640042287D /* LogOutBarItem.swift in Sources */,
+				9906839B2C8CA49A0042287D /* ProfileViewController.swift in Sources */,
 				99CE2A872C8AA6FD00F953A2 /* CreatePackController.swift in Sources */,
 				9974EAFB2C8669F800929E57 /* MysubjectsViewController.swift in Sources */,
 				994414DE2C8A8A6700150FEC /* FlashCardtabelViewCell.swift in Sources */,
@@ -615,16 +602,13 @@
 				99CE2A7F2C8A9BDF00F953A2 /* FlashCardsPackController.swift in Sources */,
 				99909C002C8884C300A92F7A /* ImageViewController.swift in Sources */,
 				9998E7942C7BF8EA00069CE9 /* TabBarController.swift in Sources */,
-				99909BFA2C88694900A92F7A /* FilesPageViewController.swift in Sources */,
 				99909BFE2C8880C300A92F7A /* FileTableViewCell.swift in Sources */,
 				9948CFAB2C87C638008F1C54 /* RegistrationViewController.swift in Sources */,
+				990683982C8C8E0A0042287D /* NewConvoStarterController.swift in Sources */,
 				994414E62C8A98E600150FEC /* SpacerCell.swift in Sources */,
 				9998E7B02C7C068300069CE9 /* NavigationBackButton.swift in Sources */,
 				990683942C8BAB810042287D /* chatDetailsViewController.swift in Sources */,
-				9905FECF2C7D073900867AFD /* LoginPagaViewModel.swift in Sources */,
-				9905FED12C7D075700867AFD /* LoginPageRouter.swift in Sources */,
 				99A1368E2C8BA1A40056EBD3 /* ChatHeaderCell.swift in Sources */,
-				9905FECD2C7D05C700867AFD /* LoginPageController.swift in Sources */,
 				9998E79C2C7BFB2C00069CE9 /* TabBarItem.swift in Sources */,
 				991E5A9B2BEE62CC004D3CA4 /* AppDelegate.swift in Sources */,
 				9998E7AE2C7C060200069CE9 /* NavigationBar.swift in Sources */,

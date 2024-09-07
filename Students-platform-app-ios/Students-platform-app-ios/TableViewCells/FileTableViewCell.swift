@@ -55,7 +55,7 @@ class FileTableViewCell: UITableViewCell {
     let upVoteButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(Icons.upVote, for: .normal)
-        button.tintColor = Color.Red
+        button.tintColor = Color.Yellow2
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -111,15 +111,8 @@ class FileTableViewCell: UITableViewCell {
                upVoteCountLabel.centerYAnchor.constraint(equalTo: upVoteButton.centerYAnchor)
 ])
         
-        // Optionally, add an action for the button
         upVoteButton.addTarget(self, action: #selector(upvoteButtonTappedAction), for: .touchUpInside)
     }
-    
-    public func hideButton() {
-        upVoteButton.isHidden = true
-    }
-    
-    
     
      @objc private func upvoteButtonTappedAction() {
          upVoteButtonTapped?()

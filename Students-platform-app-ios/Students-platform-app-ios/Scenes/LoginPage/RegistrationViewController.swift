@@ -158,7 +158,9 @@ extension RegistrationViewController {
                             self.navigationController?.popViewController(animated: true)
                         }
                     case .failure(let error):
-                        print(error)
+                        DispatchQueue.main.async {
+                            self.displayBanner(with: "შეფერხებაა, მოგვიანებით სცადე", state: .failure)
+                        }
                     }
                 }
                 
@@ -208,7 +210,6 @@ extension RegistrationViewController {
 
     
     override func viewDidLayoutSubviews() {
-        // Any additional layout adjustments
     }
     
     

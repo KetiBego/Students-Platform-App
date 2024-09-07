@@ -13,6 +13,9 @@
 		9905FF072C7D3B7A00867AFD /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FF062C7D3B7A00867AFD /* LoginUseCase.swift */; };
 		9905FF0A2C7D3C6900867AFD /* URLHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905FF092C7D3C6900867AFD /* URLHelper.swift */; };
 		990683922C8BA9980042287D /* SendMessageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990683912C8BA9980042287D /* SendMessageUseCase.swift */; };
+		9906839D2C8CA7BC0042287D /* GetUserInfoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9906839C2C8CA7BC0042287D /* GetUserInfoUseCase.swift */; };
+		9906839F2C8CA8540042287D /* ApiUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9906839E2C8CA8540042287D /* ApiUserInfo.swift */; };
+		990683A12C8CA8CC0042287D /* UserInfoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990683A02C8CA8CC0042287D /* UserInfoEntity.swift */; };
 		994414D12C8A834E00150FEC /* FlashCardsCreateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994414D02C8A834E00150FEC /* FlashCardsCreateUseCase.swift */; };
 		994414D62C8A84BA00150FEC /* UpdateFlashCardUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994414D52C8A84BA00150FEC /* UpdateFlashCardUseCase.swift */; };
 		994414D82C8A853500150FEC /* DeletePackUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994414D72C8A853500150FEC /* DeletePackUseCase.swift */; };
@@ -81,6 +84,9 @@
 		9905FF062C7D3B7A00867AFD /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		9905FF092C7D3C6900867AFD /* URLHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHelper.swift; sourceTree = "<group>"; };
 		990683912C8BA9980042287D /* SendMessageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessageUseCase.swift; sourceTree = "<group>"; };
+		9906839C2C8CA7BC0042287D /* GetUserInfoUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserInfoUseCase.swift; sourceTree = "<group>"; };
+		9906839E2C8CA8540042287D /* ApiUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUserInfo.swift; sourceTree = "<group>"; };
+		990683A02C8CA8CC0042287D /* UserInfoEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoEntity.swift; sourceTree = "<group>"; };
 		994414D02C8A834E00150FEC /* FlashCardsCreateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardsCreateUseCase.swift; sourceTree = "<group>"; };
 		994414D52C8A84BA00150FEC /* UpdateFlashCardUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateFlashCardUseCase.swift; sourceTree = "<group>"; };
 		994414D72C8A853500150FEC /* DeletePackUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePackUseCase.swift; sourceTree = "<group>"; };
@@ -158,6 +164,7 @@
 				99A136792C8B9AAB0056EBD3 /* ApiConversationResponse.swift */,
 				99A1367F2C8B9C520056EBD3 /* ApiRecipient.swift */,
 				99A136852C8B9DEB0056EBD3 /* ApiConversationStart.swift */,
+				9906839E2C8CA8540042287D /* ApiUserInfo.swift */,
 			);
 			path = "Api Models";
 			sourceTree = "<group>";
@@ -172,6 +179,7 @@
 				99A1367B2C8B9B180056EBD3 /* ConversationResposeEntity.swift */,
 				99A136812C8B9C640056EBD3 /* RecipientEntity.swift */,
 				99A136872C8B9DFE0056EBD3 /* ConversationStartEntity.swift */,
+				990683A02C8CA8CC0042287D /* UserInfoEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -200,6 +208,7 @@
 				99A136832C8B9CB70056EBD3 /* FetchRecipientsUseCase.swift */,
 				99A136892C8B9EB20056EBD3 /* StartConversationUseCase.swift */,
 				990683912C8BA9980042287D /* SendMessageUseCase.swift */,
+				9906839C2C8CA7BC0042287D /* GetUserInfoUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -391,6 +400,7 @@
 				994414D12C8A834E00150FEC /* FlashCardsCreateUseCase.swift in Sources */,
 				9948CFB32C87D732008F1C54 /* SubjectFilesUseCase.swift in Sources */,
 				99A1368A2C8B9EB20056EBD3 /* StartConversationUseCase.swift in Sources */,
+				9906839D2C8CA7BC0042287D /* GetUserInfoUseCase.swift in Sources */,
 				9974EAFD2C866C4400929E57 /* MySubjectsUseCase.swift in Sources */,
 				99A1367C2C8B9B180056EBD3 /* ConversationResposeEntity.swift in Sources */,
 				994414D82C8A853500150FEC /* DeletePackUseCase.swift in Sources */,
@@ -405,6 +415,8 @@
 				9974EAFF2C86752200929E57 /* AddSubjectUseCase.swift in Sources */,
 				99A136862C8B9DEB0056EBD3 /* ApiConversationStart.swift in Sources */,
 				9905FF012C7D383B00867AFD /* LoginEntity.swift in Sources */,
+				9906839F2C8CA8540042287D /* ApiUserInfo.swift in Sources */,
+				990683A12C8CA8CC0042287D /* UserInfoEntity.swift in Sources */,
 				9905FF032C7D387900867AFD /* ApiLoginModel.swift in Sources */,
 				997F6B3B2C83D18A0011DF7F /* ApiSubjectModel.swift in Sources */,
 				99909C0E2C8A436200A92F7A /* UpVotesUseCase.swift in Sources */,

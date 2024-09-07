@@ -17,12 +17,41 @@ class SubjectFilesViewController: UIViewController, UITableViewDataSource, UITab
     private var downloadedFiles: [URL] = []
     private let tableView = UITableView()
     private let service = Service()
-    private let subjectId : Int?
+    private let subjectId: Int?
+    private let subjectName: String?
+
     
     private let refreshControl = UIRefreshControl()
     
-    init(subjectId: Int) {
+    private lazy var practiceButton: PrimaryButton = {
+        let button = PrimaryButton()
+        button.backgroundColor = Color.Yellow2
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.configure(with: .init(
+            titleModel: .init(
+                text: "გაივარჯიშე",
+                color: Color.Blue3,
+                font: .systemFont(ofSize: .XL)),
+            action: { [weak self] in
+                self?.navigateToFlashcards()
+            }))
+        button.layer.cornerRadius = .M
+        return button
+    }()
+    
+    private lazy var myfilesLabel: UILabel = {
+        let view = UILabel()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.textColor = Color.Blue3
+        view.font = .systemFont(ofSize: .L, weight: .bold)
+        view.text = "ფაილები"
+        return view
+    }()
+    
+    
+    init(subjectId: Int, subjectName: String) {
         self.subjectId = subjectId
+        self.subjectName = subjectName
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -41,16 +70,28 @@ class SubjectFilesViewController: UIViewController, UITableViewDataSource, UITab
     
     private func setUp() {
         setupTableView()
-        AddSubviews()
+        addSubviews()
         addConstraints()
     }
     
-    private func AddSubviews() {
+    private func addSubviews() {
         view.addSubview(tableView)
+        view.addSubview(practiceButton) 
+        view.addSubview(myfilesLabel)
     }
     
     private func addConstraints() {
-        tableView.top(toView: view, constant: .XL2)
+        
+        NSLayoutConstraint.activate([
+            practiceButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+        ])
+        
+        myfilesLabel.relativeTop(toView: practiceButton, constant: .XL2)
+        myfilesLabel.left(toView: view, constant: .XL3)
+        
+        practiceButton.left(toView: view, constant: .XL3)
+        practiceButton.right(toView: view, constant: .XL3)
+        tableView.relativeTop(toView: myfilesLabel, constant: .M)
         tableView.left(toView: view, constant: .XL2)
         tableView.right(toView: view, constant: .XL2)
         tableView.bottom(toView: view)
@@ -72,7 +113,7 @@ class SubjectFilesViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     private func fetchFiles() {
-        service.getSubjectFiles(subjectId: subjectId!){ [weak self] result in
+        service.getSubjectFiles(subjectId: subjectId!) { [weak self] result in
             switch result {
             case .success(let files):
                 self?.files = files
@@ -119,7 +160,6 @@ class SubjectFilesViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     private func handleUpvoteCount(for fileId: Int) {
-        
         service.addUpvoteToFile(fileId: fileId) { result in
             switch result {
             case .success:
@@ -135,18 +175,11 @@ class SubjectFilesViewController: UIViewController, UITableViewDataSource, UITab
             switch result {
             case .success:
                 print("Successfully deleted upvote")
-                // Handle success (e.g., update UI)
             case .failure(let error):
                 print("Failed to delete upvote: \(error)")
-                // Handle error (e.g., show an error message)
             }
         }
-
-        
-        
     }
-    
-     
     
     // MARK: - UITableViewDelegate
     
@@ -154,10 +187,8 @@ class SubjectFilesViewController: UIViewController, UITableViewDataSource, UITab
         let file = files[indexPath.row]
         
         if let fileName = file.fileName, fileName.hasSuffix(".pdf") {
-            // Handle PDF file preview
             previewPDF(for: file)
         } else if let fileName = file.fileName, fileName.hasSuffix(".jpg") || fileName.hasSuffix(".png") {
-            // Handle image preview
             previewImage(for: file)
         } else {
             print("Unsupported file type")
@@ -194,25 +225,16 @@ class SubjectFilesViewController: UIViewController, UITableViewDataSource, UITab
         }
     }
     
-    private func convertToPDF(from fileURL: URL) -> PDFDocument? {
-        return PDFDocument(url: fileURL)
-    }
-    
-    private func displayPDF(at url: URL) {
-        let pdfView = PDFView(frame: self.view.bounds)
-        pdfView.autoScales = true
-        if let pdfDocument = PDFDocument(url: url) {
-            pdfView.document = pdfDocument
-            self.view.addSubview(pdfView)
-        } else {
-            print("Failed to load PDF")
-        }
+    private func navigateToFlashcards() {
+        let flashcardsVC = FlashcardsViewController()
+        flashcardsVC.setSubject(subjectId: subjectId!)
+        navigationController?.pushViewController(flashcardsVC, animated: true)
     }
 }
 
 extension SubjectFilesViewController {
     var navTitle: NavigationTitle {
-        .init(text: "საგნის ფაილები", color: Color.Blue1)
+        .init(text: "\(subjectName!)", color: Color.Blue1)
     }
     
     var rightBarItems: [UIBarButtonItem]? {
@@ -222,30 +244,24 @@ extension SubjectFilesViewController {
         }
         return [button]
     }
-
 }
 
 extension SubjectFilesViewController {
     func presentDocumentPicker() {
-        // Create a document picker for selecting any file type
         let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [UTType.content])
         documentPicker.delegate = self
         documentPicker.allowsMultipleSelection = false
         present(documentPicker, animated: true, completion: nil)
     }
 
-    // Delegate method when the user selects a file
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         guard let selectedFileURL = urls.first else {
             print("No file selected.")
             return
         }
-        
-        // Perform the file upload
         uploadFile(fileURL: selectedFileURL)
     }
 
-    // Handle cancellation of document picker
     func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
         print("Document picker was cancelled.")
     }
@@ -260,6 +276,4 @@ extension SubjectFilesViewController {
             }
         }
     }
-    
 }
-

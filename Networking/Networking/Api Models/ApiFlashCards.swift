@@ -23,6 +23,3 @@ public struct ApiFlashcardPack: Codable {
     let flashcards: [ApiFlashcard]
     let isMyPack: Bool
 }
-
-// Represents an array of flashcard packs response
-//public typealias FlashcardPacksResponse = [FlashcardPack]

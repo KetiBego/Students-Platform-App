@@ -23,8 +23,7 @@ public class BackBarButtonItem: UIBarButtonItem {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .clear
-//        view.layer.borderWidth = 1
-//        view.layer.borderColor = BrandBookManager.Color.Theme.Background.popup.cgColor
+
         return view
     }()
     
@@ -82,8 +81,7 @@ public class AddBarButtonItem: UIBarButtonItem {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = Color.background
-//        view.layer.borderWidth = 1
-//        view.layer.borderColor = BrandBookManager.Color.Theme.Background.popup.cgColor
+
         return view
     }()
     

@@ -110,7 +110,9 @@ class CreateFlashcardPackViewController: UIViewController {
             onCreate?(name)
             dismiss(animated: true, completion: nil)
         } else {
-            // Show error if needed
+            DispatchQueue.main.async {
+                self.displayBanner(with: "შეფერხებაა, მოგვიანებით სცადე", state: .failure)
+            }
         }
     }
 }
