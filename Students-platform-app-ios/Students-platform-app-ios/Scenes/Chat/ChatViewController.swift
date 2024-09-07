@@ -122,6 +122,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     var rightBarItems: [UIBarButtonItem]? {
         let button = AddBarButtonItem()
+        button.setIMage(named: "plus.message")
         button.addButtonTappedAction = { [weak self] in
             self?.presentConversationAddController()
         }

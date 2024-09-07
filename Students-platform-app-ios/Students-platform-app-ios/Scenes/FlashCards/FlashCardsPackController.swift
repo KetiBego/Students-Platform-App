@@ -107,6 +107,7 @@ class FlashCardsPackViewController: UIViewController, UITableViewDataSource, UIT
     
     var rightBarItems: [UIBarButtonItem]? {
         let button = AddBarButtonItem()
+        button.setIMage(named: "menucard")
         button.addButtonTappedAction = { [weak self] in
             self?.addFlashcardTapped()
         }

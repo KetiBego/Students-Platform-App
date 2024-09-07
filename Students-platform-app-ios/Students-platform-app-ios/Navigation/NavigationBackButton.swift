@@ -91,6 +91,10 @@ public class AddBarButtonItem: UIBarButtonItem {
         super.init()
         setUp()
     }
+    public func setIMage(named: String) {
+        button.setImage(UIImage(systemName: named), for: .normal)
+
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

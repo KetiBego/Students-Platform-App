@@ -106,6 +106,7 @@ class FlashcardsViewController: UIViewController, UITableViewDataSource, UITable
     
     var rightBarItems: [UIBarButtonItem]? {
         let button = AddBarButtonItem()
+        button.setIMage(named: "folder.badge.plus")
         button.addButtonTappedAction = { [weak self] in
             self?.presentFlashcardPackMaker()
         }
