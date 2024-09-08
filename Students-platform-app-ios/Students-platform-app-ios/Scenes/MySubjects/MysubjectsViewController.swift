@@ -46,9 +46,9 @@ class MySubjectsViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     private func AddSubviews() {
+        view.addSubview(tableView)
         view.addSubview(animationView)
         animationView.play()
-        view.addSubview(tableView)
     }
     
     private func addConstraints() {
@@ -81,7 +81,7 @@ class MySubjectsViewController: UIViewController, UITableViewDataSource, UITable
     
     
     @objc private func refreshSubjectsData() {
-        fetchSubjects()  
+        fetchSubjects()
     }
     
     private func fetchSubjects() {
@@ -91,12 +91,12 @@ class MySubjectsViewController: UIViewController, UITableViewDataSource, UITable
                 self?.subjects = subjects
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
+                    self?.animationView.isHidden = true
                     self?.refreshControl.endRefreshing()
                 }
                 if subjects.isEmpty {
                     DispatchQueue.main.async {
                         self?.animationView.isHidden = false
-                        self?.tableView.isHidden = true
                     }
                 }
             case .failure(let error):
